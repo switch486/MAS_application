@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+  "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+  <bean id="com.googlepages.switch486.MAS.IO.IOClass"
+        class="com.googlepages.switch486.MAS.IO.IOClass">
+     <property name="gaborFilter" ref="com.googlepages.switch486.MAS.Engine.Image.Filter.Gabor.IGaborFilter"/>
+  </bean>
+  <bean id="com.googlepages.switch486.MAS.Engine.Image.Filter.Gabor.IGaborFilter"
+        class="com.googlepages.switch486.MAS.Engine.Image.Filter.Gabor.GaborFilter">
+  </bean>
+</beans>

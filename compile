@@ -1,0 +1,5 @@
+#!/bin/sh
+echo ">>> compile start"
+ant jar
+#javac -cp .:src/jargs.jar src/com/googlepages/switch486/MAS/IO/IOClass.java
+echo ">>> compile end"

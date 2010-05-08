@@ -1,0 +1,4 @@
+switch486@snowball:~$ gnuplot -e "set terminal png; set output \"putput.png\"; splot sin(x*y/20)"
+switch486@snowball:~$ gnuplot -e "set terminal png; set output \"Desktop/putput.png\"; splot sin(x*y/20)"
+switch486@snowball:~$ 
+

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<project name="generic" default="build" basedir=".">
+
+	<property name="src" 			value="src"/>
+	<property name="jar" 			value="jar"/>
+	<property name="output" 		value="bin"/>
+	<property name="main-class"  		value="com.googlepages.switch486.MAS.IO.IOClass"/>
+
+
+	<target name="build" description="Compile source files">
+		<!--javac srcdir="src/" source="1.6" debug="true" /-->
+		<javac destdir="bin" debug="true">
+			<src path="${src}"/>
+			<classpath refid="java"/>
+		</javac>
+	</target>
+
+	<target name="jar" depends="build">
+		<jar destfile="${jar}/MasterThesisApplication.jar">
+			<fileset dir="${output}"/>
+			<manifest>
+				<attribute name="Main-Class" value="${main-class}"/>
+			</manifest>
+			<!--fileset file="${src}/applicationContextExample.xml" /-->
+		</jar>
+	</target>
+
+	<target name="docs" depends="build" description="Generate javadoc documentation.">
+
+		<javadoc destdir="docs" private="true" >
+			<fileset dir="." includes="*.java" />
+		</javadoc>
+	</target>
+	<!--target name="clean" description="Delete class files and docs dir.">
+		<delete>
+			<fileset dir="." includes="*.class" />
+		</delete>
+		<delete dir="docs" />
+	</target-->
+
+	<target name="run">
+		<java classname="${main-class}"
+				classpath="${jar}/MasterThesisApplication.jar"
+				classpathref="java"
+				fork="true" />
+	</target>
+
+	<path id="java">
+		<fileset file="${jar}/spring.jar" />
+		<fileset file="${jar}/commons-logging-1.1.1.jar" />
+		<fileset file="${jar}/jargs.jar" />
+		<fileset dir="${src}" />
+	</path>
+</project>

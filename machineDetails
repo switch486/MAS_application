@@ -1,0 +1,6 @@
+#!/bin/sh
+clear
+echo ">>> Adam Puchalski 157646@student.pwr.wroc.pl"
+echo ">>> MasterThesis application 2010(R)@"`hostname`
+echo ">>> "`date`
+

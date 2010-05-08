@@ -1,0 +1,25 @@
+#!/bin/bash
+echo ">>> run"
+# first of all lets add all jars from the jar dir
+all=""
+for l in `ls jar/`
+do
+		if [ ${#all} -ne 0 ]; then 
+			all=$all":"
+		fi
+	all=$all"jar/"$l
+done
+
+all="-classpath "$all
+#echo $all # contains the classpath for the run
+mainClass=""
+for mc in `cat build.xml | grep "<property name=\"main-class\""`
+do
+	if [[ $mc == value* ]]; then
+		mainClass=`echo $mc| cut -d'"' -f 2`
+	fi
+done
+#echo $mainClass # contains the MainClass to start with
+
+java $all $mainClass $*
+echo ">>> run end"
