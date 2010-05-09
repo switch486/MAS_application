@@ -1,0 +1,18 @@
+A First look at my MasterThesisApplication.
+
+Main Topic: Similar images recogniotion based on a Visual Cortex approach.
+
+Idea:
+1* Filter images using a Gabor Filter.
+2* Simulate a VFA to extract borders.
+3* Try to create complex borders.
+4* Try to build features without 'corners'.
+5* Try to extract object according to the 4* and the colours.
+6* Search for similar images :D.
+
+So far done: 1*
+
+Work pending. . . . .
+
+
+Switch486 (GPL) 2010
