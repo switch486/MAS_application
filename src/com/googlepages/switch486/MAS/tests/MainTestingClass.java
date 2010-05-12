@@ -2,6 +2,7 @@ package com.googlepages.switch486.MAS.tests;
 
 import java.util.ArrayList;
 
+import com.googlepages.switch486.MAS.Bean.Params;
 import com.googlepages.switch486.MAS.Engine.Image.AIImage;
 import com.googlepages.switch486.MAS.Engine.Image.Filter.Gabor.GaborFilter;
 import com.googlepages.switch486.MAS.Engine.Image.Filter.Gabor.GaborParameterOutOfBoundsException;
@@ -55,15 +56,13 @@ public class MainTestingClass {
 		}
 	}
 
-	private static void testFilter(double [][] fm, String name, String s) {
+	private static void testFilter(double [][] fm, String name, String s){
 		AIImage ai = new AIImage(s);
 		GaborFilter g = null;
-		try {
-			g = new GaborFilter();
-			g.setW0(0.5);
-		} catch (GaborParameterOutOfBoundsException e) {
-			e.printStackTrace();
-		}
+		g = new GaborFilter();
+		Params p = new Params();
+		g.setGfParams(p);
+		//g.setW0(0.5);
 		
 		ai = g.filter(ai, fm);
 		ai = g.filter(ai, fm);
@@ -71,16 +70,15 @@ public class MainTestingClass {
 		ai.toImage(name);
 	}
 
-	private static void testGabor() {
+	private static void testGabor(){
 		GaborFilter g = null;
 		
-		try {
-			g = new GaborFilter();
-			g.setW0(0.5);
-			g.setFilterMatrix(400, 400);
-		} catch (GaborParameterOutOfBoundsException e) {
-			e.printStackTrace();
-		}
+		g = new GaborFilter();
+		Params p = new Params();
+		g.setGfParams(p);
+		//g.setW0(0.5);
+		//g.setFilterMatrix(400, 400);
+		//should be done by filter!
 		
 		g.toImage();
 	}
@@ -89,13 +87,12 @@ public class MainTestingClass {
 		AIImage ai = new AIImage(s);
 		GaborFilter g = null;
 		
-		try {
-			g = new GaborFilter();
-			g.setW0(angle);
-			g.setFilterMatrix(10, 10);
-		} catch (GaborParameterOutOfBoundsException e) {
-			e.printStackTrace();
-		}
+		g = new GaborFilter();
+		Params p = new Params();
+		g.setGfParams(p);
+		//g.setW0(0.5);
+		//g.setFilterMatrix(10, 10);
+		//should be done by filter!
 		ai = g.filter(ai);
 		ai.toImage(name);
 	}
@@ -108,22 +105,20 @@ public class MainTestingClass {
 		System.out.print("|");
 		for (int i = 0; i < 4; i ++) {
 				System.out.print(".");
-				try {
-					g = new GaborFilter();
-					g.setW0(i*0.25d);
-					g.setFilterMatrix(10, 10);
-				} catch (GaborParameterOutOfBoundsException e) {
-					e.printStackTrace();
-				}
+				g = new GaborFilter();
+				Params p = new Params();
+				g.setGfParams(p);
+				//g.setW0(i*0.25d);
+				//g.setFilterMatrix(10, 10);
+				//should be done by filter!
 				imagelist.add(g.filter(ai));
 				System.out.print(",");
-				try {
-					g = new GaborFilter();
-					g.setW0(i*0.25d);
-					g.setFilterMatrix(10, 10);
-				} catch (GaborParameterOutOfBoundsException e) {
-					e.printStackTrace();
-				}
+				g = new GaborFilter();
+				p = new Params();
+				g.setGfParams(p);
+				//g.setW0(i*0.25d);
+				//g.setFilterMatrix(10, 10);
+				//should be done by filter!
 				imagelist.add(g.filter(ai.getInverted()));
 		}
 		System.out.print("|");
@@ -138,7 +133,7 @@ public class MainTestingClass {
 		//result.toImage(name);
 		long tt = System.currentTimeMillis();
 		System.out.println("\nPerformedTime: " + (tt-t)/1000 + " seconds");
-		System.out.println("Saved under"+AIImage.saveImage(his, path, extra)); //not so good :P
+		System.out.println("Saved under"+AIImage.saveImage(result, path, extra)); //not so good :P
 	}
 	
 	private static void testImage(String s) {

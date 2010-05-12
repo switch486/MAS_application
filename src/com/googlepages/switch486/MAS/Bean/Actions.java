@@ -1,10 +1,20 @@
 package com.googlepages.switch486.MAS.Bean;
 
 public enum Actions {
+	/*
+	 * Globals that represent annything not mensioned bellow
+	 */
+	G_FILEPATH_FOR_OUTPUT_FILES,
 
-	F_GABOR_FILTER_EXPORT, //exports the filter with a gnuplot command
+	/*
+	 * Functions, that represent the actions of the Engine
+	 */
+	F_GABOR_FILTER_EXPORT, 
 	F_FILTER_WITH_GABOR_FILTER,
 	
+	/*
+	 * Doubles representing the gabor filter parameters
+	 */
 	D_gabor_sin_phase, 
 	D_gabor_sin_magnitude, 
 	D_gabor_sin_direction, 

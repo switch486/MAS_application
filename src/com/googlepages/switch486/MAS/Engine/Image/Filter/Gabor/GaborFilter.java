@@ -5,16 +5,21 @@ import java.awt.Container;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.googlepages.switch486.MAS.Bean.Actions;
+import com.googlepages.switch486.MAS.Bean.Params;
 import com.googlepages.switch486.MAS.Engine.Image.AIImage;
 import com.googlepages.switch486.MAS.Engine.Image.IsToImageable;
 import com.googlepages.switch486.MAS.Engine.Image.Filter.ICanFilter;
 import com.googlepages.switch486.MAS.Engine.Image.Filter.IFilter;
 
 public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
+	
+	private static final Logger logger = Logger.getLogger(GaborFilter.class.getName());
 
 	private double p;
 	private double F0;
@@ -40,112 +45,87 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	 * @throws GaborParameterOutOfBoundsException
 	 *             - is thrown when a parameter is out of bounds
 	 */
-	public void setP(double p) {
+	private void setP(double p) {
 		this.p = p;
 	}
 	
-
-
-
 	/**
 	 * @param f0 the f0 to set
 	 * @throws GaborParameterOutOfBoundsException
 	 *             - is thrown when a parameter is out of bounds
 	 */
-	public void setF0(double f0) {
+	private void setF0(double f0) {
 		F0 = f0;
 	}
 	
-
-
-
 	/**
 	 * @param w0
 	 *            - double value in bounds 0.0-2.0 that represents the angle of
 	 *            the sin function
-	 * @throws GaborParameterOutOfBoundsException
-	 *             - is thrown when a parameter is out of bounds
 	 */
-	public void setW0(double w0) throws GaborParameterOutOfBoundsException {
+	private void setW0(double w0) {
 		/*
 		 * Sets and counts the parameters for the Gabor Filter ##00048/(30)+(23)
 		 */
 		if (w0 < 0d || w0 > 2.0d) {
-			throw new GaborParameterOutOfBoundsException("Actual value: " + w0
-					+ " for the argument w0 out of the bounds [0.0d; 2.0d].");
+			logger.warning("Actual value: " + w0
+					+ " for the argument w0 out of the bounds [0.0d; 2.0d], setting w0 to 0.");
+			w0 = 0;
 		}
 		this.w0 = Math.PI + w0 * Math.PI;
 	}
 	
-
-
-
 	/**
 	 * @param k the k to set
 	 * @throws GaborParameterOutOfBoundsException
 	 *             - is thrown when a parameter is out of bounds
 	 */
-	public void setK(double k) {
+	private void setK(double k) {
 		K = k;
 	}
-	
-
-
 
 	/**
 	 * @param x0 the x0 to set
 	 * @throws GaborParameterOutOfBoundsException
 	 *             - is thrown when a parameter is out of bounds
 	 */
-	public void setX0(double x0) {
+	private void setX0(double x0) {
 		this.x0 = x0;
 	}
-	
-
-
 
 	/**
 	 * @param y0 the y0 to set
 	 * @throws GaborParameterOutOfBoundsException
 	 *             - is thrown when a parameter is out of bounds
 	 */
-	public void setY0(double y0) {
+	private void setY0(double y0) {
 		this.y0 = y0;
 	}
-	
-
-
 
 	/**
 	 * @param a the a to set
 	 * @throws GaborParameterOutOfBoundsException
 	 *             - is thrown when a parameter is out of bounds
 	 */
-	public void setA(double a) {
+	private void setA(double a) {
 		this.a = a;
 	}
-	
-
-
 
 	/**
 	 * @param b the b to set
 	 * @throws GaborParameterOutOfBoundsException
 	 *             - is thrown when a parameter is out of bounds
 	 */
-	public void setB(double b) {
+	private void setB(double b) {
 		this.b = b;
 	}
-	
-
-
 
 	/**
 	 * @param theta the theta to set
 	 * @throws GaborParameterOutOfBoundsException
 	 *             - is thrown when a parameter is out of bounds
 	 */
-	public void setTheta(double theta) {
+	private void setTheta(double theta) {
 		this.theta = theta;
 	}
 	
@@ -161,7 +141,7 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	 *            
 	 * Please take into account that the FilterMatrix that is made here will have a size represented as a odd number (2x+1)
 	 */
-	public void setFilterMatrix(int xSize, int ySize) {
+	private void setFilterMatrix(int xSize, int ySize) {
 		if (xSize%2==0) {
 			xSize++;
 		}
@@ -362,7 +342,7 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	/**
 	 * @return returns a new filter matrix, that values sum up to 1
 	 */
-	public double[][] normalize(double [][] matrixIn) {
+	private double[][] normalize(double [][] matrixIn) {
 		double sum = 0d;
 		int xsize = matrixIn.length;
 		int ysize = matrixIn[0].length;
@@ -378,6 +358,30 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 			}
 		}
 		return out;
+	}
+
+	public void setGfParams(Params p) {
+			this.setA (p.getDoubleParam(Actions.D_gabor_gaus_a));
+			this.setB (p.getDoubleParam(Actions.D_gabor_gaus_b));
+			this.setF0(p.getDoubleParam(Actions.D_gabor_sin_magnitude));
+			this.setP (p.getDoubleParam(Actions.D_gabor_sin_phase));
+			this.setW0(p.getDoubleParam(Actions.D_gabor_sin_direction));
+			this.setK (p.getDoubleParam(Actions.D_gabor_gaus_scale));
+			this.setTheta(p.getDoubleParam(Actions.D_gabor_gaus_theta));
+			this.setX0(p.getDoubleParam(Actions.D_gabor_gaus_x));
+			this.setY0(p.getDoubleParam(Actions.D_gabor_gaus_y));
+	}
+
+	public String exportFilter(String outPutFileLocation) {
+		if (!outPutFileLocation.endsWith("/")){
+			outPutFileLocation = outPutFileLocation+"/";
+		}
+		//long name = System.currentTimeMillis();
+		long name = 1;
+		StringBuilder s = new StringBuilder();
+		s.append("gnuplot -e \"set terminal png; set output \\\"");
+		s.append(outPutFileLocation + name + ".png" + "\\\"; splot sin(x*y/20)\"\n");
+		return s.toString();
 	}
 
 }

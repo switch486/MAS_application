@@ -130,6 +130,8 @@ public class Parser extends CmdLineParser {
 		
 		Params p = new Params();
 		
+		
+		
 		/*
 		 * CmdLineParser.Option verbose =
 		 * parser.addHelp(parser.addBooleanOption('v', "verbose"),
@@ -142,22 +144,28 @@ public class Parser extends CmdLineParser {
 		 * "Show this help message");
 		 */
 		Parser.logger.fine("Construct the help.");
+		CmdLineParser.Option filePath = parser.addHelp(parser
+				.addStringOption('L', "LOCATION"),
+				"Location: Specify a location for output files of anny kind (Logs locations are defined in the defaults.properties!)",
+				"./CandA -L \"/home/Martin/myFiles/\"");
+		
 		CmdLineParser.Option gaborFilter = parser.addHelp(parser
 				.addStringOption('G', "GABOR"),
 				"Gabor: Perform calculations using the Gabor Filter, possibilities follow:",
-				"EXPORT :\tExport the Filter into a graphic file, under the \tmp file\n" +
-				"./CandA -G \n");
+				"EXPORT :\tExport the Filter into a graphic file, under the location for the logs in the defaults.properties " +
+				"\n\t\tor - if specified - into the --LOCATION filepath\n" +
+				"\t\t./CandA -G EXPORT");
 		
 		CmdLineParser.Option gaborPhase = parser.addHelp(parser
-				.addDoubleOption('p', "gaus_phase"),
+				.addDoubleOption('p', "sin_phase"),
 				"Gabor: Set the phase of the complex sinus function",
 				"./CandA -p 12,3");
 		CmdLineParser.Option gaborF0 = parser.addHelp(parser.addDoubleOption(
-				'f', "gaus_magnitude"),
+				'f', "sin_magnitude"),
 				"Gabor: Set the magnitude of the complex sinus function",
 				"./CandA --gaus_magnitude 4");
 		CmdLineParser.Option gaborW0 = parser.addHelp(parser.addDoubleOption(
-				'w', "gaus_direction"),
+				'w', "sin_direction"),
 				"Gabor: Set the direction of the complex sinus function",
 				"./CandA -w 3,14");
 		CmdLineParser.Option gaborK = parser.addHelp(parser.addDoubleOption(
@@ -186,6 +194,11 @@ public class Parser extends CmdLineParser {
 		CmdLineParser.Option help = parser.addHelp(parser.addBooleanOption('h',
 				"help"), "Show this help message", "./CandA -h");
 
+		//TODO
+		//TODO remove!!!!!!!!!!1
+		//TODO
+		
+		
 		Parser.logger.fine("Begin parsing.");
 		try {
 			parser.parse(args);
@@ -205,12 +218,19 @@ public class Parser extends CmdLineParser {
 		// options were not specified, the corresponding values will be
 		// null.
 
-		Parser.logger.fine("Get parsed values.");
+		logger.fine("Get parsed values.");
+		String LOCATION = (String) parser.getOptionValue(filePath);
+		if (LOCATION == null) {
+			LOCATION = parser.properties.getProperty("logger.outFilePath");
+		}
+		p.add(new StringParam(Actions.G_FILEPATH_FOR_OUTPUT_FILES, LOCATION));
 
 		String GABOR = (String) parser.getOptionValue(gaborFilter);
 		if (GABOR != null) {
 			if (GABOR.equals("EXPORT")){
 				p.add(new StringParam(Actions.F_GABOR_FILTER_EXPORT, GABOR));
+			}else {
+				logger.info("Unexpected parameter found: "+GABOR+"; skipping");
 			}
 		}
 		
@@ -284,9 +304,7 @@ public class Parser extends CmdLineParser {
 			}
 		}
 		
-		Parser.logger.fine("1111reading the configuration file");
 		parser.engineFacade.executeParameters(p);
-		Parser.logger.fine("2222reading the configuration file");
 
 
 		System.exit(0);

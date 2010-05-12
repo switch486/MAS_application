@@ -19,7 +19,8 @@ do
 		mainClass=`echo $mc| cut -d'"' -f 2`
 	fi
 done
-#echo $mainClass # contains the MainClass to start with
+#echo $all $mainClass # contains the MainClass to start with
+#echo $*
 
-java $all $mainClass $*
+java $all $mainClass "$@"
 echo ">>> run end"

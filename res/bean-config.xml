@@ -9,5 +9,9 @@
   </bean>
   <bean id="com.googlepages.switch486.MAS.Engine.IEngine"
         class="com.googlepages.switch486.MAS.Engine.EngineFacade">
+    <property name="IODBWorker" ref="com.googlepages.switch486.MAS.IODB.IIODB"/>
+  </bean>
+  <bean id="com.googlepages.switch486.MAS.IODB.IIODB"
+        class="com.googlepages.switch486.MAS.IODB.IODBWorker">
   </bean>
 </beans>
