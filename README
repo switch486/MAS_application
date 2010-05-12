@@ -15,4 +15,29 @@ So far done: 1*
 Work pending. . . . .
 
 
+
+***OS REQUIREMENTS
+
+1.System: Linux OS - Debian/Ubuntu/...
+1.1 Preinstalled applications: ant, sun-java6, gnuplot, 
+
+***VERSIONS
+
+v0.0.5
+12.05.2010
+Created some architecture within the packages, passing parameters...
+
+v0.0.4
+Added Spring.
+
+v0.0.3
+Added an ant build-script, other scripts used for the compilation/run.
+
+v0.0.2
+Created a parser for the help option, and a logger to help debugging.
+
+v0.0.1
+Created Project with a simple Gabor Filter, and try to filter images with it.
+
+
 Switch486 (GPL) 2010

@@ -4,7 +4,7 @@
 	<property name="src" 			value="src"/>
 	<property name="jar" 			value="jar"/>
 	<property name="output" 		value="bin"/>
-	<property name="main-class"  		value="com.googlepages.switch486.MAS.IO.IOClass"/>
+	<property name="main-class"  	value="com.googlepages.switch486.MAS.IO.Parser"/>
 
 
 	<target name="build" description="Compile source files">

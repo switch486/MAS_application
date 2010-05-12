@@ -11,9 +11,10 @@ import javax.swing.JPanel;
 
 import com.googlepages.switch486.MAS.Engine.Image.AIImage;
 import com.googlepages.switch486.MAS.Engine.Image.IsToImageable;
-import com.googlepages.switch486.MAS.Engine.Image.Filter.CanFilter;
+import com.googlepages.switch486.MAS.Engine.Image.Filter.ICanFilter;
+import com.googlepages.switch486.MAS.Engine.Image.Filter.IFilter;
 
-public class GaborFilter implements CanFilter, IsToImageable, IGaborFilter {
+public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 
 	private double p;
 	private double F0;
