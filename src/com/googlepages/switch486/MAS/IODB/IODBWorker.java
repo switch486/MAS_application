@@ -1,6 +1,9 @@
 package com.googlepages.switch486.MAS.IODB;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,23 +17,66 @@ public class IODBWorker implements IIODB {
 	}
 
 	@Override
-	public void runShellCommand(String command) {
-		String ComplexCommand = "echo '"+command+"' > /home/switch486/out; sh /home/switch486/out;";
+	public void runShellCommand(String[] command) {
+		BufferedWriter bw;
+		try {
+			bw = new BufferedWriter(new FileWriter(new File(command[0])));
+			bw.append(command[1]);
+			bw.flush();
+			bw.close();
+		}catch(Exception e){
+			logger.log(Level.WARNING, "Script export Exception", e);
+		}
+		
+		String ComplexCommand = "gnuplot "+command[0];
+		String secondCommand = "montage -geometry 640x480 "+command[2]+" -geometry 640x480 "+command[3]+" "+command[0]+".png";
+		runShell(ComplexCommand);
+		runShell(secondCommand);
+		delete(command[2]);
+		delete(command[3]);
+	}
+
+	private void runShell(String command) {
 		try {
 			Runtime run = Runtime.getRuntime();
-			Process pr = run.exec("") ;
+			Process pr = run.exec(command) ;
 			pr.waitFor() ;
-			BufferedReader buf = new BufferedReader( new InputStreamReader( pr.getInputStream() ) ) ;
-			String line ;
-			while ( (line = buf.readLine() ) != null )
+			BufferedReader normalBuff = new BufferedReader( new InputStreamReader( pr.getInputStream() ) ) ;
+			BufferedReader errorBuff = new BufferedReader( new InputStreamReader( pr.getErrorStream() ) ) ;
+			String lineError=null, lineNormal=null, goodLine = "", badLine = "";
+			while ( (lineError= errorBuff.readLine() ) != null || (lineNormal = normalBuff.readLine() ) != null)
 			{
-			System.out.println(line) ;
+				if (lineError==null) {
+					goodLine+=lineNormal+"\n";
+				}else {
+					badLine+=lineError+"\n";
+				}
 			}
+			if (goodLine.length() != 0)
+				logger.fine(goodLine);
+			if (badLine.length() != 0)
+				logger.warning(badLine);
 		} catch (Exception e) {
 			logger.log(Level.WARNING, "runShellCommandException", e);
 		}
-		logger.fine("The following command was succesfully executed");
-		logger.fine("["+command+"] \nTHROUGH: ["+ComplexCommand+"]");
+		logger.fine("The following command was executed: ["+command+"]");
 	}
+	
+	private void delete(String imageFilePath) {
+	    try {
+	      File target = new File(imageFilePath);
+
+	      if (!target.exists()) {
+	        logger.info("File " + imageFilePath+ " is no more..");
+	        return;
+	      }
+	      if (target.delete())
+	        logger.fine("File: " + imageFilePath + " removed succesfully");
+	      else
+	    	logger.info("Failed to delete " + imageFilePath);
+	    } catch (Exception e) {
+	    	logger.log(Level.INFO, "Unable to delete " + imageFilePath ,e);
+	    }
+	  }
 	
 }

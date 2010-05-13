@@ -23,9 +23,15 @@ Work pending. . . . .
 
 ***VERSIONS
 
+
+v0.0.6
+13.05.2010
+* Plotting the Gabor filter using GnuPlot.
+* Tuning the plot Parameters.
+
 v0.0.5
 12.05.2010
-Created some architecture within the packages, passing parameters... And Command line newrly working
+Created some architecture within the packages, passing parameters... And Command line nearly working
 
 v0.0.4
 Added Spring.

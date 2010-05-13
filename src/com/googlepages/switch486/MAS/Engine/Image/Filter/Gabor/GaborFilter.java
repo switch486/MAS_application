@@ -42,19 +42,25 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 
 	/**
 	 * @param p the p to set
-	 * @throws GaborParameterOutOfBoundsException
-	 *             - is thrown when a parameter is out of bounds
 	 */
 	private void setP(double p) {
+		if (p < 0 || p > Math.PI*2) {
+			logger.warning("Actual value: " + p
+					+ " for the argument p out of the bounds [0; 2PI], setting p to 0.");
+			p = 0;
+		}
 		this.p = p;
 	}
 	
 	/**
 	 * @param f0 the f0 to set
-	 * @throws GaborParameterOutOfBoundsException
-	 *             - is thrown when a parameter is out of bounds
 	 */
 	private void setF0(double f0) {
+		if (f0 < 0.001 || f0 > 1) {
+			logger.warning("Actual value: " + f0
+					+ " for the argument F0 out of the bounds [0.001; 1], setting F0 to 0.2.");
+			f0 = 0.2;
+		}
 		F0 = f0;
 	}
 	
@@ -76,56 +82,74 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	}
 	
 	/**
-	 * @param k the k to set
-	 * @throws GaborParameterOutOfBoundsException
-	 *             - is thrown when a parameter is out of bounds
+	 * @param k the k to set - at the moment does not have a meaning...
 	 */
 	private void setK(double k) {
+		if (k < 1 || k > 1) {
+			logger.warning("Actual value: " + k
+					+ " for the argument K out of the bounds [1; 1], setting K to 1.");
+			k = 1;
+		}
 		K = k;
 	}
 
 	/**
 	 * @param x0 the x0 to set
-	 * @throws GaborParameterOutOfBoundsException
-	 *             - is thrown when a parameter is out of bounds
 	 */
 	private void setX0(double x0) {
+		if (x0 < -4 || x0 > 4) {
+			logger.warning("Actual value: " + x0
+					+ " for the argument x0 out of the bounds [-4; 4], setting x0 to 0.");
+			x0 = 0;
+		}
 		this.x0 = x0;
 	}
 
 	/**
 	 * @param y0 the y0 to set
-	 * @throws GaborParameterOutOfBoundsException
-	 *             - is thrown when a parameter is out of bounds
 	 */
 	private void setY0(double y0) {
+		if (y0 < -4 || y0 > 4) {
+			logger.warning("Actual value: " + y0
+					+ " for the argument y0 out of the bounds [-4; 4], setting y0 to 0.");
+			y0 = 0;
+		}
 		this.y0 = y0;
 	}
 
 	/**
 	 * @param a the a to set
-	 * @throws GaborParameterOutOfBoundsException
-	 *             - is thrown when a parameter is out of bounds
 	 */
 	private void setA(double a) {
+		if (a < 0 || a > 1) {
+			logger.warning("Actual value: " + a
+					+ " for the argument a out of the bounds [0; 1], setting a to 0.26.");
+			a = 0.26;
+		}
 		this.a = a;
 	}
 
 	/**
 	 * @param b the b to set
-	 * @throws GaborParameterOutOfBoundsException
-	 *             - is thrown when a parameter is out of bounds
 	 */
 	private void setB(double b) {
+		if (b < 0 || b > 1) {
+			logger.warning("Actual value: " + b
+					+ " for the argument b out of the bounds [0; 1], setting b to 0.26.");
+			b = 0.26;
+		}
 		this.b = b;
 	}
 
 	/**
 	 * @param theta the theta to set
-	 * @throws GaborParameterOutOfBoundsException
-	 *             - is thrown when a parameter is out of bounds
 	 */
 	private void setTheta(double theta) {
+		if (theta < 0 || theta > Math.PI*2) {
+			logger.warning("Actual value: " + theta
+					+ " for the argument theta out of the bounds [0; 2PI], setting theta to PI.");
+			theta = Math.PI;
+		}
 		this.theta = theta;
 	}
 	
@@ -173,6 +197,33 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 		}
 	}
 
+	private String filterToString(){
+		StringBuilder out = new StringBuilder();
+		out.append('(');
+		//SinPart
+		out.append("sin(");			//sin - B
+			out.append("2*pi*"+F0);
+			out.append("*(");			////B
+				out.append("x*cos("+w0+")");
+				out.append("+y*sin("+w0+")");
+			out.append(")+"+p);			////E
+		out.append(")");			//sin - E
+		out.append('*');
+		//GausPart
+		out.append(K+"*exp(");			//exp - B
+			out.append("-pi*(");			//pi - B
+				out.append(a+"**2");			//a^2
+					out.append("*((x-"+x0+")*cos("+theta+")");
+						out.append("+(y-"+y0+")*sin("+theta+"))**2");
+					out.append("+");				//+
+				out.append(b+"**2");			//b^2
+					out.append("*(-(x-"+x0+")*sin("+theta+")");
+						out.append("+(y-"+y0+")*cos("+theta+"))**2");
+					out.append(")");			//pi - E
+			out.append(")");			//exp - E
+		return out.append(')').toString();
+	}
+	
 	@Override
 	public AIImage filter(AIImage imageToTransform, int xSize,
 			int ySize) throws FilterMatrixToBigForImageException {
@@ -325,6 +376,21 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 
 	}
 
+	public String listParameters () {
+		StringBuilder liste = new StringBuilder();
+		liste.append("\n\n# Parameters:\n");
+		liste.append("# F0 = " + F0+"\n");
+		liste.append("# w0 = " + w0+"\n");
+		liste.append("# x0 = " + x0+"\n");
+		liste.append("# y0 = " + y0+"\n");
+		liste.append("# a  = " + a+"\n");
+		liste.append("# b  = " + b+"\n");
+		liste.append("# p  = " + p+"\n");
+		liste.append("# K  = " + K+"\n");
+		liste.append("# theta  = " + theta+"\n");
+		return liste.toString();
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder s = new StringBuilder();
@@ -372,16 +438,39 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 			this.setY0(p.getDoubleParam(Actions.D_gabor_gaus_y));
 	}
 
-	public String exportFilter(String outPutFileLocation) {
-		if (!outPutFileLocation.endsWith("/")){
-			outPutFileLocation = outPutFileLocation+"/";
+	/**
+	 * @param outPutFileLocation
+	 * @return String [4]: 	[0] - the location of the script to run
+	 * 						[1] - the script content - to pass into a file and run
+	 * 						[2] - the filename+path to the first image to join
+	 * 						[3] - the filename+path to the second image to join
+	 */
+	public String[] exportFilter(String outPutFileLocation) {
+		long name = System.currentTimeMillis();
+		if (!outPutFileLocation.endsWith("/")) {
+			outPutFileLocation = outPutFileLocation + "/";
 		}
-		//long name = System.currentTimeMillis();
-		long name = 1;
+		String[] out = new String[4];
 		StringBuilder s = new StringBuilder();
-		s.append("gnuplot -e \"set terminal png; set output \\\"");
-		s.append(outPutFileLocation + name + ".png" + "\\\"; splot sin(x*y/20)\"\n");
-		return s.toString();
+		out[0] = outPutFileLocation + name;
+
+		char c = '\"';
+		s.append("set terminal png;\n");
+		s.append("set hidden3d;\n");
+		s.append("set pm3d;\n");
+		s.append("set isosample 100,100;\n");
+		s.append("set xrange [-4:4];\n");
+		s.append("set yrange [-4:4];\n");
+		out[2] = outPutFileLocation + name + "_1.png";
+		s.append("set output " + c + out[2] + c+ "\n");
+		s.append("splot "+this.filterToString()+" title 'Gabor Function'\n");
+		s.append("set pm3d map;\n");
+		s.append("set isosample 100,100;\n");
+		out[3] = outPutFileLocation + name + "_2.png";
+		s.append("set output " + c + out[3] + c+ "\n");
+		s.append("splot "+this.filterToString()+" title 'Gabor Function'\n");
+		out[1] = s.toString() +listParameters();
+		return out;
 	}
 
 }

@@ -194,10 +194,6 @@ public class Parser extends CmdLineParser {
 		CmdLineParser.Option help = parser.addHelp(parser.addBooleanOption('h',
 				"help"), "Show this help message", "./CandA -h");
 
-		//TODO
-		//TODO remove!!!!!!!!!!1
-		//TODO
-		
 		
 		Parser.logger.fine("Begin parsing.");
 		try {
@@ -294,7 +290,7 @@ public class Parser extends CmdLineParser {
 			try {
 				Parser.logger.fine("reading the configuration file");
 				LogManager.getLogManager().readConfiguration(new FileInputStream(f));
-				Parser.logger.fine("reading the configuration file");
+				Parser.logger.fine("DONE reading the configuration file");
 			} catch (SecurityException e) {
 				Parser.logger.log(Level.SEVERE, "Logger readConfiguration fail", e);
 			} catch (FileNotFoundException e) {

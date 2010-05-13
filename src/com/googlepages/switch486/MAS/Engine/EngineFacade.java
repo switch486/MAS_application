@@ -31,7 +31,7 @@ public class EngineFacade implements IEngine {
 		OutPutFileLocation = p.getStringParam(Actions.G_FILEPATH_FOR_OUTPUT_FILES);
 		gf.setGfParams(p);
 		if (p.contains(Actions.F_GABOR_FILTER_EXPORT)){
-			logger.fine("Export Gabor Filter Action");
+			logger.info("<> Export Gabor Filter Action");
 			iODBWorker.runShellCommand(gf.exportFilter(OutPutFileLocation));
 		}
 		
