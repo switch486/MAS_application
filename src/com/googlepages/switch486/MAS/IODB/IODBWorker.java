@@ -1,12 +1,18 @@
 package com.googlepages.switch486.MAS.IODB;
 
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.imageio.ImageIO;
+
+import com.googlepages.switch486.MAS.Engine.Image.AIImage;
 
 public class IODBWorker implements IIODB {
 	
@@ -17,16 +23,8 @@ public class IODBWorker implements IIODB {
 	}
 
 	@Override
-	public void runShellCommand(String[] command) {
-		BufferedWriter bw;
-		try {
-			bw = new BufferedWriter(new FileWriter(new File(command[0])));
-			bw.append(command[1]);
-			bw.flush();
-			bw.close();
-		}catch(Exception e){
-			logger.log(Level.WARNING, "Script export Exception", e);
-		}
+	public void runShellCommandForFilterExport(String[] command) {
+		writeFile(command[1], command[0]);
 		
 		String ComplexCommand = "gnuplot "+command[0];
 		String secondCommand = "montage -geometry 640x480 "+command[2]+" -geometry 640x480 "+command[3]+" "+command[0]+".png";
@@ -34,6 +32,27 @@ public class IODBWorker implements IIODB {
 		runShell(secondCommand);
 		delete(command[2]);
 		delete(command[3]);
+	}
+
+	@Override
+	public void runShellCommandForFilterMatrixExport(String[] command) {
+		writeFile(command[1], command[0]);
+		writeFile(command[4], command[3]);
+		
+		String ComplexCommand = "gnuplot "+command[0];
+		runShell(ComplexCommand);
+	}
+
+	public void writeFile(String command, String fileName) {
+		BufferedWriter bw;
+		try {
+			bw = new BufferedWriter(new FileWriter(new File(fileName)));
+			bw.append(command);
+			bw.flush();
+			bw.close();
+		}catch(Exception e){
+			logger.log(Level.WARNING, "Script export Exception", e);
+		}
 	}
 
 	private void runShell(String command) {
@@ -78,5 +97,30 @@ public class IODBWorker implements IIODB {
 	    	logger.log(Level.INFO, "Unable to delete " + imageFilePath ,e);
 	    }
 	  }
+
+	public AIImage getImage(String filePath) {
+		BufferedImage bimg = null;  
+		try {  
+			bimg = ImageIO.read(new File(filePath));  
+			logger.info("File " + filePath+ " was succesfully got.");
+		} catch (Exception e) {  
+			logger.log(Level.SEVERE, "Unable to read image", e);  
+		}  
+		return new AIImage(bimg);
+	}
+
+	@Override
+	public String writeImage(AIImage filter, String stringParam) {
+		String res = null;
+		try {
+			res = stringParam+System.currentTimeMillis()+".png";
+			ImageIO.write((BufferedImage)filter, "png", new File(res));
+			logger.info("File " + res+ " was succesfully written.");
+		} catch (IOException e) {
+			logger.log(Level.SEVERE, "Unable to write image", e);  
+		}
+		return res;
+	}
+
 	
 }

@@ -33,6 +33,10 @@ public class Params extends ArrayList<Param> {
 		return ((DoubleParam) get(a)).getParameter(); 
 	}
 	
+	public Integer getIntParam(Actions a) {
+		return ((IntegerParam) get(a)).getParameter(); 
+	}
+	
 	@Override
 	public String toString() {
 		Iterator<Param> i = this.iterator();
@@ -49,5 +53,6 @@ public class Params extends ArrayList<Param> {
 		    sb.append(", ");
 		}
 	}
+
 	
 }

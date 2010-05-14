@@ -23,6 +23,7 @@ import org.springframework.core.io.FileSystemResource;
 
 import com.googlepages.switch486.MAS.Bean.Actions;
 import com.googlepages.switch486.MAS.Bean.DoubleParam;
+import com.googlepages.switch486.MAS.Bean.IntegerParam;
 import com.googlepages.switch486.MAS.Bean.Params;
 import com.googlepages.switch486.MAS.Bean.StringParam;
 import com.googlepages.switch486.MAS.Engine.IEngine;
@@ -149,11 +150,18 @@ public class Parser extends CmdLineParser {
 				"Location: Specify a location for output files of anny kind (Logs locations are defined in the defaults.properties!)",
 				"./CandA -L \"/home/Martin/myFiles/\"");
 		
+		CmdLineParser.Option sourceImage = parser.addHelp(parser
+				.addStringOption('S', "SOURCE"),
+				"Location: Specify a location for the image that has to transformed with the Gabor Filter",
+				"./CandA -S \"/home/Martin/myFiles/adam.png\" -G FILTER");
+		
 		CmdLineParser.Option gaborFilter = parser.addHelp(parser
 				.addStringOption('G', "GABOR"),
 				"Gabor: Perform calculations using the Gabor Filter, possibilities follow:",
 				"EXPORT :\tExport the Filter into a graphic file, under the location for the logs in the defaults.properties " +
-				"\n\t\tor - if specified - into the --LOCATION filepath\n" +
+				"\n\t\t\t\tor - if specified - into the --LOCATION filepath\n" +
+				"\t\tEXPORTFM :\tExport the Filter Matrix of the created Gabor Filter into a graphic file\n" +
+				"\t\tFILTER :\tExport the Filtered image file under the --SOURCE filepath using the filter ONCE\n" +
 				"\t\t./CandA -G EXPORT");
 		
 		CmdLineParser.Option gaborPhase = parser.addHelp(parser
@@ -187,6 +195,12 @@ public class Parser extends CmdLineParser {
 				.addDoubleOption('t', "gaus_theta"),
 				"Gabor: Set the Gaussian envelope rotation angle",
 				"./CandA -t 3,14");
+		CmdLineParser.Option gaborFilterMatrixX = parser.addHelp(parser.addIntegerOption(
+				's', "filter_matrix_s"), "Gabor: Set width of the filter matrix.",
+				"./CandA -s 7");
+		CmdLineParser.Option gaborFilterMatrixY = parser.addHelp(parser.addIntegerOption(
+				'd', "filter_matrix_d"), "Gabor: Set height of the filter matrix",
+				"./CandA -d 7");
 
 		CmdLineParser.Option verbose = parser.addHelp(parser.addBooleanOption(
 				'v', "verbose"), "Show some more info when @ work (all log levels!)",
@@ -219,13 +233,24 @@ public class Parser extends CmdLineParser {
 		if (LOCATION == null) {
 			LOCATION = parser.properties.getProperty("logger.outFilePath");
 		}
+		LOCATION = LOCATION.endsWith("/") ? LOCATION : LOCATION+"/";
 		p.add(new StringParam(Actions.G_FILEPATH_FOR_OUTPUT_FILES, LOCATION));
+		
+		String SOURCE = (String) parser.getOptionValue(sourceImage);
+		if (SOURCE != null) {
+			p.add(new StringParam(Actions.G_SOURCE_IMAGE, SOURCE));
+		}
 
 		String GABOR = (String) parser.getOptionValue(gaborFilter);
 		if (GABOR != null) {
 			if (GABOR.equals("EXPORT")){
 				p.add(new StringParam(Actions.F_GABOR_FILTER_EXPORT, GABOR));
-			}else {
+			}else if (GABOR.equals("EXPORTFM")){
+					p.add(new StringParam(Actions.F_GABOR_FILTER_MATRIX_EXPORT, GABOR));
+			}else if (GABOR.equals("FILTER")) {
+				p.add(new StringParam(Actions.F_FILTER_WITH_GABOR_FILTER_ONCE, GABOR));
+			}
+			else {
 				logger.info("Unexpected parameter found: "+GABOR+"; skipping");
 			}
 		}
@@ -283,6 +308,18 @@ public class Parser extends CmdLineParser {
 			gaborThetaValue = Double.parseDouble(parser.properties
 					.getProperty("gabor.gaus_theta"));
 		p.add(new DoubleParam(Actions.D_gabor_gaus_theta, gaborThetaValue));
+		
+		Integer gaborFilterMatriX = (Integer) parser.getOptionValue(gaborFilterMatrixX);
+		if (gaborFilterMatriX == null)
+			gaborFilterMatriX = Integer.parseInt(parser.properties
+					.getProperty("gabor.filter_matrix_x"));
+		p.add(new IntegerParam(Actions.I_gabor_filter_matrix_x, gaborFilterMatriX));
+		
+		Integer gaborFilterMatriY = (Integer) parser.getOptionValue(gaborFilterMatrixY);
+		if (gaborFilterMatriY == null)
+			gaborFilterMatriY = Integer.parseInt(parser.properties
+					.getProperty("gabor.filter_matrix_y"));
+		p.add(new IntegerParam(Actions.I_gabor_filter_matrix_y, gaborFilterMatriY));
 
 		Boolean canHasVerbose = (Boolean) parser.getOptionValue(verbose);
 		if (canHasVerbose != null && canHasVerbose.booleanValue() == true){			
@@ -290,6 +327,8 @@ public class Parser extends CmdLineParser {
 			try {
 				Parser.logger.fine("reading the configuration file");
 				LogManager.getLogManager().readConfiguration(new FileInputStream(f));
+				parser.loggerSettings(parser.properties
+						.getProperty("logger.outFilePath"));
 				Parser.logger.fine("DONE reading the configuration file");
 			} catch (SecurityException e) {
 				Parser.logger.log(Level.SEVERE, "Logger readConfiguration fail", e);
@@ -302,6 +341,7 @@ public class Parser extends CmdLineParser {
 		
 		parser.engineFacade.executeParameters(p);
 
+		Parser.logger.finest("END application");
 
 		System.exit(0);
 	}

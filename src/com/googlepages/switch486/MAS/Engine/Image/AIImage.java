@@ -77,6 +77,7 @@ public class AIImage extends BufferedImage implements IsToImageable {
 	/**
 	 * @param s - the path to the image the object will be created with
 	 */
+	@Deprecated
 	public AIImage (String s) {
 		this(AIImage.loadImage(s));
 	}
@@ -85,6 +86,7 @@ public class AIImage extends BufferedImage implements IsToImageable {
 	 * @param s - an string path to the image.
 	 * @return - an Object of type BufferedImage, that is located at s
 	 */
+	@Deprecated
 	public static BufferedImage loadImage(String s) {
 		BufferedImage bimg = null;  
 		try {  
@@ -95,10 +97,12 @@ public class AIImage extends BufferedImage implements IsToImageable {
 		return bimg;
 	}
 	
+	@Deprecated
 	public static String saveImage(AIImage image, String path) {
 		return saveImage(image, path, "");
 	}
 	
+	@Deprecated
 	public static String saveImage(AIImage image, String path, String extra_info) {
 		String res = null;
 		try {

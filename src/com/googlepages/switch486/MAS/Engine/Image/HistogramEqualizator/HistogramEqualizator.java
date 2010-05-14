@@ -50,7 +50,7 @@ public class HistogramEqualizator {
 	/**
 	 * @param i a number in range 0-255
 	 * @return cumulative distribution function == accumulated, normalized histogram
-	 * D(n); H(i); dystrybuanta rozkłądu barw na obrazie
+	 * D(n); H(i); colour distribution in the image
 	 */
 	private double cdf (int i) {
 		int values=0; 

@@ -28,11 +28,26 @@ public class EngineFacade implements IEngine {
 	@Override
 	public void executeParameters(Params p) {
 		logger.fine("Execute passed parameters");
-		OutPutFileLocation = p.getStringParam(Actions.G_FILEPATH_FOR_OUTPUT_FILES);
+		OutPutFileLocation = p
+				.getStringParam(Actions.G_FILEPATH_FOR_OUTPUT_FILES);
 		gf.setGfParams(p);
-		if (p.contains(Actions.F_GABOR_FILTER_EXPORT)){
+		if (p.contains(Actions.F_GABOR_FILTER_EXPORT)) {
 			logger.info("<> Export Gabor Filter Action");
-			iODBWorker.runShellCommand(gf.exportFilter(OutPutFileLocation));
+			iODBWorker.runShellCommandForFilterExport(gf.exportFilter(OutPutFileLocation));
+		}
+		if (p.contains(Actions.F_GABOR_FILTER_MATRIX_EXPORT)) {
+			logger.info("<> Export Gabor Filter Matrix Action");
+			iODBWorker.runShellCommandForFilterMatrixExport(gf.exportFilterMatrix(OutPutFileLocation));
+		}
+		if (p.contains(Actions.F_FILTER_WITH_GABOR_FILTER_ONCE)) {
+			logger.info("<> Filter Image with the predefined Gabor Filter");
+			if (p.contains(Actions.G_SOURCE_IMAGE)) {
+				iODBWorker.writeImage(gf.filter(iODBWorker.getImage(
+						p.getStringParam(Actions.G_SOURCE_IMAGE))), 
+						p.getStringParam(Actions.G_FILEPATH_FOR_OUTPUT_FILES));
+			} else {
+				logger.warning("There was no source image to start the filtering with");
+			}
 		}
 		
 		//logger.fine(p.toString());

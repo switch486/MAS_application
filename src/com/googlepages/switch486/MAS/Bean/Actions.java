@@ -5,12 +5,14 @@ public enum Actions {
 	 * Globals that represent annything not mensioned bellow
 	 */
 	G_FILEPATH_FOR_OUTPUT_FILES,
+	G_SOURCE_IMAGE,
 
 	/*
 	 * Functions, that represent the actions of the Engine
 	 */
 	F_GABOR_FILTER_EXPORT, 
-	F_FILTER_WITH_GABOR_FILTER,
+	F_GABOR_FILTER_MATRIX_EXPORT,
+	F_FILTER_WITH_GABOR_FILTER_ONCE,
 	
 	/*
 	 * Doubles representing the gabor filter parameters
@@ -24,6 +26,13 @@ public enum Actions {
 	D_gabor_gaus_a, 
 	D_gabor_gaus_b, 
 	D_gabor_gaus_theta,
+	
+	/*
+	 * Ints representing the other Gabor Filter parameters
+	 */
+	I_gabor_filter_matrix_x,
+	I_gabor_filter_matrix_y,
+	
 	;
 	
 	public String toString() {return this.name();}

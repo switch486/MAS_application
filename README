@@ -19,15 +19,27 @@ Work pending. . . . .
 ***OS REQUIREMENTS
 
 1.System: Linux OS - Debian/Ubuntu/...
-1.1 Preinstalled applications: ant, sun-java6, gnuplot, 
+1.1 Preinstalled applications: ant, sun-java6, gnuplot, imagemagick, bash :D
 
 ***VERSIONS
 
+
+v0.0.7
+14.05.2010
+* Corrected the -v function, to allow fileHandler - before -v caused to remove the fileHandler and no logs were saved - only shown...
+* Tuned the filter, because Gabor not only shows borders when the value is big, but also when it is low 
+(normaly it would take 2 the time, to filter with a negative version of the filter Matrix), therfore a 
+if (valueAfterfilteringForPixel <0){
+	valueAfterfilteringForPixel = -valueAfterfilteringForPixel;
+} 
+is the solution
+* You are able to plot the FilterMatrix - see ./application -h for details 
 
 v0.0.6
 13.05.2010
 * Plotting the Gabor filter using GnuPlot.
 * Tuning the plot Parameters.
+* Scripts to the parameter-plottings, see XX* files.
 
 v0.0.5
 12.05.2010

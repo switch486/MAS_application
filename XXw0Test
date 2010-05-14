@@ -8,6 +8,7 @@
 ./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/w0[0-2]/ -w 0.7
 ./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/w0[0-2]/ -w 0.8
 ./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/w0[0-2]/ -w 0.9
+./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/w0[0-2]/ -w 1
 ./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/w0[0-2]/ -w 1.1
 ./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/w0[0-2]/ -w 1.2
 ./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/w0[0-2]/ -w 1.3

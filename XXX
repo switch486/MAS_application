@@ -1,0 +1,6 @@
+set dgrid3d 30,30;
+set terminal png;
+set hidden3d;
+set output "/tmp/w0.0.png";
+splot "test" u 1:2:3 with lines;
+

@@ -66,16 +66,16 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	
 	/**
 	 * @param w0
-	 *            - double value in bounds 0.0-2.0 that represents the angle of
+	 *            - double value in bounds 0.0-1.0 that represents the angle of
 	 *            the sin function
 	 */
 	private void setW0(double w0) {
 		/*
 		 * Sets and counts the parameters for the Gabor Filter ##00048/(30)+(23)
 		 */
-		if (w0 < 0d || w0 > 2.0d) {
+		if (w0 < 0d || w0 > 1d) { // roundings....
 			logger.warning("Actual value: " + w0
-					+ " for the argument w0 out of the bounds [0.0d; 2.0d], setting w0 to 0.");
+					+ " for the argument w0 out of the bounds [0.0d; 1.0d], setting w0 to 0.");
 			w0 = 0;
 		}
 		this.w0 = Math.PI + w0 * Math.PI;
@@ -176,8 +176,8 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 		for (int x = 0; x < xSize; x++) {
 			for (int y = 0; y < ySize; y++) {
 				// x, y have to be in bounds -4, +4 therfore
-				double xfrac = (8 * (double) x / (double) xSize) - 4;
-				double yfrac = (8 * (double) y / (double) ySize) - 4;
+				double xfrac = (8 * (double) x / (double) (xSize-1)) - 4;
+				double yfrac = (8 * (double) y / (double) (ySize-1)) - 4;
 
 				double sinValue = Math.sin(2 * Math.PI * F0
 						* (xfrac * Math.cos(w0) + yfrac * Math.sin(w0)) + p);
@@ -252,7 +252,8 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	@Override
 	public AIImage filter(AIImage imageToTransform,
 			double[][] filterMatrixInput) {
-		double[][] filterMatrixNormalizedInput = normalize(filterMatrixInput);
+		//double[][] filterMatrixNormalizedInput = normalize(filterMatrixInput);
+		double[][] filterMatrixNormalizedInput = (filterMatrixInput);
 		int iWidth = imageToTransform.getWidth();
 		int iHeight = imageToTransform.getHeight();
 		double [][] temporaryImageValues = new double [iWidth][iHeight];
@@ -262,7 +263,7 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 		int xMid = fXSize/2;
 		int yMid = fYSize/2;
 		double max=0d;
-		double min=0d;
+		//double min=0d;
 		for (int x=0; x<iWidth; x++) {						// foreach pixel in the width
 			for (int y=0; y<iHeight; y++){					// foreach pixel in the height
 				//double ValuesInsideTheImageBounds = 0d;			// for the better counting... 
@@ -287,19 +288,20 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 
 					}
 				}
+				if (summedValue<0){
+					summedValue = -summedValue;
+				}
 				if (summedValue>max) {
 					max = summedValue;
-				}else if (summedValue<min) {
-					min = summedValue;
 				}
 				temporaryImageValues[x][y] = summedValue;
 			}
 		}
-		double delta = max-min;
+		double delta = max;
 		 
 		for (int x=0; x<iWidth; x++) {						// foreach pixel in the width
 			for (int y=0; y<iHeight; y++){					// foreach pixel in the height
-				int val = (int)(255*((temporaryImageValues[x][y]-min)/delta));
+				int val = (int)(255*((temporaryImageValues[x][y]-0)/delta));
 				out.setRGB(x, y, new Color(val, val, val).getRGB());
 			}
 		}
@@ -388,6 +390,9 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 		liste.append("# p  = " + p+"\n");
 		liste.append("# K  = " + K+"\n");
 		liste.append("# theta  = " + theta+"\n");
+		liste.append("# -------------------------------------------------------------------------- \n");
+		liste.append("# NOTE: To run this script You need to have installed the Gnuplot application\n");
+		liste.append("# For linux users, please run 'gnuplot THIS_FILE_NAME', to recieve results\n");
 		return liste.toString();
 	}
 	
@@ -404,10 +409,22 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 		}
 		return s.toString();
 	}
+	
+	public String getGnuPlotString() {
+		StringBuilder s = new StringBuilder();
+		s.append("# X\tY\tV\n");
+		for (int i = 0; i < filterMatrix.length; i++) {
+			for (int j = 0; j < filterMatrix[0].length; j++) {
+				s.append(i+"\t"+j+"\t"+filterMatrix[i][j]+"\n");
+			}
+		}
+		return s.toString();
+	}
 
 	/**
 	 * @return returns a new filter matrix, that values sum up to 1
 	 */
+	@Deprecated
 	private double[][] normalize(double [][] matrixIn) {
 		double sum = 0d;
 		int xsize = matrixIn.length;
@@ -436,6 +453,7 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 			this.setTheta(p.getDoubleParam(Actions.D_gabor_gaus_theta));
 			this.setX0(p.getDoubleParam(Actions.D_gabor_gaus_x));
 			this.setY0(p.getDoubleParam(Actions.D_gabor_gaus_y));
+			this.setFilterMatrix(p.getIntParam(Actions.I_gabor_filter_matrix_x), p.getIntParam(Actions.I_gabor_filter_matrix_y));
 	}
 
 	/**
@@ -447,9 +465,7 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	 */
 	public String[] exportFilter(String outPutFileLocation) {
 		long name = System.currentTimeMillis();
-		if (!outPutFileLocation.endsWith("/")) {
-			outPutFileLocation = outPutFileLocation + "/";
-		}
+		
 		String[] out = new String[4];
 		StringBuilder s = new StringBuilder();
 		out[0] = outPutFileLocation + name;
@@ -461,15 +477,46 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 		s.append("set isosample 100,100;\n");
 		s.append("set xrange [-4:4];\n");
 		s.append("set yrange [-4:4];\n");
+		s.append("set zrange [-1:1];\n");
 		out[2] = outPutFileLocation + name + "_1.png";
 		s.append("set output " + c + out[2] + c+ "\n");
 		s.append("splot "+this.filterToString()+" title 'Gabor Function'\n");
 		s.append("set pm3d map;\n");
+		//s.append("set zrange [-1:1];\n");
 		s.append("set isosample 100,100;\n");
 		out[3] = outPutFileLocation + name + "_2.png";
 		s.append("set output " + c + out[3] + c+ "\n");
 		s.append("splot "+this.filterToString()+" title 'Gabor Function'\n");
 		out[1] = s.toString() +listParameters();
+		return out;
+	}
+
+	/**
+	 * @param outPutFileLocation
+	 * @return String [4]: 	[0] - the location of the script to run
+	 * 						[1] - the script content - to pass into a file and run
+	 * 						[2] - the filename+path to the first image to join
+	 * 						[3] - the filename+path to the data file
+	 * 						[4] - the data file content
+	 */
+	public String[] exportFilterMatrix(String outPutFileLocation) {
+		long name = System.currentTimeMillis();
+		
+		String[] out = new String[5];
+		StringBuilder s = new StringBuilder();
+		out[0] = outPutFileLocation + name;
+		
+		out[3] = outPutFileLocation + name + ".dat";
+		out[4] = this.getGnuPlotString();
+		char c = '\"';
+		s.append("set terminal png;\n");
+		s.append("set hidden3d;\n");
+		s.append("set dgrid3d 30,30;\n");
+		out[2] = outPutFileLocation + name + ".png";
+		s.append("set output " + c + out[2] + c+ "\n");
+		s.append("splot "+c+out[3]+c+" u 1:2:3 with lines;\n");
+		//-----------------------------
+		out[1] = s.toString() + listParameters() + "# NOTE: the "+out[3]+" file also needed to plot!\n";
 		return out;
 	}
 
