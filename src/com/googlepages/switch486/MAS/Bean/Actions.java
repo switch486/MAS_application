@@ -13,6 +13,7 @@ public enum Actions {
 	F_GABOR_FILTER_EXPORT, 
 	F_GABOR_FILTER_MATRIX_EXPORT,
 	F_FILTER_WITH_GABOR_FILTER_ONCE,
+	F_FILTER_WITH_GABOR_FILTER,
 	
 	/*
 	 * Doubles representing the gabor filter parameters

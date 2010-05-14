@@ -162,6 +162,7 @@ public class Parser extends CmdLineParser {
 				"\n\t\t\t\tor - if specified - into the --LOCATION filepath\n" +
 				"\t\tEXPORTFM :\tExport the Filter Matrix of the created Gabor Filter into a graphic file\n" +
 				"\t\tFILTER :\tExport the Filtered image file under the --SOURCE filepath using the filter ONCE\n" +
+				"\t\tJOINFILTER :\tExport the Filtered images under the --SOURCE filepath using the filter 10 times, and joining the results into one.\n" +
 				"\t\t./CandA -G EXPORT");
 		
 		CmdLineParser.Option gaborPhase = parser.addHelp(parser
@@ -243,15 +244,16 @@ public class Parser extends CmdLineParser {
 
 		String GABOR = (String) parser.getOptionValue(gaborFilter);
 		if (GABOR != null) {
-			if (GABOR.equals("EXPORT")){
+			if (GABOR.equals("EXPORT")) {
 				p.add(new StringParam(Actions.F_GABOR_FILTER_EXPORT, GABOR));
-			}else if (GABOR.equals("EXPORTFM")){
-					p.add(new StringParam(Actions.F_GABOR_FILTER_MATRIX_EXPORT, GABOR));
-			}else if (GABOR.equals("FILTER")) {
+			} else if (GABOR.equals("EXPORTFM")) {
+				p.add(new StringParam(Actions.F_GABOR_FILTER_MATRIX_EXPORT,	GABOR));
+			} else if (GABOR.equals("FILTER")) {
 				p.add(new StringParam(Actions.F_FILTER_WITH_GABOR_FILTER_ONCE, GABOR));
-			}
-			else {
-				logger.info("Unexpected parameter found: "+GABOR+"; skipping");
+			} else if (GABOR.equals("JOINFILTER")) {
+				p.add(new StringParam(Actions.F_FILTER_WITH_GABOR_FILTER, GABOR));
+			} else {
+				logger.info("Unexpected parameter found: " + GABOR	+ "; skipping");
 			}
 		}
 		

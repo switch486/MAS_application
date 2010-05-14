@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -120,6 +121,17 @@ public class IODBWorker implements IIODB {
 			logger.log(Level.SEVERE, "Unable to write image", e);  
 		}
 		return res;
+	}
+
+	@Override
+	public void runShellCommandForResultsMerge(ArrayList<String> list) {
+		for (int i=1; i< list.size(); i++) {
+			runShell("composite -compose Screen -gravity center "+list.get(i-1)+" "+list.get(i)+ " " + list.get(i));
+		}
+		logger.info("One output image created: "+ list.get(list.size()-1));
+		for (int i=0; i< list.size()-1; i++) {
+			delete(list.get(i));
+		}
 	}
 
 	

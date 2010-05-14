@@ -1,0 +1,18 @@
+#!/bin/sh
+./machineDetails
+./compile
+echo "------------RUNNING 'TESTS'"
+echo "------------a and b params"
+sh XXabTest >> /dev/null
+echo "------------x and y params"
+sh XXxyTest >> /dev/null
+echo "------------f0 param"
+sh XXf0Test >> /dev/null
+echo "------------w0 param"
+sh XXw0Test >> /dev/null
+echo "------------w0 image Test"
+sh XXw0Imm >> /dev/null
+echo "------------Join Filter Test"
+sh XXJoinFilter >> /dev/null
+echo "------------DONE"
+

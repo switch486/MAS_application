@@ -1,17 +1,17 @@
-./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.001
-./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.01
-./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.02
-./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.04
-./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.06
-./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.09
-./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.11
-./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.15
-./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.20
-./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.30
-./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.40
-./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.50
-./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.60
-./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.70
-./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.80
-./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.90
-./CandA -v -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 1
+./run -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.001
+./run -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.01
+./run -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.02
+./run -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.04
+./run -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.06
+./run -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.09
+./run -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.11
+./run -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.15
+./run -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.20
+./run -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.30
+./run -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.40
+./run -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.50
+./run -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.60
+./run -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.70
+./run -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.80
+./run -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 0.90
+./run -G EXPORT -L /home/switch486/MAS_PARAMS/f0[0-1]/ -f 1

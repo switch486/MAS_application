@@ -1,11 +1,11 @@
-./CandA -G FILTER -S /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/w0_image/ -w 0
-./CandA -G FILTER -S /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/w0_image/ -w 0.1
-./CandA -G FILTER -S /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/w0_image/ -w 0.2
-./CandA -G FILTER -S /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/w0_image/ -w 0.3
-./CandA -G FILTER -S /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/w0_image/ -w 0.4
-./CandA -G FILTER -S /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/w0_image/ -w 0.5
-./CandA -G FILTER -S /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/w0_image/ -w 0.6
-./CandA -G FILTER -S /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/w0_image/ -w 0.7
-./CandA -G FILTER -S /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/w0_image/ -w 0.8
-./CandA -G FILTER -S /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/w0_image/ -w 0.9
+./run -G FILTER -S /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/w0_image/ -w 0
+./run -G FILTER -S /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/w0_image/ -w 0.1
+./run -G FILTER -S /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/w0_image/ -w 0.2
+./run -G FILTER -S /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/w0_image/ -w 0.3
+./run -G FILTER -S /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/w0_image/ -w 0.4
+./run -G FILTER -S /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/w0_image/ -w 0.5
+./run -G FILTER -S /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/w0_image/ -w 0.6
+./run -G FILTER -S /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/w0_image/ -w 0.7
+./run -G FILTER -S /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/w0_image/ -w 0.8
+./run -G FILTER -S /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/w0_image/ -w 0.9
 

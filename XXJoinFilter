@@ -1,0 +1,14 @@
+./compile
+./run -G JOINFILTER --SOURCE /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/GFTest -s 3 -d 3
+./run -G JOINFILTER --SOURCE /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/GFTest -s 5 -d 5
+./run -G JOINFILTER --SOURCE /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/GFTest -s 7 -d 7
+./run -G JOINFILTER --SOURCE /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/GFTest -s 9 -d 9
+./run -G JOINFILTER --SOURCE /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/GFTest -s 11 -d 11
+./run -G JOINFILTER --SOURCE /home/switch486/MAS_PARAMS/one.png -L /home/switch486/MAS_PARAMS/GFTest -s 13 -d 13
+./run -G JOINFILTER --SOURCE /home/switch486/MAS_PARAMS/myself.JPG -L /home/switch486/MAS_PARAMS/GFTest -s 3 -d 3
+./run -G JOINFILTER --SOURCE /home/switch486/MAS_PARAMS/myself.JPG -L /home/switch486/MAS_PARAMS/GFTest -s 5 -d 5
+./run -G JOINFILTER --SOURCE /home/switch486/MAS_PARAMS/myself.JPG -L /home/switch486/MAS_PARAMS/GFTest -s 7 -d 7
+./run -G JOINFILTER --SOURCE /home/switch486/MAS_PARAMS/myself.JPG -L /home/switch486/MAS_PARAMS/GFTest -s 9 -d 9
+./run -G JOINFILTER --SOURCE /home/switch486/MAS_PARAMS/myself.JPG -L /home/switch486/MAS_PARAMS/GFTest -s 11 -d 11
+./run -G JOINFILTER --SOURCE /home/switch486/MAS_PARAMS/myself.JPG -L /home/switch486/MAS_PARAMS/GFTest -s 13 -d 13
+

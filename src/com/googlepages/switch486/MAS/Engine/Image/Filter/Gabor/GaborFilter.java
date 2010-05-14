@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import com.googlepages.switch486.MAS.Bean.Actions;
+import com.googlepages.switch486.MAS.Bean.DoubleParam;
+import com.googlepages.switch486.MAS.Bean.Param;
 import com.googlepages.switch486.MAS.Bean.Params;
 import com.googlepages.switch486.MAS.Engine.Image.AIImage;
 import com.googlepages.switch486.MAS.Engine.Image.IsToImageable;
@@ -43,6 +45,13 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	/**
 	 * @param p the p to set
 	 */
+	private void setP(double p, DoubleParam pa) {
+		setP(p);
+		if (pa==null) 
+			return;
+		if (pa.getAction().equals(Actions.D_gabor_sin_phase)) 
+			setP(pa.getParameter());
+	}
 	private void setP(double p) {
 		if (p < 0 || p > Math.PI*2) {
 			logger.warning("Actual value: " + p
@@ -55,6 +64,13 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	/**
 	 * @param f0 the f0 to set
 	 */
+	private void setF0(double f0, DoubleParam pa) {
+		setF0(f0);
+		if (pa==null) 
+			return;
+		if (pa.getAction().equals(Actions.D_gabor_sin_magnitude)) 
+			setF0(pa.getParameter());
+	}
 	private void setF0(double f0) {
 		if (f0 < 0.001 || f0 > 1) {
 			logger.warning("Actual value: " + f0
@@ -69,7 +85,14 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	 *            - double value in bounds 0.0-1.0 that represents the angle of
 	 *            the sin function
 	 */
-	private void setW0(double w0) {
+	private void setW0(double w0, DoubleParam pa) {
+		setW0(w0);
+		if (pa==null) 
+			return;
+		if (pa.getAction().equals(Actions.D_gabor_sin_direction)) 
+			setW0(pa.getParameter());
+	}
+	public void setW0(double w0) {
 		/*
 		 * Sets and counts the parameters for the Gabor Filter ##00048/(30)+(23)
 		 */
@@ -84,6 +107,13 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	/**
 	 * @param k the k to set - at the moment does not have a meaning...
 	 */
+	private void setK(double k, DoubleParam pa) {
+		setK(k);
+		if (pa==null) 
+			return;
+		if (pa.getAction().equals(Actions.D_gabor_gaus_scale)) 
+			setK(pa.getParameter());
+	}
 	private void setK(double k) {
 		if (k < 1 || k > 1) {
 			logger.warning("Actual value: " + k
@@ -96,6 +126,13 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	/**
 	 * @param x0 the x0 to set
 	 */
+	private void setX0(double x0, DoubleParam pa) {
+		setX0(x0);
+		if (pa==null) 
+			return;
+		if (pa.getAction().equals(Actions.D_gabor_gaus_x)) 
+			setX0(pa.getParameter());
+	}
 	private void setX0(double x0) {
 		if (x0 < -4 || x0 > 4) {
 			logger.warning("Actual value: " + x0
@@ -108,6 +145,13 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	/**
 	 * @param y0 the y0 to set
 	 */
+	private void setY0(double y0, DoubleParam pa) {
+		setY0(y0);
+		if (pa==null) 
+			return;
+		if (pa.getAction().equals(Actions.D_gabor_gaus_y))
+			setY0(pa.getParameter());
+	}
 	private void setY0(double y0) {
 		if (y0 < -4 || y0 > 4) {
 			logger.warning("Actual value: " + y0
@@ -120,6 +164,13 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	/**
 	 * @param a the a to set
 	 */
+	private void setA(double a, DoubleParam pa) {
+		setA(a);
+		if (pa==null) 
+			return;
+		if (pa.getAction().equals(Actions.D_gabor_gaus_a)) 
+			setA(pa.getParameter());
+	}
 	private void setA(double a) {
 		if (a < 0 || a > 1) {
 			logger.warning("Actual value: " + a
@@ -132,6 +183,13 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	/**
 	 * @param b the b to set
 	 */
+	private void setB(double b, DoubleParam pa) {
+		setB(b);
+		if (pa==null) 
+			return;
+		if (pa.getAction().equals(Actions.D_gabor_gaus_b)) 
+			setB(pa.getParameter());
+	}
 	private void setB(double b) {
 		if (b < 0 || b > 1) {
 			logger.warning("Actual value: " + b
@@ -144,6 +202,13 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	/**
 	 * @param theta the theta to set
 	 */
+	private void setTheta(double theta, DoubleParam pa) {
+		setTheta(theta);
+		if (pa==null) 
+			return;
+		if (pa.getAction().equals(Actions.D_gabor_gaus_theta)) 
+			setTheta(pa.getParameter());
+	}
 	private void setTheta(double theta) {
 		if (theta < 0 || theta > Math.PI*2) {
 			logger.warning("Actual value: " + theta
@@ -153,8 +218,6 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 		this.theta = theta;
 	}
 	
-
-
 
 	/**
 	 * @param xSize
@@ -444,15 +507,19 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	}
 
 	public void setGfParams(Params p) {
-			this.setA (p.getDoubleParam(Actions.D_gabor_gaus_a));
-			this.setB (p.getDoubleParam(Actions.D_gabor_gaus_b));
-			this.setF0(p.getDoubleParam(Actions.D_gabor_sin_magnitude));
-			this.setP (p.getDoubleParam(Actions.D_gabor_sin_phase));
-			this.setW0(p.getDoubleParam(Actions.D_gabor_sin_direction));
-			this.setK (p.getDoubleParam(Actions.D_gabor_gaus_scale));
-			this.setTheta(p.getDoubleParam(Actions.D_gabor_gaus_theta));
-			this.setX0(p.getDoubleParam(Actions.D_gabor_gaus_x));
-			this.setY0(p.getDoubleParam(Actions.D_gabor_gaus_y));
+		setGfParams(p, null);
+	}
+	
+	public void setGfParams(Params p, DoubleParam dp) {
+			this.setA (p.getDoubleParam(Actions.D_gabor_gaus_a), dp);
+			this.setB (p.getDoubleParam(Actions.D_gabor_gaus_b), dp);
+			this.setF0(p.getDoubleParam(Actions.D_gabor_sin_magnitude), dp);
+			this.setP (p.getDoubleParam(Actions.D_gabor_sin_phase), dp);
+			this.setW0(p.getDoubleParam(Actions.D_gabor_sin_direction), dp);
+			this.setK (p.getDoubleParam(Actions.D_gabor_gaus_scale), dp);
+			this.setTheta(p.getDoubleParam(Actions.D_gabor_gaus_theta), dp);
+			this.setX0(p.getDoubleParam(Actions.D_gabor_gaus_x), dp);
+			this.setY0(p.getDoubleParam(Actions.D_gabor_gaus_y), dp);
 			this.setFilterMatrix(p.getIntParam(Actions.I_gabor_filter_matrix_x), p.getIntParam(Actions.I_gabor_filter_matrix_y));
 	}
 

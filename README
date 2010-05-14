@@ -14,7 +14,11 @@ So far done: 1*
 
 Work pending. . . . .
 
+***HOW TO:
 
+***RUN THE APPLICATION
+To take a look at all options, please do the following in Your bash shell:
+./CandA -h
 
 ***OS REQUIREMENTS
 
@@ -23,6 +27,14 @@ Work pending. . . . .
 
 ***VERSIONS
 
+v0.0.8
+15.05.2010
+* Created a script to run all 'Tests'
+* Using imagemagick to merge the images - not used by java application yet...
+* Cleaning the classes that were written before...
+* Added a functionality to filter and join the images - a complete Gabor filter. 
+For those, that are interrested, please take a look in the XXJoinFilter script, which 
+contains the tests for this filter.
 
 v0.0.7
 14.05.2010
@@ -32,7 +44,7 @@ v0.0.7
 if (valueAfterfilteringForPixel <0){
 	valueAfterfilteringForPixel = -valueAfterfilteringForPixel;
 } 
-is the solution
+is the desired solution.
 * You are able to plot the FilterMatrix - see ./application -h for details 
 
 v0.0.6
