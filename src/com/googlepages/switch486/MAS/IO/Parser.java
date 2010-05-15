@@ -166,50 +166,74 @@ public class Parser extends CmdLineParser {
 				"\t\t./CandA -G EXPORT");
 		
 		CmdLineParser.Option gaborPhase = parser.addHelp(parser
-				.addDoubleOption('p', "sin_phase"),
+				.addDoubleOption('p', "gabor_sin_phase"),
 				"Gabor: Set the phase of the complex sinus function",
 				"./CandA -p 12,3");
 		CmdLineParser.Option gaborF0 = parser.addHelp(parser.addDoubleOption(
-				'f', "sin_magnitude"),
+				'f', "gabor_sin_magnitude"),
 				"Gabor: Set the magnitude of the complex sinus function",
-				"./CandA --gaus_magnitude 4");
+				"./CandA --gabor_sin_magnitude 4");
 		CmdLineParser.Option gaborW0 = parser.addHelp(parser.addDoubleOption(
-				'w', "sin_direction"),
+				'w', "gabor_sin_direction"),
 				"Gabor: Set the direction of the complex sinus function",
 				"./CandA -w 3,14");
 		CmdLineParser.Option gaborK = parser.addHelp(parser.addDoubleOption(
-				'k', "gaus_scale"), "Gabor: Set the Gaussian envelope scale",
+				'k', "gabor_gaus_scale"), "Gabor: Set the Gaussian envelope scale",
 				"./CandA -k 1");
 		CmdLineParser.Option gaborX = parser.addHelp(parser.addDoubleOption(
-				'x', "gaus_x"), "Gabor: Set the Gaussian envelope x position",
+				'x', "gabor_gaus_x"), "Gabor: Set the Gaussian envelope x position",
 				"./CandA -x 0");
 		CmdLineParser.Option gaborY = parser.addHelp(parser.addDoubleOption(
-				'y', "gaus_y"), "Gabor: Set the Gaussian envelope y position",
+				'y', "gabor_gaus_y"), "Gabor: Set the Gaussian envelope y position",
 				"./CandA -y 0");
 		CmdLineParser.Option gaborA = parser.addHelp(parser.addDoubleOption(
-				'a', "gaus_a"), "Gabor: Set the Gaussian envelope scale a",
+				'a', "gabor_gaus_a"), "Gabor: Set the Gaussian envelope scale a",
 				"./CandA -a 0,26");
 		CmdLineParser.Option gaborB = parser.addHelp(parser.addDoubleOption(
-				'b', "gaus_b"), "Gabor: Set the Gaussian envelope scale b",
+				'b', "gabor_gaus_b"), "Gabor: Set the Gaussian envelope scale b",
 				"./CandA -b 0,26");
 		CmdLineParser.Option gaborTheta = parser.addHelp(parser
-				.addDoubleOption('t', "gaus_theta"),
+				.addDoubleOption('t', "gabor_gaus_theta"),
 				"Gabor: Set the Gaussian envelope rotation angle",
 				"./CandA -t 3,14");
 		CmdLineParser.Option gaborFilterMatrixX = parser.addHelp(parser.addIntegerOption(
-				's', "filter_matrix_s"), "Gabor: Set width of the filter matrix.",
+				's', "gabor_filter_matrix_s"), "Gabor: Set width of the filter matrix.",
 				"./CandA -s 7");
 		CmdLineParser.Option gaborFilterMatrixY = parser.addHelp(parser.addIntegerOption(
-				'd', "filter_matrix_d"), "Gabor: Set height of the filter matrix",
+				'd', "gabor_filter_matrix_d"), "Gabor: Set height of the filter matrix",
 				"./CandA -d 7");
 
+		
+		CmdLineParser.Option sinusFilter = parser.addHelp(parser
+				.addStringOption('H', "SINUS"),
+				"Sinus: Perform calculations using the Sinus 'Filter', possibilities follow:",
+				"EXPORT :\tExport the Sinus Filter into an image " +
+				"\t\t./CandA -H EXPORT");
+		
+		CmdLineParser.Option sinusI = parser.addHelp(parser.addIntegerOption(
+				'i', "sinus_i"), "Sinus: Set the sinus filter matrix height",
+				"./CandA -i 10");
+		CmdLineParser.Option sinusU = parser.addHelp(parser.addIntegerOption(
+				'u', "sinus_u"), "Sinus: Set the sinus filter matrix width",
+				"./CandA -u 10");
+		CmdLineParser.Option sinusO = parser.addHelp(parser.addIntegerOption(
+				'o', "sinus_o"), "Sinus: Set the sinus fine level - how many thics are going to be in the image chosen.",
+				"./CandA -o 8");
+		CmdLineParser.Option sinusMagnitude = parser.addHelp(parser.addDoubleOption(
+				'm', "sin_magnitude"),
+				"Sinus: Set the magnitude of the complex sinus function",
+				"./CandA --sin_magnitude 4");
+		
+		
 		CmdLineParser.Option verbose = parser.addHelp(parser.addBooleanOption(
 				'v', "verbose"), "Show some more info when @ work (all log levels!)",
-				"./CandA --verbose");
+		"./CandA --verbose");
 		CmdLineParser.Option help = parser.addHelp(parser.addBooleanOption('h',
-				"help"), "Show this help message", "./CandA -h");
-
+		"help"), "Show this help message", "./CandA -h");
 		
+		/*
+		 * ---------------------------------------------------------------------------------------
+		 */
 		Parser.logger.fine("Begin parsing.");
 		try {
 			parser.parse(args);
@@ -322,6 +346,40 @@ public class Parser extends CmdLineParser {
 			gaborFilterMatriY = Integer.parseInt(parser.properties
 					.getProperty("gabor.filter_matrix_y"));
 		p.add(new IntegerParam(Actions.I_gabor_filter_matrix_y, gaborFilterMatriY));
+		
+		
+		String SINUS = (String) parser.getOptionValue(sinusFilter);
+		if (SINUS != null) {
+			if (SINUS.equals("EXPORT")) {
+				p.add(new StringParam(Actions.F_SINUS_FILTER_EXPORT, SINUS));
+			} else {
+				logger.info("Unexpected parameter found: " + SINUS	+ "; skipping");
+			}
+		}
+		
+		Integer sinusFilterSinusI = (Integer) parser.getOptionValue(sinusI);
+		if (sinusFilterSinusI == null)
+			sinusFilterSinusI = Integer.parseInt(parser.properties
+					.getProperty("sinus.filter_matrix_height"));
+		p.add(new IntegerParam(Actions.I_sinus_filter_matrix_height, sinusFilterSinusI));
+		
+		Integer sinusFilterSinusU = (Integer) parser.getOptionValue(sinusU);
+		if (sinusFilterSinusU == null)
+			sinusFilterSinusU = Integer.parseInt(parser.properties
+					.getProperty("sinus.filter_matrix_width"));
+		p.add(new IntegerParam(Actions.I_sinus_filter_matrix_width, sinusFilterSinusU));
+		
+		Integer sinusFilterSinusO = (Integer) parser.getOptionValue(sinusO);
+		if (sinusFilterSinusO == null)
+			sinusFilterSinusO = Integer.parseInt(parser.properties
+					.getProperty("sinus.fine_level"));
+		p.add(new IntegerParam(Actions.I_sinus_filter_fine, sinusFilterSinusO));
+
+		Double sinusMagnitudeValue = (Double) parser.getOptionValue(sinusMagnitude);
+		if (sinusMagnitudeValue == null)
+			sinusMagnitudeValue = Double.parseDouble(parser.properties
+					.getProperty("sinus.magnitude"));
+		p.add(new DoubleParam(Actions.D_sinus_magnitude, sinusMagnitudeValue));
 
 		Boolean canHasVerbose = (Boolean) parser.getOptionValue(verbose);
 		if (canHasVerbose != null && canHasVerbose.booleanValue() == true){			

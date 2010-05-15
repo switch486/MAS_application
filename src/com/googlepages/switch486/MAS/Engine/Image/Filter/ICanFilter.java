@@ -1,7 +1,6 @@
 package com.googlepages.switch486.MAS.Engine.Image.Filter;
 
 import com.googlepages.switch486.MAS.Engine.Image.AIImage;
-import com.googlepages.switch486.MAS.Engine.Image.Filter.Gabor.FilterMatrixToBigForImageException;
 
 public interface ICanFilter {
 	

@@ -12,6 +12,8 @@ Idea:
 
 So far done: 1*
 
+Working @: 2*
+
 Work pending. . . . .
 
 ***HOW TO:
@@ -27,6 +29,14 @@ To take a look at all options, please do the following in Your bash shell:
 
 ***VERSIONS
 
+v0.0.9
+16.05.2010
+* Tuning the Gabor Filter parameters a bit.
+* Adding a functionality to first of all (since this version) there is a possibility to create a Sinus function filter Matrix.
+The idea is (Point 2*) to transform image, that is represented as pixels into an image that is represented with lines of the same length, that are the border of objects - from the Gabor Function results.
+At the moment You are able to create a sinus-like 3d function that You can rotate.
+* Only this functionality is working at the moment with this version. Searching for the most important one follows.....
+
 v0.0.8
 15.05.2010
 * Created a script to run all 'Tests'
@@ -39,8 +49,7 @@ contains the tests for this filter.
 v0.0.7
 14.05.2010
 * Corrected the -v function, to allow fileHandler - before -v caused to remove the fileHandler and no logs were saved - only shown...
-* Tuned the filter, because Gabor not only shows borders when the value is big, but also when it is low 
-(normaly it would take 2 the time, to filter with a negative version of the filter Matrix), therfore a 
+* Tuned the filter, because Gabor not only shows borders when the value is big, but also when it is low (normaly it would take 2 the time, to filter with a negative version of the filter Matrix), therfore a 
 if (valueAfterfilteringForPixel <0){
 	valueAfterfilteringForPixel = -valueAfterfilteringForPixel;
 } 

@@ -9,6 +9,7 @@ import com.googlepages.switch486.MAS.Bean.Param;
 import com.googlepages.switch486.MAS.Bean.Params;
 import com.googlepages.switch486.MAS.Engine.Image.AIImage;
 import com.googlepages.switch486.MAS.Engine.Image.Filter.Gabor.GaborFilter;
+import com.googlepages.switch486.MAS.Engine.Image.Filter.SinusFilter.SinusFilter;
 import com.googlepages.switch486.MAS.IODB.IIODB;
 
 public class EngineFacade implements IEngine {
@@ -22,11 +23,13 @@ public class EngineFacade implements IEngine {
 	private static final Logger logger = Logger.getLogger(EngineFacade.class.getName());
 	
 	private GaborFilter gf;
+	private SinusFilter sf;
 	
 	private String OutPutFileLocation;
 	
 	public EngineFacade() {
 		gf = new GaborFilter();
+		sf = new SinusFilter();
 	}
 	
 	@Override
@@ -35,6 +38,7 @@ public class EngineFacade implements IEngine {
 		OutPutFileLocation = p
 				.getStringParam(Actions.G_FILEPATH_FOR_OUTPUT_FILES);
 		gf.setGfParams(p);
+		sf.setSfParams(p);
 		if (p.contains(Actions.F_GABOR_FILTER_EXPORT)) {
 			logger.info("<> Export Gabor Filter Action");
 			iODBWorker.runShellCommandForFilterExport(gf.exportFilter(OutPutFileLocation));
@@ -68,6 +72,10 @@ public class EngineFacade implements IEngine {
 			} else {
 				logger.warning("There was no source image to start the filtering with");
 			}
+		}
+		if (p.contains(Actions.F_SINUS_FILTER_EXPORT)) {
+			logger.info("<> Export Sinus Filter Matrix Action");
+			iODBWorker.runShellCommandForFilterMatrixExport(sf.exportFilterMatrix(OutPutFileLocation));
 		}
 		
 		//logger.fine(p.toString());

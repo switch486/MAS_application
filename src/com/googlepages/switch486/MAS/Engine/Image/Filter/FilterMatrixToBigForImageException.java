@@ -1,4 +1,4 @@
-package com.googlepages.switch486.MAS.Engine.Image.Filter.Gabor;
+package com.googlepages.switch486.MAS.Engine.Image.Filter;
 
 public class FilterMatrixToBigForImageException extends Exception {
 

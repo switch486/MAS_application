@@ -16,10 +16,10 @@ import com.googlepages.switch486.MAS.Bean.Param;
 import com.googlepages.switch486.MAS.Bean.Params;
 import com.googlepages.switch486.MAS.Engine.Image.AIImage;
 import com.googlepages.switch486.MAS.Engine.Image.IsToImageable;
+import com.googlepages.switch486.MAS.Engine.Image.Filter.FilterMatrixToBigForImageException;
 import com.googlepages.switch486.MAS.Engine.Image.Filter.ICanFilter;
-import com.googlepages.switch486.MAS.Engine.Image.Filter.IFilter;
 
-public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
+public class GaborFilter implements ICanFilter, IsToImageable {
 	
 	private static final Logger logger = Logger.getLogger(GaborFilter.class.getName());
 
@@ -45,12 +45,12 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	/**
 	 * @param p the p to set
 	 */
-	private void setP(double p, DoubleParam pa) {
+	private void setP(double p, Param dp) {
 		setP(p);
-		if (pa==null) 
+		if (dp==null) 
 			return;
-		if (pa.getAction().equals(Actions.D_gabor_sin_phase)) 
-			setP(pa.getParameter());
+		if (dp.getAction().equals(Actions.D_gabor_sin_phase)) 
+			setP(((DoubleParam)dp).getParameter());
 	}
 	private void setP(double p) {
 		if (p < 0 || p > Math.PI*2) {
@@ -64,12 +64,12 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	/**
 	 * @param f0 the f0 to set
 	 */
-	private void setF0(double f0, DoubleParam pa) {
+	private void setF0(double f0, Param dp) {
 		setF0(f0);
-		if (pa==null) 
+		if (dp==null) 
 			return;
-		if (pa.getAction().equals(Actions.D_gabor_sin_magnitude)) 
-			setF0(pa.getParameter());
+		if (dp.getAction().equals(Actions.D_gabor_sin_magnitude)) 
+			setF0(((DoubleParam)dp).getParameter());
 	}
 	private void setF0(double f0) {
 		if (f0 < 0.001 || f0 > 1) {
@@ -85,12 +85,12 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	 *            - double value in bounds 0.0-1.0 that represents the angle of
 	 *            the sin function
 	 */
-	private void setW0(double w0, DoubleParam pa) {
+	private void setW0(double w0, Param dp) {
 		setW0(w0);
-		if (pa==null) 
+		if (dp==null) 
 			return;
-		if (pa.getAction().equals(Actions.D_gabor_sin_direction)) 
-			setW0(pa.getParameter());
+		if (dp.getAction().equals(Actions.D_gabor_sin_direction)) 
+			setW0(((DoubleParam)dp).getParameter());
 	}
 	public void setW0(double w0) {
 		/*
@@ -107,12 +107,12 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	/**
 	 * @param k the k to set - at the moment does not have a meaning...
 	 */
-	private void setK(double k, DoubleParam pa) {
+	private void setK(double k, Param dp) {
 		setK(k);
-		if (pa==null) 
+		if (dp==null) 
 			return;
-		if (pa.getAction().equals(Actions.D_gabor_gaus_scale)) 
-			setK(pa.getParameter());
+		if (dp.getAction().equals(Actions.D_gabor_gaus_scale)) 
+			setK(((DoubleParam)dp).getParameter());
 	}
 	private void setK(double k) {
 		if (k < 1 || k > 1) {
@@ -126,12 +126,12 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	/**
 	 * @param x0 the x0 to set
 	 */
-	private void setX0(double x0, DoubleParam pa) {
+	private void setX0(double x0, Param dp) {
 		setX0(x0);
-		if (pa==null) 
+		if (dp==null) 
 			return;
-		if (pa.getAction().equals(Actions.D_gabor_gaus_x)) 
-			setX0(pa.getParameter());
+		if (dp.getAction().equals(Actions.D_gabor_gaus_x)) 
+			setX0(((DoubleParam)dp).getParameter());
 	}
 	private void setX0(double x0) {
 		if (x0 < -4 || x0 > 4) {
@@ -145,12 +145,12 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	/**
 	 * @param y0 the y0 to set
 	 */
-	private void setY0(double y0, DoubleParam pa) {
+	private void setY0(double y0, Param dp) {
 		setY0(y0);
-		if (pa==null) 
+		if (dp==null) 
 			return;
-		if (pa.getAction().equals(Actions.D_gabor_gaus_y))
-			setY0(pa.getParameter());
+		if (dp.getAction().equals(Actions.D_gabor_gaus_y))
+			setY0(((DoubleParam)dp).getParameter());
 	}
 	private void setY0(double y0) {
 		if (y0 < -4 || y0 > 4) {
@@ -164,12 +164,12 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	/**
 	 * @param a the a to set
 	 */
-	private void setA(double a, DoubleParam pa) {
+	private void setA(double a, Param dp) {
 		setA(a);
-		if (pa==null) 
+		if (dp==null) 
 			return;
-		if (pa.getAction().equals(Actions.D_gabor_gaus_a)) 
-			setA(pa.getParameter());
+		if (dp.getAction().equals(Actions.D_gabor_gaus_a)) 
+			setA(((DoubleParam)dp).getParameter());
 	}
 	private void setA(double a) {
 		if (a < 0 || a > 1) {
@@ -183,12 +183,12 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	/**
 	 * @param b the b to set
 	 */
-	private void setB(double b, DoubleParam pa) {
+	private void setB(double b, Param dp) {
 		setB(b);
-		if (pa==null) 
+		if (dp==null) 
 			return;
-		if (pa.getAction().equals(Actions.D_gabor_gaus_b)) 
-			setB(pa.getParameter());
+		if (dp.getAction().equals(Actions.D_gabor_gaus_b)) 
+			setB(((DoubleParam)dp).getParameter());
 	}
 	private void setB(double b) {
 		if (b < 0 || b > 1) {
@@ -202,12 +202,12 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 	/**
 	 * @param theta the theta to set
 	 */
-	private void setTheta(double theta, DoubleParam pa) {
+	private void setTheta(double theta, Param dp) {
 		setTheta(theta);
-		if (pa==null) 
+		if (dp==null) 
 			return;
-		if (pa.getAction().equals(Actions.D_gabor_gaus_theta)) 
-			setTheta(pa.getParameter());
+		if (dp.getAction().equals(Actions.D_gabor_gaus_theta)) 
+			setTheta(((DoubleParam)dp).getParameter());
 	}
 	private void setTheta(double theta) {
 		if (theta < 0 || theta > Math.PI*2) {
@@ -419,6 +419,8 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 				liste.add("b  = " + b);
 				liste.add("p  = " + p);
 				liste.add("K  = " + K);
+				liste.add("Filter.length  = " + filterMatrix.length);
+				liste.add("Filter[].length  = " + filterMatrix[0].length);
 				liste.add("theta  = " + theta);
 				for (int i = 0, j = 10; i < liste.size(); i++, j += 20) {
 					g.drawString(liste.get(i), ymax+10, j);
@@ -453,6 +455,8 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 		liste.append("# p  = " + p+"\n");
 		liste.append("# K  = " + K+"\n");
 		liste.append("# theta  = " + theta+"\n");
+		liste.append("# Filter.length  = " + filterMatrix.length);
+		liste.append("# Filter[].length  = " + filterMatrix[0].length);
 		liste.append("# -------------------------------------------------------------------------- \n");
 		liste.append("# NOTE: To run this script You need to have installed the Gnuplot application\n");
 		liste.append("# For linux users, please run 'gnuplot THIS_FILE_NAME', to recieve results\n");
@@ -484,33 +488,11 @@ public class GaborFilter implements ICanFilter, IsToImageable, IFilter {
 		return s.toString();
 	}
 
-	/**
-	 * @return returns a new filter matrix, that values sum up to 1
-	 */
-	@Deprecated
-	private double[][] normalize(double [][] matrixIn) {
-		double sum = 0d;
-		int xsize = matrixIn.length;
-		int ysize = matrixIn[0].length;
-		for (int i=0; i<xsize; i++) {
-			for (int j=0; j<ysize; j++) {
-				sum +=matrixIn[i][j];
-			}
-		}
-		double [][] out = new double [xsize][ysize];
-		for (int i=0; i<xsize; i++) {
-			for (int j=0; j<ysize; j++) {
-				out[i][j]=matrixIn[i][j]/sum;
-			}
-		}
-		return out;
-	}
-
 	public void setGfParams(Params p) {
 		setGfParams(p, null);
 	}
 	
-	public void setGfParams(Params p, DoubleParam dp) {
+	public void setGfParams(Params p, Param dp) {
 			this.setA (p.getDoubleParam(Actions.D_gabor_gaus_a), dp);
 			this.setB (p.getDoubleParam(Actions.D_gabor_gaus_b), dp);
 			this.setF0(p.getDoubleParam(Actions.D_gabor_sin_magnitude), dp);

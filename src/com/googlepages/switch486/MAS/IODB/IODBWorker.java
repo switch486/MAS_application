@@ -38,7 +38,11 @@ public class IODBWorker implements IIODB {
 	@Override
 	public void runShellCommandForFilterMatrixExport(String[] command) {
 		writeFile(command[1], command[0]);
-		writeFile(command[4], command[3]);
+		int i=3; 
+		while (i < command.length - 1) {
+			writeFile(command[i+1], command[i]);
+			i+=2;
+		}
 		
 		String ComplexCommand = "gnuplot "+command[0];
 		runShell(ComplexCommand);
@@ -54,6 +58,7 @@ public class IODBWorker implements IIODB {
 		}catch(Exception e){
 			logger.log(Level.WARNING, "Script export Exception", e);
 		}
+		logger.fine("The following file was written: ["+fileName+"]");
 	}
 
 	private void runShell(String command) {
@@ -87,11 +92,11 @@ public class IODBWorker implements IIODB {
 	      File target = new File(imageFilePath);
 
 	      if (!target.exists()) {
-	        logger.info("File " + imageFilePath+ " is no more..");
+	        logger.info("File " + imageFilePath+ " WAS no more..");
 	        return;
 	      }
 	      if (target.delete())
-	        logger.fine("File: " + imageFilePath + " removed succesfully");
+	        logger.fine("File: " + imageFilePath + " removed succesfully!");
 	      else
 	    	logger.info("Failed to delete " + imageFilePath);
 	    } catch (Exception e) {

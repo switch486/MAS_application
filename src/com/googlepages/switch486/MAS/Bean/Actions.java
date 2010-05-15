@@ -12,6 +12,7 @@ public enum Actions {
 	 */
 	F_GABOR_FILTER_EXPORT, 
 	F_GABOR_FILTER_MATRIX_EXPORT,
+	F_SINUS_FILTER_EXPORT,
 	F_FILTER_WITH_GABOR_FILTER_ONCE,
 	F_FILTER_WITH_GABOR_FILTER,
 	
@@ -27,12 +28,18 @@ public enum Actions {
 	D_gabor_gaus_a, 
 	D_gabor_gaus_b, 
 	D_gabor_gaus_theta,
+	D_sinus_magnitude,
+	//D_sinus_direction,
+	
 	
 	/*
 	 * Ints representing the other Gabor Filter parameters
 	 */
 	I_gabor_filter_matrix_x,
 	I_gabor_filter_matrix_y,
+	I_sinus_filter_matrix_width,
+	I_sinus_filter_matrix_height,
+	I_sinus_filter_fine,
 	
 	;
 	
