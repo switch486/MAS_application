@@ -69,28 +69,6 @@ public class SinusFilter implements ICanFilter {
 		this.magnitude = magnitude;
 	}
 	
-	/**
-	 * @param direction
-	 *            - double value in bounds 0.0-1.0 that represents the angle of
-	 *            the sin function
-	 */
-	/*private void setDirection(double direction, Param dp) {
-		setDirection(direction);
-		if (dp==null) 
-			return;
-		if (dp.getAction().equals(Actions.D_sinus_direction)) 
-			setDirection(((DoubleParam)dp).getParameter());
-	}*/
-	/*@Deprecated
-	public void setDirection(double direction) {
-		if (direction < 0d || direction > 1d) { // roundings....
-			logger.warning("Actual value: " + direction
-					+ " for the argument direction out of the bounds [0.0d; 1.0d], setting direction to 0.");
-			direction = 0;
-		}
-		//this.direction = direction;
-		//this.direction = Math.PI + direction * Math.PI;
-	}*/
 	
 	private double getDirection(int num) {
 		return ((double)num/(double)fineLevel) * Math.PI + Math.PI;
@@ -134,11 +112,18 @@ public class SinusFilter implements ICanFilter {
 		}
 	}
 
-	private String filterToString(){
+	private String filterToString(int t){
+		double direction = getDirection(t);
 		StringBuilder out = new StringBuilder();
 		out.append('(');
 		//SinPart
-		//TODO
+		out.append("cos(");			//sin - B
+			out.append("2*pi*"+magnitude);
+			out.append("*(");			////B
+				out.append("x*cos("+direction+")");
+				out.append("+y*sin("+direction+")");
+			out.append(")");			////E
+		out.append(")");			//sin - E
 		return out.append(')').toString();
 	}
 	
@@ -155,9 +140,55 @@ public class SinusFilter implements ICanFilter {
 				|| ySize != filterMatrix[0].length) {
 			setFilterMatrix(xSize, ySize);
 		}
-
-		//TODO
-		return filter(imageToTransform, filterMatrix[0]);
+		return filter(imageToTransform);
+	}
+	
+	private double countEuclideanDistanceMatrix(AIImage to, int i2, int j2, int fmx, int fmy, int t){
+		double sum = 0;
+		for (int i=i2, cc=0; i<i2+fmx; i++, cc++) {
+			for (int j=j2, dd=0; j<j2+fmy; j++, dd++) {
+				double d = filterMatrix[t][cc][dd] - new Color(to.getRGB(i, j)).getRed()/(double)255;
+				sum = sum + ((d>0)? d : -d);
+			}
+		}
+		return sum;
+	}
+	
+	private void paintT(AIImage out, int i2, int j2, int fmx, int fmy, int tbest, double borderWidth) {
+		double m = 1 - borderWidth;
+		if (tbest != -1) {
+			for (int i = i2, cc = 0; i < i2 + fmx; i++, cc++) {
+				for (int j = j2, dd = 0; j < j2 + fmy; j++, dd++) {
+					float f = (filterMatrix[tbest][cc][dd]) > (m) ? 0 : 1;
+					out.setRGB(i, j, new Color(f, f, f).getRGB());
+				}
+			}
+		} else {
+			for (int i = i2; i < i2 + fmx; i++) {
+				for (int j = j2; j < j2 + fmy; j++) {
+					out.setRGB(i, j, Color.WHITE.getRGB());
+				}
+			}
+		}
+	}
+	
+	private double stddev (double [] d) {
+		double avg = average(d);
+		int l = d.length;
+		double val = 0d;
+		for (int i=0; i<l; i++) {
+			val += (d[i]-avg)*(d[i]-avg);
+		}
+		return Math.sqrt(val/l);
+	}
+	
+	private double average (double []d ){
+		int l = d.length;
+		double val = 0d;
+		for (int i=0; i<l; i++) {
+			val +=d[i];
+		}
+		return val/l;
 	}
 	
 	/* (non-Javadoc)
@@ -165,11 +196,57 @@ public class SinusFilter implements ICanFilter {
 	 */
 	@Override
 	public AIImage filter(AIImage imageToTransform) {
-		return filter(imageToTransform, this.filterMatrix[0]);
+		int iWidth = imageToTransform.getWidth();
+		int iHeight = imageToTransform.getHeight();
+		AIImage out = new AIImage(iWidth, iHeight, BufferedImage.TYPE_INT_ARGB);
+		int beX;// \ that are those values that represent the x and y of the image marking the point (0, 0), because not every image will have sizes matching int*filtermatrix[0].length etc.
+		int beY;// /
+		int fmx = filterMatrix[0].length;
+		int fmy = filterMatrix[0][0].length;
+		beX = (iWidth % fmx) / 2; // example (35%20=15)/2=7;
+		beY = (iHeight % fmy) / 2; // example
+															// (35%20=15)/2=7;
+		int xTimes = iWidth / fmx;
+		int yTimes = iHeight / fmy;
+		for (int i=0; i<xTimes; i++) {
+			for (int j=0; j<yTimes; j++) {
+				
+				int tbest = -1;
+				double tvalmin = Double.MAX_VALUE;
+				double [] vals = new double [fineLevel]; 
+				for (int t = 0; t < fineLevel; t++) {
+					double d = countEuclideanDistanceMatrix(imageToTransform, i*fmx+beX, j*fmy+beY, fmx, fmy, t);
+					vals[t] = d; 
+					if (d<tvalmin) {
+						tbest = t;
+						tvalmin = d;
+					}
+				}
+				double dev = stddev(vals);
+				if (dev > ((Math.PI) / 2)) {
+					paintT(out, i * fmx + beX, j * fmy + beY, fmx, fmy, tbest,
+							0.1);
+				} else {
+					paintT(out, i * fmx + beX, j * fmy + beY, fmx, fmy, -1,
+							0.1);
+				}
+				
+				
+			}
+		}		
+		return out;
 		///TODO
 	}
 
 	@Override
+	@Deprecated
+	/*
+	 * Please don"t use 
+	 * public AIImage filter(AIImage imageToTransform, int xSize,int ySize)
+	 * or
+	 * public AIImage filter(AIImage imageToTransform)
+	 * instead
+	 */
 	public AIImage filter(AIImage imageToTransform,
 			double[][] filterMatrixInput) {
 		//double[][] filterMatrixNormalizedInput = normalize(filterMatrixInput);
@@ -203,7 +280,7 @@ public class SinusFilter implements ICanFilter {
 				out.setRGB(x, y, new Color(val, val, val).getRGB());
 			}
 		}
-		return out;
+		throw new RuntimeException("This Function is deprecated, please do not use it!");
 	}
 	
 	public String listParameters () {
@@ -220,11 +297,11 @@ public class SinusFilter implements ICanFilter {
 	}
 	
 	@Override
+	@Deprecated
 	public String toString() {
 		StringBuilder s = new StringBuilder();
 		this.setFilterMatrix(20, 20);
 		for (int i = 0; i < filterMatrix[0].length; i++) {
-			//TODO
 			for (int j = 0; j < filterMatrix[0].length; j++) {
 				s.append("" + filterMatrix[0][i][j] + "\t");
 			}
@@ -273,28 +350,68 @@ public class SinusFilter implements ICanFilter {
 	 */
 	public String[] exportFilter(String outPutFileLocation) {
 		long name = System.currentTimeMillis();
+		int lv = this.fineLevel;
+		int wid = ((int)Math.sqrt(lv))+1;
+		double size = 1/(double)wid;
+		
 		
 		String[] out = new String[4];
 		StringBuilder s = new StringBuilder();
 		out[0] = outPutFileLocation + name;
-
+		
 		char c = '\"';
-		s.append("set terminal png;\n");
-		s.append("set hidden3d;\n");
-		s.append("set pm3d;\n");
-		s.append("set isosample 100,100;\n");
-		s.append("set xrange [-4:4];\n");
-		s.append("set yrange [-4:4];\n");
-		s.append("set zrange [-1:1];\n");
+		s.append("set size 1,1;\n");
+		s.append("set origin 0.0,0.0;\n");
+		s.append("set terminal png size 800,800\n");
 		out[2] = outPutFileLocation + name + "_1.png";
 		s.append("set output " + c + out[2] + c+ "\n");
-		s.append("splot "+this.filterToString()+" title 'Gabor Function'\n");
-		s.append("set pm3d map;\n");
-		//s.append("set zrange [-1:1];\n");
-		s.append("set isosample 100,100;\n");
+		s.append("set multiplot;\n");
+		s.append("set hidden3d;\n");
+		s.append("set noytics;\n");
+		s.append("set noxtics;\n");
+		s.append("set noztics;\n");
+		s.append("set nokey;\n");
+		s.append("set pm3d;\n");
+		s.append("set isosample 50,50;\n");
+		s.append("set palette defined (-1 "+c+"blue"+c+", 0 "+c+"white"+c+", 1 "+c+"red"+c+");\n");
+		s.append("set size "+size+","+size+";\n");
+		s.append("set xrange [-1:1];\n");
+		s.append("set yrange [-1:1];\n");
+		s.append("set zrange [-1:1];\n");
+		//size
+		for (int i=0; i<lv; i++) {
+			s.append("set origin "+fP(i*size)+","+(gP(((int)(i*size))*size)-size)+";\n");
+			//logger.info("set origin "+fP(i*size)+","+gP(((int)(i*size))*size)+";");
+			s.append("splot "+this.filterToString(i)+" notitle ;\n");
+		}
+		s.append("unset multiplot;");
+		//------------------------------------
+		s.append("set size 1,1;\n");
+		s.append("set origin 0.0,0.0;\n");
+		s.append("set terminal png size 800,800\n");
 		out[3] = outPutFileLocation + name + "_2.png";
 		s.append("set output " + c + out[3] + c+ "\n");
-		s.append("splot "+this.filterToString()+" title 'Gabor Function'\n");
+		s.append("set multiplot;\n");
+		s.append("set hidden3d;\n");
+		s.append("set nokey;\n");
+		s.append("set noytics;\n");
+		s.append("set palette defined (-1 "+c+"blue"+c+", 0 "+c+"white"+c+", 1 "+c+"red"+c+");\n");
+		s.append("set noxtics;\n");
+		s.append("set noztics;\n");
+		s.append("set pm3d map;\n");
+		s.append("set isosample 50,50;\n");
+		s.append("set size "+size+","+size+";\n");
+		s.append("set xrange [-1:1];\n");
+		s.append("set yrange [-1:1];\n");
+		s.append("set zrange [-1:1];\n");
+		//size
+		for (int i=0; i<lv; i++) {
+			s.append("set origin "+fP(i*size)+","+(gP(((int)(i*size))*size)-size)+";\n");
+			//logger.info("set origin "+fP(i*size)+","+gP(((int)(i*size))*size)+";");
+			s.append("splot "+this.filterToString(i)+" notitle ;\n");
+		}
+		s.append("unset multiplot;");
+		
 		out[1] = s.toString() +listParameters();
 		return out;
 	}
@@ -341,4 +458,11 @@ public class SinusFilter implements ICanFilter {
 		return out;
 	}
 
+	private double gP(double x) {
+		return 1-x;
+	}
+	private double fP(double x) {
+		return x>=0.99? fP(x-1):x;
+	}
+	
 }

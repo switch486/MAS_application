@@ -520,7 +520,7 @@ public class GaborFilter implements ICanFilter, IsToImageable {
 		out[0] = outPutFileLocation + name;
 
 		char c = '\"';
-		s.append("set terminal png;\n");
+		s.append("set terminal png size 800,800\n");
 		s.append("set hidden3d;\n");
 		s.append("set pm3d;\n");
 		s.append("set isosample 100,100;\n");

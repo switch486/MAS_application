@@ -10,8 +10,16 @@
   <bean id="com.googlepages.switch486.MAS.Engine.IEngine"
         class="com.googlepages.switch486.MAS.Engine.EngineFacade">
     <property name="IODBWorker" ref="com.googlepages.switch486.MAS.IODB.IIODB"/>
+    <property name="gf" ref="GaborFilter"/>
+    <property name="sf" ref="SinusFilter"/>
   </bean>
   <bean id="com.googlepages.switch486.MAS.IODB.IIODB"
         class="com.googlepages.switch486.MAS.IODB.IODBWorker">
+  </bean>
+  <bean id="GaborFilter"
+        class="com.googlepages.switch486.MAS.Engine.Image.Filter.Gabor.GaborFilter">
+  </bean>
+  <bean id="SinusFilter"
+        class="com.googlepages.switch486.MAS.Engine.Image.Filter.SinusFilter.SinusFilter">
   </bean>
 </beans>

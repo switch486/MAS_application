@@ -28,7 +28,7 @@ public class IODBWorker implements IIODB {
 		writeFile(command[1], command[0]);
 		
 		String ComplexCommand = "gnuplot "+command[0];
-		String secondCommand = "montage -geometry 640x480 "+command[2]+" -geometry 640x480 "+command[3]+" "+command[0]+".png";
+		String secondCommand = "montage -geometry 800x800 "+command[2]+" -geometry 800x800 "+command[3]+" "+command[0]+".png";
 		runShell(ComplexCommand);
 		runShell(secondCommand);
 		delete(command[2]);
@@ -129,7 +129,7 @@ public class IODBWorker implements IIODB {
 	}
 
 	@Override
-	public void runShellCommandForResultsMerge(ArrayList<String> list) {
+	public String runShellCommandForResultsMerge(ArrayList<String> list) {
 		for (int i=1; i< list.size(); i++) {
 			runShell("composite -compose Screen -gravity center "+list.get(i-1)+" "+list.get(i)+ " " + list.get(i));
 		}
@@ -137,6 +137,7 @@ public class IODBWorker implements IIODB {
 		for (int i=0; i< list.size()-1; i++) {
 			delete(list.get(i));
 		}
+		return list.get(list.size()-1);
 	}
 
 	

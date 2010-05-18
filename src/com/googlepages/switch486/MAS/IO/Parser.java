@@ -207,7 +207,9 @@ public class Parser extends CmdLineParser {
 		CmdLineParser.Option sinusFilter = parser.addHelp(parser
 				.addStringOption('H', "SINUS"),
 				"Sinus: Perform calculations using the Sinus 'Filter', possibilities follow:",
-				"EXPORT :\tExport the Sinus Filter into an image " +
+				"EXPORT :\tExport the Sinus Filters into a multiimage \n" +
+				"\t\tEXPORTFM :\tExport the Sinus Filter matrix into a set of images \n" +
+				"\t\tFILTER :\tFilters the output of the Gabor filter(SOURCE) with a _Sinus_ filter\n" +
 				"\t\t./CandA -H EXPORT");
 		
 		CmdLineParser.Option sinusI = parser.addHelp(parser.addIntegerOption(
@@ -352,6 +354,10 @@ public class Parser extends CmdLineParser {
 		if (SINUS != null) {
 			if (SINUS.equals("EXPORT")) {
 				p.add(new StringParam(Actions.F_SINUS_FILTER_EXPORT, SINUS));
+			}else if (SINUS.equals("EXPORTFM")) {
+				p.add(new StringParam(Actions.F_SINUS_FILTER_MATRIX_EXPORT, SINUS));
+			}else if (SINUS.equals("FILTER")) {
+				p.add(new StringParam(Actions.F_SINUS_FILTER_FILTER_IMAGE, SINUS));
 			} else {
 				logger.info("Unexpected parameter found: " + SINUS	+ "; skipping");
 			}

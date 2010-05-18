@@ -16,7 +16,7 @@ public interface IIODB {
 	
 	public void writeFile(String command, String fileName);
 
-	public void runShellCommandForResultsMerge(ArrayList<String> list);
+	public String runShellCommandForResultsMerge(ArrayList<String> list);
 
 
 }

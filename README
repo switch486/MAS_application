@@ -29,6 +29,14 @@ To take a look at all options, please do the following in Your bash shell:
 
 ***VERSIONS
 
+v0.1.0
+18.05.2010
+* Creating an option, that will show the SinusFilter via gnuplot function plot (./CandA -H EXPORT).
+* Setting Filters using Spring.
+* Filtering with the sinus function are working!, but the parameters that are needed to work with it, are still waiting... For test, please try sth like:
+./CandA -H FILTER -S "/home/switch486/one.png" -i 5 -u 5 -o 12
+
+
 v0.0.9
 16.05.2010
 * Tuning the Gabor Filter parameters a bit.

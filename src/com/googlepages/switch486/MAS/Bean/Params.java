@@ -54,5 +54,14 @@ public class Params extends ArrayList<Param> {
 		}
 	}
 
+	public void remove(Actions a) {
+		this.remove(this.get(a));
+	}
+
+	public void resetParameterForAction(Actions AC, String param) {
+		this.remove(AC);
+		this.add (new StringParam(AC, param));
+	}
+
 	
 }
