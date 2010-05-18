@@ -1,0 +1,6 @@
+rm /home/switch486/MAS_PARAMS/2_filters/*
+./compile
+./run -H EXPORT -i 7 -u 7 -o 8 -L /home/switch486/MAS_PARAMS/2_filters/
+./run -H EXPORTFM -i 7 -u 7 -o 8 -L /home/switch486/MAS_PARAMS/2_filters/
+./run -H EXPORTFM -i 7 -u 17 -o 8 -L /home/switch486/MAS_PARAMS/2_filters/
+

@@ -21,6 +21,7 @@ do
 done
 #echo $all $mainClass # contains the MainClass to start with
 #echo $*
+echo ">>> Run Params: ./run $@"
 
 java $all $mainClass "$@"
 echo ">>> run end"

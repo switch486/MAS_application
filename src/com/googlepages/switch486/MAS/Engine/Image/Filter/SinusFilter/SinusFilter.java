@@ -442,7 +442,7 @@ public class SinusFilter implements ICanFilter {
 		char c = '\"';
 		s.append("set terminal png;\n");
 		s.append("set hidden3d;\n");
-		s.append("set dgrid3d 40,40;\n");
+		s.append("set dgrid3d "+filterMatrix[0].length+","+filterMatrix[0][0].length+";\n");
 		
 		for (int i=0; i<fineLevel; i++) {
 			s.append("# Fine Level "+i+" of "+fineLevel+"\n");
