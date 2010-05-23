@@ -29,6 +29,11 @@ To take a look at all options, please do the following in Your bash shell:
 
 ***VERSIONS
 
+v0.1.1
+23.05.2010
+* Rewritten test-scripts - You can use them in an easier way...
+* Updated the sinus finction
+
 v0.1.0
 18.05.2010
 * Creating an option, that will show the SinusFilter via gnuplot function plot (./CandA -H EXPORT).
