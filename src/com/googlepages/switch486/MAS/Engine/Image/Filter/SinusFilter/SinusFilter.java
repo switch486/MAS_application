@@ -28,7 +28,7 @@ public class SinusFilter implements ICanFilter {
 	 */
 	private int fineLevel;
 	private double magnitude;
-	//private double direction;
+	
 	
 	/**
 	 * @param a the a to set
@@ -73,17 +73,11 @@ public class SinusFilter implements ICanFilter {
 	private double getDirection(int num) {
 		return ((double)num/(double)fineLevel) * Math.PI + Math.PI;
 	}
-	
 
-	/**
-	 *
-	 */
 	public SinusFilter() {
 
 	}
 
-
-	
 
 	/**
 	 * @param xSize
@@ -94,19 +88,34 @@ public class SinusFilter implements ICanFilter {
 	 */
 	private void setFilterMatrix(int xSize, int ySize) {
 		//fineLevel = nOOfThics;
-		filterMatrix = new double[fineLevel][xSize][ySize];
+		int times = (3*fineLevel);
+		filterMatrix = new double[times][xSize][ySize];
 		for (int t = 0; t < fineLevel; t++) {
 			double direction =  getDirection(t);
 			for (int x = 0; x < xSize; x++) {
 				for (int y = 0; y < ySize; y++) {
 					double xfrac = (2*(double) x / (double) (xSize-1)) - 1;
 					double yfrac = (2*(double) y / (double) (ySize-1)) - 1;
-
-					double sinValue = Math.cos(2 * Math.PI * magnitude
+					double sinValue ;
+					
+					sinValue = Math.cos(2 * Math.PI * magnitude
 							* (xfrac * Math.cos(direction) + yfrac * Math.sin(direction)));
-
+					
 					filterMatrix[t][x][y] = sinValue;
-
+				}
+			}
+		}
+		for (int t = fineLevel; t < filterMatrix.length; t++) {
+			double direction =  getDirection(t);
+			for (int x = 0; x < xSize; x++) {
+				for (int y = 0; y < ySize; y++) {
+					double xfrac = (2*(double) x / (double) (xSize-1)) - 1;
+					double yfrac = (2*(double) y / (double) (ySize-1)) - 1;
+					double sinValue ;
+						sinValue = Math.sin(2 * Math.PI * magnitude
+								* (xfrac * Math.cos(direction) + yfrac * Math.sin(direction)));
+					
+					filterMatrix[t][x][y] = sinValue;
 				}
 			}
 		}
@@ -117,10 +126,15 @@ public class SinusFilter implements ICanFilter {
 		StringBuilder out = new StringBuilder();
 		out.append('(');
 		//SinPart
-		out.append("cos(");			//sin - B
+		if (t<fineLevel) {
+			out.append("cos("); // sin - B
+		} else {
+			out.append("sin("); // sin - B
+		}
 			out.append("2*pi*"+magnitude);
 			out.append("*(");			////B
 				out.append("x*cos("+direction+")");
+				//TODO - = poprawienie parametrów, tak, żeby działało przesuwanie sinusa wraz z wytłumieniem śmieci...
 				out.append("+y*sin("+direction+")");
 			out.append(")");			////E
 		out.append(")");			//sin - E
@@ -204,8 +218,7 @@ public class SinusFilter implements ICanFilter {
 		int fmx = filterMatrix[0].length;
 		int fmy = filterMatrix[0][0].length;
 		beX = (iWidth % fmx) / 2; // example (35%20=15)/2=7;
-		beY = (iHeight % fmy) / 2; // example
-															// (35%20=15)/2=7;
+		beY = (iHeight % fmy) / 2; // example (35%20=15)/2=7;
 		int xTimes = iWidth / fmx;
 		int yTimes = iHeight / fmy;
 		for (int i=0; i<xTimes; i++) {
@@ -213,8 +226,8 @@ public class SinusFilter implements ICanFilter {
 				
 				int tbest = -1;
 				double tvalmin = Double.MAX_VALUE;
-				double [] vals = new double [fineLevel]; 
-				for (int t = 0; t < fineLevel; t++) {
+				double [] vals = new double [filterMatrix.length]; 
+				for (int t = 0; t < vals.length	; t++) {
 					double d = countEuclideanDistanceMatrix(imageToTransform, i*fmx+beX, j*fmy+beY, fmx, fmy, t);
 					vals[t] = d; 
 					if (d<tvalmin) {
@@ -223,7 +236,9 @@ public class SinusFilter implements ICanFilter {
 					}
 				}
 				double dev = stddev(vals);
-				if (dev > ((Math.PI) / 2)) {
+				//if (dev > 1) {
+				//if (dev > ((Math.PI) / 2)) {
+				if (dev > ((Math.PI))) {
 					paintT(out, i * fmx + beX, j * fmy + beY, fmx, fmy, tbest,
 							0.1);
 				} else {
@@ -288,6 +303,8 @@ public class SinusFilter implements ICanFilter {
 		liste.append("\n\n# Parameters:\n");
 		liste.append("# Magnitude  = " + magnitude+"\n");
 		liste.append("# Fine level  = " + fineLevel+"\n");
+		//liste.append("# Phase  = " + phase+"\n");
+		liste.append("# Filter.length  = " + filterMatrix.length+"\n");
 		liste.append("# Filter[].length  = " + filterMatrix[0].length+"\n");
 		liste.append("# Filter[][].length  = " + filterMatrix[0][0].length+"\n");
 		liste.append("# -------------------------------------------------------------------------- \n");
@@ -329,6 +346,7 @@ public class SinusFilter implements ICanFilter {
 		this.setFineLevel(p.getIntParam(Actions.I_sinus_filter_fine), dp);
 		//this.setDirection(p.getIntParam(Actions.D_sinus_direction), dp);
 		this.setMagnitude(p.getDoubleParam(Actions.D_sinus_magnitude), dp);
+		////this.setPhase(p.getBooleanParam(Actions.B_sinus_filter_phase), dp);
 			/*this.setA (p.getDoubleParam(Actions.D_gabor_gaus_a), dp);
 			this.setF0(p.getDoubleParam(Actions.D_gabor_sin_magnitude), dp);
 			this.setP (p.getDoubleParam(Actions.D_gabor_sin_phase), dp);
@@ -350,7 +368,8 @@ public class SinusFilter implements ICanFilter {
 	 */
 	public String[] exportFilter(String outPutFileLocation) {
 		long name = System.currentTimeMillis();
-		int lv = this.fineLevel;
+		//int lv = this.fineLevel;
+		int lv = this.filterMatrix.length;
 		int wid = ((int)Math.sqrt(lv))+1;
 		double size = 1/(double)wid;
 		
@@ -362,7 +381,7 @@ public class SinusFilter implements ICanFilter {
 		char c = '\"';
 		s.append("set size 1,1;\n");
 		s.append("set origin 0.0,0.0;\n");
-		s.append("set terminal png size 800,800\n");
+		s.append("set terminal png size 1000,1000\n");
 		out[2] = outPutFileLocation + name + "_1.png";
 		s.append("set output " + c + out[2] + c+ "\n");
 		s.append("set multiplot;\n");
@@ -388,7 +407,7 @@ public class SinusFilter implements ICanFilter {
 		//------------------------------------
 		s.append("set size 1,1;\n");
 		s.append("set origin 0.0,0.0;\n");
-		s.append("set terminal png size 800,800\n");
+		s.append("set terminal png size 1000,1000\n");
 		out[3] = outPutFileLocation + name + "_2.png";
 		s.append("set output " + c + out[3] + c+ "\n");
 		s.append("set multiplot;\n");
@@ -436,7 +455,7 @@ public class SinusFilter implements ICanFilter {
 	public String[] exportFilterMatrix(String outPutFileLocation) {
 		long name = System.currentTimeMillis();
 		
-		String[] out = new String[3+2*fineLevel];
+		String[] out = new String[3+2*filterMatrix.length];
 		StringBuilder s = new StringBuilder();
 		out[0] = outPutFileLocation + name;
 		char c = '\"';
@@ -444,7 +463,7 @@ public class SinusFilter implements ICanFilter {
 		s.append("set hidden3d;\n");
 		s.append("set dgrid3d "+filterMatrix[0].length+","+filterMatrix[0][0].length+";\n");
 		
-		for (int i=0; i<fineLevel; i++) {
+		for (int i=0; i<filterMatrix.length; i++) {
 			s.append("# Fine Level "+i+" of "+fineLevel+"\n");
 			//name = System.currentTimeMillis();
 			out[3+2*i] = outPutFileLocation + name+ "_"+i+".dat";

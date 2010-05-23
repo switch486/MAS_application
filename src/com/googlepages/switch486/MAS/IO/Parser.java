@@ -200,7 +200,7 @@ public class Parser extends CmdLineParser {
 				's', "gabor_filter_matrix_s"), "Gabor: Set width of the filter matrix.",
 				"./CandA -s 7");
 		CmdLineParser.Option gaborFilterMatrixY = parser.addHelp(parser.addIntegerOption(
-				'd', "gabor_filter_matrix_d"), "Gabor: Set height of the filter matrix",
+				'd', "gabor_filter_matrix_d"), "Gabor: Set height of the filter matrix.",
 				"./CandA -d 7");
 
 		
@@ -213,18 +213,22 @@ public class Parser extends CmdLineParser {
 				"\t\t./CandA -H EXPORT");
 		
 		CmdLineParser.Option sinusI = parser.addHelp(parser.addIntegerOption(
-				'i', "sinus_i"), "Sinus: Set the sinus filter matrix height",
+				'i', "sinus_i"), "Sinus: Set the sinus filter matrix height.",
 				"./CandA -i 10");
 		CmdLineParser.Option sinusU = parser.addHelp(parser.addIntegerOption(
-				'u', "sinus_u"), "Sinus: Set the sinus filter matrix width",
+				'u', "sinus_u"), "Sinus: Set the sinus filter matrix width.",
 				"./CandA -u 10");
 		CmdLineParser.Option sinusO = parser.addHelp(parser.addIntegerOption(
 				'o', "sinus_o"), "Sinus: Set the sinus fine level - how many thics are going to be in the image chosen.",
 				"./CandA -o 8");
 		CmdLineParser.Option sinusMagnitude = parser.addHelp(parser.addDoubleOption(
-				'm', "sin_magnitude"),
-				"Sinus: Set the magnitude of the complex sinus function",
-				"./CandA --sin_magnitude 4");
+				'm', "sinus_magnitude"),
+				"Sinus: Set the magnitude of the complex sinus function.",
+				"./CandA --sinus_magnitude 4");
+		/*CmdLineParser.Option sinusPhase = parser.addHelp(parser.addBooleanOption(
+				'l', "sinus_phase"),
+				"Sinus: Set the phase of the complex sinus function to cosinus like one.",
+		"./CandA --sinus_phase");*/
 		
 		
 		CmdLineParser.Option verbose = parser.addHelp(parser.addBooleanOption(
@@ -386,6 +390,12 @@ public class Parser extends CmdLineParser {
 			sinusMagnitudeValue = Double.parseDouble(parser.properties
 					.getProperty("sinus.magnitude"));
 		p.add(new DoubleParam(Actions.D_sinus_magnitude, sinusMagnitudeValue));
+		
+		/*Boolean sinusPhaseValue = (Boolean) parser.getOptionValue(sinusPhase);
+		if (sinusPhaseValue==null)
+			sinusPhaseValue = Boolean.parseBoolean(parser.properties
+					.getProperty("sinus.phase"));
+		p.add(new BooleanParam(Actions.B_sinus_filter_phase));*/
 
 		Boolean canHasVerbose = (Boolean) parser.getOptionValue(verbose);
 		if (canHasVerbose != null && canHasVerbose.booleanValue() == true){			

@@ -1,18 +1,48 @@
 #!/bin/sh
 ./machineDetails
 ./compile
+ROOT="/home/switch486/MAS_PARAMS/"
+if [ -d $ROOT ]
+then
+	echo ROOT Directory $ROOT found.
+else 
+	echo ROOT Directory $ROOT not found, CREATING;
+	mkdir $ROOT
+fi
+AB=$ROOT"abTestResults/"
+xy=$ROOT"xyTestResults/"
+F0=$ROOT"f0TestResults/"
+w0=$ROOT"w0TestResults/"
+w0I=$ROOT"w0ITestResults/"
+join=$ROOT"joinTestResults/"
+F2Test=$ROOT"filter2TestResults/"
+F2out=$ROOT"f2outTestResults/"
+S1="/home/switch486/one.png"
+S2="/home/switch486/myself.JPG"
 echo "------------RUNNING 'TESTS'"
 echo "------------a and b params"
-sh XXabTest >> /dev/null
+sh XXFILES $AB
+sh XXabTest $AB
 echo "------------x and y params"
-sh XXxyTest >> /dev/null
+sh XXFILES $xy
+sh XXxyTest $xy
 echo "------------f0 param"
-sh XXf0Test >> /dev/null
+sh XXFILES $F0
+sh XXf0Test $F0
 echo "------------w0 param"
-sh XXw0Test >> /dev/null
+sh XXFILES $w0
+sh XXw0Test $w0
 echo "------------w0 image Test"
-sh XXw0Imm >> /dev/null
+sh XXFILES $w0I
+sh XXw0Imm $w0I $S1
 echo "------------Join Filter Test"
-sh XXJoinFilter >> /dev/null
+sh XXFILES $join 
+sh XXJoinFilter $join $S1 $S2
+echo "------------Test the second, lets say, filter :D"
+sh XXFILES $F2Test 
+sh XX2filtest $F2Test
+echo "------------Test the second, filter outputs"
+sh XXFILES $F2out 
+sh XX2test $F2out $S1
 echo "------------DONE"
 

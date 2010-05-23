@@ -1,25 +1,23 @@
-rm /home/switch486/MAS_PARAMS/2/*
-./compile
-./run -H FILTER -S "/home/switch486/one.png" -i 7 -u 7 -o 8 -s 3 -d 3 -L /home/switch486/MAS_PARAMS/2/
-./run -H FILTER -S "/home/switch486/one.png" -i 6 -u 6 -o 8 -s 3 -d 3 -L /home/switch486/MAS_PARAMS/2/
-./run -H FILTER -S "/home/switch486/one.png" -i 5 -u 5 -o 8 -s 3 -d 3 -L /home/switch486/MAS_PARAMS/2/
-./run -H FILTER -S "/home/switch486/one.png" -i 4 -u 4 -o 8 -s 3 -d 3 -L /home/switch486/MAS_PARAMS/2/
-./run -H FILTER -S "/home/switch486/one.png" -i 3 -u 3 -o 8 -s 3 -d 3 -L /home/switch486/MAS_PARAMS/2/
+./run -H FILTER -S $2 -i 7 -u 7 -o 8 -s 3 -d 3 -L $1
+./run -H FILTER -S $2 -i 6 -u 6 -o 8 -s 3 -d 3 -L $1
+./run -H FILTER -S $2 -i 5 -u 5 -o 8 -s 3 -d 3 -L $1
+./run -H FILTER -S $2 -i 4 -u 4 -o 8 -s 3 -d 3 -L $1
+./run -H FILTER -S $2 -i 3 -u 3 -o 8 -s 3 -d 3 -L $1
 
-./run -H FILTER -S "/home/switch486/one.png" -i 7 -u 7 -o 8 -s 5 -d 5 -L /home/switch486/MAS_PARAMS/2/
-./run -H FILTER -S "/home/switch486/one.png" -i 6 -u 6 -o 8 -s 5 -d 5 -L /home/switch486/MAS_PARAMS/2/
-./run -H FILTER -S "/home/switch486/one.png" -i 5 -u 5 -o 8 -s 5 -d 5 -L /home/switch486/MAS_PARAMS/2/
-./run -H FILTER -S "/home/switch486/one.png" -i 4 -u 4 -o 8 -s 5 -d 5 -L /home/switch486/MAS_PARAMS/2/
-./run -H FILTER -S "/home/switch486/one.png" -i 3 -u 3 -o 8 -s 5 -d 5 -L /home/switch486/MAS_PARAMS/2/
+./run -H FILTER -S $2 -i 7 -u 7 -o 8 -s 5 -d 5 -L $1
+./run -H FILTER -S $2 -i 6 -u 6 -o 8 -s 5 -d 5 -L $1
+./run -H FILTER -S $2 -i 5 -u 5 -o 8 -s 5 -d 5 -L $1
+./run -H FILTER -S $2 -i 4 -u 4 -o 8 -s 5 -d 5 -L $1
+./run -H FILTER -S $2 -i 3 -u 3 -o 8 -s 5 -d 5 -L $1
 
-./run -H FILTER -S "/home/switch486/one.png" -i 7 -u 7 -o 8 -s 7 -d 7 -L /home/switch486/MAS_PARAMS/2/
-./run -H FILTER -S "/home/switch486/one.png" -i 6 -u 6 -o 8 -s 7 -d 7 -L /home/switch486/MAS_PARAMS/2/
-./run -H FILTER -S "/home/switch486/one.png" -i 5 -u 5 -o 8 -s 7 -d 7 -L /home/switch486/MAS_PARAMS/2/
-./run -H FILTER -S "/home/switch486/one.png" -i 4 -u 4 -o 8 -s 7 -d 7 -L /home/switch486/MAS_PARAMS/2/
-./run -H FILTER -S "/home/switch486/one.png" -i 3 -u 3 -o 8 -s 7 -d 7 -L /home/switch486/MAS_PARAMS/2/
+./run -H FILTER -S $2 -i 7 -u 7 -o 8 -s 7 -d 7 -L $1
+./run -H FILTER -S $2 -i 6 -u 6 -o 8 -s 7 -d 7 -L $1
+./run -H FILTER -S $2 -i 5 -u 5 -o 8 -s 7 -d 7 -L $1
+./run -H FILTER -S $2 -i 4 -u 4 -o 8 -s 7 -d 7 -L $1
+./run -H FILTER -S $2 -i 3 -u 3 -o 8 -s 7 -d 7 -L $1
 
-./run -H FILTER -S "/home/switch486/one.png" -i 7 -u 7 -o 16 -s 5 -d 5 -L /home/switch486/MAS_PARAMS/2/
-./run -H FILTER -S "/home/switch486/one.png" -i 6 -u 6 -o 16 -s 5 -d 5 -L /home/switch486/MAS_PARAMS/2/
-./run -H FILTER -S "/home/switch486/one.png" -i 5 -u 5 -o 16 -s 5 -d 5 -L /home/switch486/MAS_PARAMS/2/
-./run -H FILTER -S "/home/switch486/one.png" -i 4 -u 4 -o 16 -s 5 -d 5 -L /home/switch486/MAS_PARAMS/2/
-./run -H FILTER -S "/home/switch486/one.png" -i 3 -u 3 -o 16 -s 5 -d 5 -L /home/switch486/MAS_PARAMS/2/
+./run -H FILTER -S $2 -i 7 -u 7 -o 16 -s 5 -d 5 -L $1
+./run -H FILTER -S $2 -i 6 -u 6 -o 16 -s 5 -d 5 -L $1
+./run -H FILTER -S $2 -i 5 -u 5 -o 16 -s 5 -d 5 -L $1
+./run -H FILTER -S $2 -i 4 -u 4 -o 16 -s 5 -d 5 -L $1
+./run -H FILTER -S $2 -i 3 -u 3 -o 16 -s 5 -d 5 -L $1
