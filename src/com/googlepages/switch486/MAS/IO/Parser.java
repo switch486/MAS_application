@@ -225,10 +225,10 @@ public class Parser extends CmdLineParser {
 				'm', "sinus_magnitude"),
 				"Sinus: Set the magnitude of the complex sinus function.",
 				"./CandA --sinus_magnitude 4");
-		/*CmdLineParser.Option sinusPhase = parser.addHelp(parser.addBooleanOption(
-				'l', "sinus_phase"),
-				"Sinus: Set the phase of the complex sinus function to cosinus like one.",
-		"./CandA --sinus_phase");*/
+		CmdLineParser.Option sinusBorder = parser.addHelp(parser.addDoubleOption(
+				'l', "sinus_border"),
+				"Sinus: Set the border of the complex sinus function - how manny creapy thics You want to avoid :P.",
+		"./CandA --sinus_border");
 		
 		
 		CmdLineParser.Option verbose = parser.addHelp(parser.addBooleanOption(
@@ -391,11 +391,11 @@ public class Parser extends CmdLineParser {
 					.getProperty("sinus.magnitude"));
 		p.add(new DoubleParam(Actions.D_sinus_magnitude, sinusMagnitudeValue));
 		
-		/*Boolean sinusPhaseValue = (Boolean) parser.getOptionValue(sinusPhase);
-		if (sinusPhaseValue==null)
-			sinusPhaseValue = Boolean.parseBoolean(parser.properties
-					.getProperty("sinus.phase"));
-		p.add(new BooleanParam(Actions.B_sinus_filter_phase));*/
+		Double sinusBorderValue = (Double) parser.getOptionValue(sinusBorder);
+		if (sinusBorderValue==null)
+			sinusBorderValue = Double.parseDouble(parser.properties
+					.getProperty("sinus.border_value"));
+		p.add(new DoubleParam(Actions.D_sinus_border, sinusBorderValue));
 
 		Boolean canHasVerbose = (Boolean) parser.getOptionValue(verbose);
 		if (canHasVerbose != null && canHasVerbose.booleanValue() == true){			

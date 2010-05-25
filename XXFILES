@@ -3,8 +3,8 @@ if [ -d $1 ]
 then
 	echo Local Directory $1 found.
 	DD=$1"*"
-	rm DD
-	echo Deleted the previous results from the $1 dir
+	rm $DD
+	echo Deleted the previous results from the $DD directory
 else 
 	echo Local Directory $1 not found, CREATING;
 	mkdir $1

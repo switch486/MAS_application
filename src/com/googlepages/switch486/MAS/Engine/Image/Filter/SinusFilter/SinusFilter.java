@@ -28,6 +28,7 @@ public class SinusFilter implements ICanFilter {
 	 */
 	private int fineLevel;
 	private double magnitude;
+	private double border;
 	
 	
 	/**
@@ -47,6 +48,22 @@ public class SinusFilter implements ICanFilter {
 			fineLevel = 1;
 		}
 		this.fineLevel = fineLevel;
+	}
+	
+	private void setBorder(double border, Param pa) {
+		setBorder(border);
+		if (pa==null) 
+			return;
+		if (pa.getAction().equals(Actions.D_sinus_border)) 
+			setBorder(((DoubleParam)pa).getParameter());
+	}
+	private void setBorder(double border) {
+		if (border < 0) {
+			logger.warning("Actual value: " + border
+					+ " for the argument a out of the bounds [0; +\\inf], setting a to PI.");
+			border = Math.PI;
+		}
+		this.border = border;
 	}
 	
 	/**
@@ -238,7 +255,7 @@ public class SinusFilter implements ICanFilter {
 				double dev = stddev(vals);
 				//if (dev > 1) {
 				//if (dev > ((Math.PI) / 2)) {
-				if (dev > ((Math.PI))) {
+				if (dev > border) {
 					paintT(out, i * fmx + beX, j * fmy + beY, fmx, fmy, tbest,
 							0.1);
 				} else {
@@ -346,6 +363,7 @@ public class SinusFilter implements ICanFilter {
 		this.setFineLevel(p.getIntParam(Actions.I_sinus_filter_fine), dp);
 		//this.setDirection(p.getIntParam(Actions.D_sinus_direction), dp);
 		this.setMagnitude(p.getDoubleParam(Actions.D_sinus_magnitude), dp);
+		this.setBorder(p.getDoubleParam(Actions.D_sinus_border), dp);
 		////this.setPhase(p.getBooleanParam(Actions.B_sinus_filter_phase), dp);
 			/*this.setA (p.getDoubleParam(Actions.D_gabor_gaus_a), dp);
 			this.setF0(p.getDoubleParam(Actions.D_gabor_sin_magnitude), dp);

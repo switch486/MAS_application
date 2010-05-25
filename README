@@ -29,10 +29,16 @@ To take a look at all options, please do the following in Your bash shell:
 
 ***VERSIONS
 
+v0.1.2
+24.05.2010
+* Updated the testsctipts, tuning and searching for perfect parameters for the engine/sinus filter to work with.
+* Created the border parameter, to allow the tuning of the garbage in the sinus filter output images - his name is 'l' and he stands for the std. deviation of the vector difference between an image part and all sinus filters created with the specified fine level.
+* Dificult decision will be made tomorrow, probably this stage will be rewritten... 
+
 v0.1.1
 23.05.2010
 * Rewritten test-scripts - You can use them in an easier way...
-* Updated the sinus finction
+* Updated the sinus function
 
 v0.1.0
 18.05.2010

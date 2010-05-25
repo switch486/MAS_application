@@ -18,5 +18,6 @@ public interface IIODB {
 
 	public String runShellCommandForResultsMerge(ArrayList<String> list);
 
+	public void deleteFile(String path);
 
 }

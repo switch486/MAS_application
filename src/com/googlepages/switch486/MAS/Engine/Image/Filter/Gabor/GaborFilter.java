@@ -532,7 +532,7 @@ public class GaborFilter implements ICanFilter, IsToImageable {
 		s.append("splot "+this.filterToString()+" title 'Gabor Function'\n");
 		s.append("set pm3d map;\n");
 		//s.append("set zrange [-1:1];\n");
-		s.append("set isosample "+filterMatrix.length+","+filterMatrix[0].length+";\n");
+		//s.append("set isosample 100,100;\n");
 		out[3] = outPutFileLocation + name + "_2.png";
 		s.append("set output " + c + out[3] + c+ "\n");
 		s.append("splot "+this.filterToString()+" title 'Gabor Function'\n");
@@ -560,7 +560,7 @@ public class GaborFilter implements ICanFilter, IsToImageable {
 		char c = '\"';
 		s.append("set terminal png;\n");
 		s.append("set hidden3d;\n");
-		s.append("set dgrid3d 30,30;\n");
+		s.append("set dgrid3d "+filterMatrix.length+","+filterMatrix[0].length+";\n");
 		out[2] = outPutFileLocation + name + ".png";
 		s.append("set output " + c + out[2] + c+ "\n");
 		s.append("splot "+c+out[3]+c+" u 1:2:3 with lines;\n");

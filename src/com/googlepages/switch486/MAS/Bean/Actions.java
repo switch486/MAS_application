@@ -31,10 +31,8 @@ public enum Actions {
 	D_gabor_gaus_b, 
 	D_gabor_gaus_theta,
 	D_sinus_magnitude,
+	D_sinus_border,
 	
-	
-	
-	B_sinus_filter_phase,
 	
 	
 	/*
@@ -44,7 +42,7 @@ public enum Actions {
 	I_gabor_filter_matrix_y,
 	I_sinus_filter_matrix_width,
 	I_sinus_filter_matrix_height,
-	I_sinus_filter_fine, 
+	I_sinus_filter_fine,  
 	
 	;
 	

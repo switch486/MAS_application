@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+
 ./machineDetails
 ./compile
 ROOT="/home/switch486/MAS_PARAMS/"
@@ -9,40 +10,137 @@ else
 	echo ROOT Directory $ROOT not found, CREATING;
 	mkdir $ROOT
 fi
-AB=$ROOT"abTestResults/"
-xy=$ROOT"xyTestResults/"
-F0=$ROOT"f0TestResults/"
-w0=$ROOT"w0TestResults/"
-w0I=$ROOT"w0ITestResults/"
-join=$ROOT"joinTestResults/"
-F2Test=$ROOT"filter2TestResults/"
-F2out=$ROOT"f2outTestResults/"
+
+XXabTest=$ROOT"XXabTestResults/"
+XXxyTest=$ROOT"XXxyTestResults/"
+XXf0Test=$ROOT"XXf0TestResults/"
+XXw0Test=$ROOT"XXw0TestResults/"
+XXw0Imm=$ROOT"XXw0ImmResults/"
+XXJoinFilter=$ROOT"XXJoinFilterResults/"
+XX2filtest=$ROOT"XX2filtestResults/"
+XX2test=$ROOT"XX2testResults/"
+XX2sizetest=$ROOT"XX2sizetestResults/"
+XX2output=$ROOT"XX2outputResults/"
 S1="/home/switch486/one.png"
 S2="/home/switch486/myself.JPG"
-echo "------------RUNNING 'TESTS'"
-echo "------------a and b params"
-sh XXFILES $AB
-sh XXabTest $AB
-echo "------------x and y params"
-sh XXFILES $xy
-sh XXxyTest $xy
-echo "------------f0 param"
-sh XXFILES $F0
-sh XXf0Test $F0
-echo "------------w0 param"
-sh XXFILES $w0
-sh XXw0Test $w0
-echo "------------w0 image Test"
-sh XXFILES $w0I
-sh XXw0Imm $w0I $S1
-echo "------------Join Filter Test"
-sh XXFILES $join 
-sh XXJoinFilter $join $S1 $S2
-echo "------------Test the second, lets say, filter :D"
-sh XXFILES $F2Test 
-sh XX2filtest $F2Test
-echo "------------Test the second, filter outputs"
-sh XXFILES $F2out 
-sh XX2test $F2out $S1
+S3="/home/switch486/myself2.JPG"
+S4="/home/switch486/myself3.JPG"
+S5="/home/switch486/myself4.JPG"
+S6="/home/switch486/two.png"
+echo "------------RUNNING 'TESTS' - MENU"
+
+showmenu () {
+    echo "1.  F1.TestAB"
+    echo "2.  F1.TestXY"
+    echo "3.  F1.TestF0"
+    echo "4.  F1.TestW0"
+    echo "5.  F1.TestW0Image"
+    echo "6.  F1.TestJoin"
+    echo "7.  F2.FilterMatrix"
+    echo "8.  F2.Filter"
+    echo "81. F2.Filter sizes"
+    echo "9.  F2.Output for "$S6
+    echo "10. F2.Output for "$S2
+    echo "11. F2.Output for "$S3
+    echo "12. F2.Output for "$S4
+    echo "13. F2.Output for "$S5
+    echo "000. Remove Temporary files..."
+    echo "099. quit"
+}
+
+while true ; do
+    showmenu
+    read choices
+    for choice in $choices ; do
+	case "$choice" in
+	    1)
+		echo "------------a and b params"
+		sh XXFILES  $XXabTest
+		sh XXabTest $XXabTest
+		;;
+	    2)
+		echo "------------x and y params"
+		sh XXFILES  $XXxyTest
+		sh XXxyTest $XXxyTest
+		;;
+	    3)
+		echo "------------f0 param"
+		sh XXFILES  $XXf0Test
+		sh XXf0Test $XXf0Test
+		;;
+	    4)
+		echo "------------w0 param"
+		sh XXFILES  $XXw0Test
+		sh XXw0Test $XXw0Test
+		;;
+	    5)
+		echo "------------w0 image Test"
+		sh XXFILES $XXw0Imm
+		sh XXw0Imm $XXw0Imm $S1
+		;;
+	    6)
+		echo "------------Join Filter Test"
+		sh XXFILES 	$XXJoinFilter 
+		sh XXJoinFilter $XXJoinFilter $S1 $S2
+		;;
+	    7)
+		echo "------------Test the second, lets say, filter :D"
+		sh XXFILES 	$XX2filtest 
+		sh XX2filtest 	$XX2filtest
+		;;
+	    8)
+		echo "------------Test the second, filter outputs"
+		sh XXFILES $XX2test 
+		sh XX2test $XX2test $S6
+		;;
+	    81)
+		echo "------------Test the second, filter outputs"
+		sh XXFILES 	$XX2sizetest 
+		sh XX2sizetest 	$XX2sizetest $S1
+		;;
+	    9)
+		echo "------------Get the output for the second filter; first image"
+		sh XX2output $XX2output $S6
+		;;
+	    10)
+		echo "------------Get the output for the second filter; second image"
+		sh XX2output $XX2output $S2
+		;;
+	    11)
+		echo "------------Get the output for the second filter; third image"
+		sh XX2output $XX2output $S3
+		;;
+	    12)
+		echo "------------Get the output for the second filter; fourth image"
+		sh XX2output $XX2output $S4
+		;;
+	    13)
+		echo "------------Get the output for the second filter; fifth image"
+		sh XX2output $XX2output $S5
+		;;
+	    099)
+		echo "Exiting"
+		exit 0 ;;
+	    000)
+		echo "Removing temp files..."
+		sh XXFILES $XXabTest
+		sh XXFILES $XXxyTest
+		sh XXFILES $XXf0Test
+		sh XXFILES $XXw0Test
+		sh XXFILES $XXw0Imm
+		sh XXFILES $XXJoinFilter
+		sh XXFILES $XX2filtest
+		sh XXFILES $XX2test
+		sh XXFILES $XX2sizetest
+		sh XXFILES $XX2output
+		echo "Exiting"
+		exit 0 ;;
+	    *)
+		echo "Wrong Number..."
+		;;
+	esac
+    done
+done
+
 echo "------------DONE"
 

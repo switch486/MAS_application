@@ -140,5 +140,10 @@ public class IODBWorker implements IIODB {
 		return list.get(list.size()-1);
 	}
 
+	@Override
+	public void deleteFile(String path) {
+		delete(path);
+	}
+
 	
 }
