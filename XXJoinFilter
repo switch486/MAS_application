@@ -4,10 +4,4 @@
 ./run -G JOINFILTER --SOURCE $2 -L $1 -s 9 -d 9
 ./run -G JOINFILTER --SOURCE $2 -L $1 -s 11 -d 11
 ./run -G JOINFILTER --SOURCE $2 -L $1 -s 13 -d 13
-./run -G JOINFILTER --SOURCE $3 -L $1 -s 3 -d 3
-./run -G JOINFILTER --SOURCE $3 -L $1 -s 5 -d 5
-./run -G JOINFILTER --SOURCE $3 -L $1 -s 7 -d 7
-./run -G JOINFILTER --SOURCE $3 -L $1 -s 9 -d 9
-./run -G JOINFILTER --SOURCE $3 -L $1 -s 11 -d 11
-./run -G JOINFILTER --SOURCE $3 -L $1 -s 13 -d 13
 

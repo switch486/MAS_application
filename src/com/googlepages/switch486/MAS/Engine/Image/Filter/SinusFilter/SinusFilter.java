@@ -197,7 +197,7 @@ public class SinusFilter implements ICanFilter {
 		} else {
 			for (int i = i2; i < i2 + fmx; i++) {
 				for (int j = j2; j < j2 + fmy; j++) {
-					out.setRGB(i, j, Color.WHITE.getRGB());
+					out.setRGB(i, j, Color.white.getRGB());
 				}
 			}
 		}
@@ -257,10 +257,10 @@ public class SinusFilter implements ICanFilter {
 				//if (dev > ((Math.PI) / 2)) {
 				if (dev > border) {
 					paintT(out, i * fmx + beX, j * fmy + beY, fmx, fmy, tbest,
-							0.1);
+							0.2);
 				} else {
 					paintT(out, i * fmx + beX, j * fmy + beY, fmx, fmy, -1,
-							0.1);
+							0.2);
 				}
 				
 				

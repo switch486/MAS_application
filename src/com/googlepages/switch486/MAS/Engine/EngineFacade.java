@@ -85,7 +85,7 @@ public class EngineFacade implements IEngine {
 			logger.info("(2/2) Filtering with Sinus...");
 			AIImage i = sf.filter(iODBWorker.getImage(p.getStringParam(Actions.G_SOURCE_IMAGE)));
 			iODBWorker.writeImage(i, p.getStringParam(Actions.G_FILEPATH_FOR_OUTPUT_FILES));
-			iODBWorker.deleteFile(result);
+			//iODBWorker.deleteFile(result);
 			logger.fine("Done...");
 		} else {
 			logger.warning("There was no SOURCE image to start the filterings with");

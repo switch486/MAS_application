@@ -21,6 +21,7 @@ XX2filtest=$ROOT"XX2filtestResults/"
 XX2test=$ROOT"XX2testResults/"
 XX2sizetest=$ROOT"XX2sizetestResults/"
 XX2output=$ROOT"XX2outputResults/"
+XX2outputsmall=$ROOT"XX2outputsmallResults/"
 S1="/home/switch486/one.png"
 S2="/home/switch486/myself.JPG"
 S3="/home/switch486/myself2.JPG"
@@ -34,12 +35,12 @@ showmenu () {
     echo "2.  F1.TestXY"
     echo "3.  F1.TestF0"
     echo "4.  F1.TestW0"
-    echo "5.  F1.TestW0Image"
-    echo "6.  F1.TestJoin"
+    echo "5.  F1.TestW0Image for 2 images"
+    echo "6.  F1.TestJoin for 4 images"
     echo "7.  F2.FilterMatrix"
     echo "8.  F2.Filter"
     echo "81. F2.Filter sizes"
-    echo "9.  F2.Output for "$S6
+    echo "9.  F2.Output - small for "$S1
     echo "10. F2.Output for "$S2
     echo "11. F2.Output for "$S3
     echo "12. F2.Output for "$S4
@@ -77,11 +78,15 @@ while true ; do
 		echo "------------w0 image Test"
 		sh XXFILES $XXw0Imm
 		sh XXw0Imm $XXw0Imm $S1
+		sh XXw0Imm $XXw0Imm $S5
 		;;
 	    6)
 		echo "------------Join Filter Test"
 		sh XXFILES 	$XXJoinFilter 
-		sh XXJoinFilter $XXJoinFilter $S1 $S2
+		sh XXJoinFilter $XXJoinFilter $S1 
+		sh XXJoinFilter $XXJoinFilter $S2
+		sh XXJoinFilter $XXJoinFilter $S5
+		sh XXJoinFilter $XXJoinFilter $S6
 		;;
 	    7)
 		echo "------------Test the second, lets say, filter :D"
@@ -100,7 +105,9 @@ while true ; do
 		;;
 	    9)
 		echo "------------Get the output for the second filter; first image"
-		sh XX2output $XX2output $S6
+		sh XXFILES 	$XX2outputsmall 
+		#%^&*sh XX2outputsmall $XX2outputsmall $S6
+		sh XX2outputsmall $XX2outputsmall $S1
 		;;
 	    10)
 		echo "------------Get the output for the second filter; second image"
@@ -132,6 +139,7 @@ while true ; do
 		sh XXFILES $XX2filtest
 		sh XXFILES $XX2test
 		sh XXFILES $XX2sizetest
+		sh XXFILES $XX2outputsmall 
 		sh XXFILES $XX2output
 		echo "Exiting"
 		exit 0 ;;
