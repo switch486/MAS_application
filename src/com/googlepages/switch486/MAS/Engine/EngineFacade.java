@@ -107,7 +107,7 @@ public class EngineFacade implements IEngine {
 		if (p.contains(Actions.G_SOURCE_IMAGE)) {
 			ArrayList<String> list = new ArrayList<String>();
 			AIImage filterImage =  iODBWorker.getImage(p.getStringParam(Actions.G_SOURCE_IMAGE));
-			for (double w0 = 0; w0<1; w0+=0.1d){
+			for (double w0 = 0; w0<1; w0+=0.25d){
 				gf.setGfParams(p, new DoubleParam(Actions.D_gabor_sin_direction, w0));
 				list.add(iODBWorker.writeImage(gf.filter(filterImage), 
 					p.getStringParam(Actions.G_FILEPATH_FOR_OUTPUT_FILES)));

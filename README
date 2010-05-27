@@ -29,7 +29,30 @@ To take a look at all options, please do the following in Your bash shell:
 
 ***VERSIONS
 
+Other TODOS:
+* DONE SPRING
+* DONE Logging
+* DONE Ant
+* DONE GNUPlot and imagemagick
+* DONE BatchTests
+X TODO JavaDoc
+X TODO Help pdf
+X TODO Database
+X TODO JUNIT Tests
+X TODO GUI
+X TODO CHECKStyle
+X TODO Tweet / BUZZ
+X TODO Memory/System/Procesor Status
+
+
+v0.1.4
+27.05.2010
+X TODO gabor Filter Fine Step as param.....
+* Sinus Filter idea reworked. Actualy, when You want to filter the thics from an image, first of all a STDDEV is counted on the image part, when the value is bigger than the border value (-l parameter) then sinus filtering is applied. when not, the image part is painted white.
+X TODO histogram equalization -> white balance
+
 v0.1.3
+26.05.2010
 * Tuned the params and tests. The last stage of the second Idea nearly works.
 
 v0.1.2

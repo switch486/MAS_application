@@ -1,14 +1,12 @@
-./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 1
-./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 1.05
-./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 1.1
-./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 1.15
-./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 1.2
-./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 1.25
-./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 1.3
-./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 1.35
-./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 1.4
-./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 1.45
-./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 1.5
-./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 1.6
-./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 1.7
+./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 0
+./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 0.02
+./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 0.04
+./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 0.06
+./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 0.08
+./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 0.09
+./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 0.1
+./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 0.11
+./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 0.12
+./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 0.13
+./run -H FILTER -S $2 -o 8 -i 5 -u 5 -s 3 -d 3 -L $1 -l 0.14
 

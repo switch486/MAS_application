@@ -174,10 +174,14 @@ public class SinusFilter implements ICanFilter {
 		return filter(imageToTransform);
 	}
 	
-	private double countEuclideanDistanceMatrix(AIImage to, int i2, int j2, int fmx, int fmy, int t){
+	private double countSth(AIImage to, int i2, int j2, int fmx, int fmy, int t){
 		double sum = 0;
 		for (int i=i2, cc=0; i<i2+fmx; i++, cc++) {
 			for (int j=j2, dd=0; j<j2+fmy; j++, dd++) {
+				/*double f  = filterMatrix[t][cc][dd];
+				double col = (new Color(to.getRGB(i, j)).getRed()/255d)-0.5;
+				int d = (f > 0 && col > 0)? 1 : ((f < 0 && col < 0)? 1 : 0) ;
+				sum += d; */
 				double d = filterMatrix[t][cc][dd] - new Color(to.getRGB(i, j)).getRed()/(double)255;
 				sum = sum + ((d>0)? d : -d);
 			}
@@ -213,6 +217,18 @@ public class SinusFilter implements ICanFilter {
 		return Math.sqrt(val/l);
 	}
 	
+	private double stddev (AIImage to, int i2, int j2, int fmx, int fmy) {
+		double avg = average(to,i2, j2, fmx, fmy);
+		double val = 0;
+		for (int i=i2, cc=0; i<i2+fmx; i++, cc++) {
+			for (int j=j2, dd=0; j<j2+fmy; j++, dd++) {
+				double d = new Color(to.getRGB(i, j)).getRed()/(double)255;
+				val += (d-avg)*(d-avg);
+			}
+		}
+		return Math.sqrt(val/(fmx*fmy));
+	}
+	
 	private double average (double []d ){
 		int l = d.length;
 		double val = 0d;
@@ -220,6 +236,17 @@ public class SinusFilter implements ICanFilter {
 			val +=d[i];
 		}
 		return val/l;
+	}
+	
+	private double average (AIImage to, int i2, int j2, int fmx, int fmy){
+		double sum = 0;
+		for (int i=i2, cc=0; i<i2+fmx; i++, cc++) {
+			for (int j=j2, dd=0; j<j2+fmy; j++, dd++) {
+				double d = new Color(to.getRGB(i, j)).getRed()/(double)255;
+				sum +=d;
+			}
+		}
+		return sum/(fmx*fmy);
 	}
 	
 	/* (non-Javadoc)
@@ -242,10 +269,30 @@ public class SinusFilter implements ICanFilter {
 			for (int j=0; j<yTimes; j++) {
 				
 				int tbest = -1;
+				double dev = stddev(imageToTransform, i * fmx + beX, j * fmy
+						+ beY, fmx, fmy);
+				if (dev > border) {
+					double tvalmin = Double.MAX_VALUE;
+					double[] vals = new double[filterMatrix.length];
+					for (int t = 0; t < vals.length; t++) {
+						double d = countSth(imageToTransform, i * fmx + beX, j
+								* fmy + beY, fmx, fmy, t);
+						vals[t] = d;
+						if (d < tvalmin) {
+							tbest = t;
+							tvalmin = d;
+						}
+					}
+					paintT(out, i * fmx + beX, j * fmy + beY, fmx, fmy, tbest,
+							0.2);
+				} else {
+					paintT(out, i * fmx + beX, j * fmy + beY, fmx, fmy, -1, 0.2);
+				}
+/*				int tbest = -1;
 				double tvalmin = Double.MAX_VALUE;
 				double [] vals = new double [filterMatrix.length]; 
 				for (int t = 0; t < vals.length	; t++) {
-					double d = countEuclideanDistanceMatrix(imageToTransform, i*fmx+beX, j*fmy+beY, fmx, fmy, t);
+					double d = countSth(imageToTransform, i*fmx+beX, j*fmy+beY, fmx, fmy, t);
 					vals[t] = d; 
 					if (d<tvalmin) {
 						tbest = t;
@@ -262,7 +309,7 @@ public class SinusFilter implements ICanFilter {
 					paintT(out, i * fmx + beX, j * fmy + beY, fmx, fmy, -1,
 							0.2);
 				}
-				
+*/				
 				
 			}
 		}		

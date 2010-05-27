@@ -26,8 +26,7 @@ S1="/home/switch486/one.png"
 S2="/home/switch486/myself.JPG"
 S3="/home/switch486/myself2.JPG"
 S4="/home/switch486/myself3.JPG"
-S5="/home/switch486/myself4.JPG"
-S6="/home/switch486/two.png"
+S5="/home/switch486/two.png"
 echo "------------RUNNING 'TESTS' - MENU"
 
 showmenu () {
@@ -46,6 +45,7 @@ showmenu () {
     echo "12. F2.Output for "$S4
     echo "13. F2.Output for "$S5
     echo "000. Remove Temporary files..."
+    echo "123. Recompile package"
     echo "099. quit"
 }
 
@@ -84,9 +84,9 @@ while true ; do
 		echo "------------Join Filter Test"
 		sh XXFILES 	$XXJoinFilter 
 		sh XXJoinFilter $XXJoinFilter $S1 
-		sh XXJoinFilter $XXJoinFilter $S2
+		sh XXJoinFilter $XXJoinFilter $S3
+		sh XXJoinFilter $XXJoinFilter $S4
 		sh XXJoinFilter $XXJoinFilter $S5
-		sh XXJoinFilter $XXJoinFilter $S6
 		;;
 	    7)
 		echo "------------Test the second, lets say, filter :D"
@@ -96,7 +96,7 @@ while true ; do
 	    8)
 		echo "------------Test the second, filter outputs"
 		sh XXFILES $XX2test 
-		sh XX2test $XX2test $S6
+		sh XX2test $XX2test $S5
 		;;
 	    81)
 		echo "------------Test the second, filter outputs"
@@ -128,6 +128,10 @@ while true ; do
 	    099)
 		echo "Exiting"
 		exit 0 ;;
+	    123)
+		./machineDetails
+		./compile
+		;;
 	    000)
 		echo "Removing temp files..."
 		sh XXFILES $XXabTest
@@ -141,8 +145,7 @@ while true ; do
 		sh XXFILES $XX2sizetest
 		sh XXFILES $XX2outputsmall 
 		sh XXFILES $XX2output
-		echo "Exiting"
-		exit 0 ;;
+		echo "Exiting";;
 	    *)
 		echo "Wrong Number..."
 		;;
