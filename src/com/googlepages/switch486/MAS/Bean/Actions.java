@@ -17,6 +17,7 @@ public enum Actions {
 	F_FILTER_WITH_GABOR_FILTER_ONCE,
 	F_FILTER_WITH_GABOR_FILTER,
 	F_SINUS_FILTER_FILTER_IMAGE,
+	F_CONTOUR_MODEL_FILTER,
 	
 	/*
 	 * Doubles representing the gabor filter parameters

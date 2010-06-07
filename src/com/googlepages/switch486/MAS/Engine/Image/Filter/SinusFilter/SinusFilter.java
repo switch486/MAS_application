@@ -10,10 +10,12 @@ import com.googlepages.switch486.MAS.Bean.IntegerParam;
 import com.googlepages.switch486.MAS.Bean.Param;
 import com.googlepages.switch486.MAS.Bean.Params;
 import com.googlepages.switch486.MAS.Engine.Image.AIImage;
+import com.googlepages.switch486.MAS.Engine.Image.Contour.ContourNeurone;
+import com.googlepages.switch486.MAS.Engine.Image.Contour.ICanCreateNetwork;
 import com.googlepages.switch486.MAS.Engine.Image.Filter.FilterMatrixToBigForImageException;
 import com.googlepages.switch486.MAS.Engine.Image.Filter.ICanFilter;
 
-public class SinusFilter implements ICanFilter {
+public class SinusFilter implements ICanFilter, ICanCreateNetwork {
 	
 	private static final Logger logger = Logger.getLogger(SinusFilter.class.getName());
 	
@@ -86,9 +88,12 @@ public class SinusFilter implements ICanFilter {
 		this.magnitude = magnitude;
 	}
 	
-	
 	private double getDirection(int num) {
 		return ((double)num/(double)fineLevel) * Math.PI + Math.PI;
+	}
+	
+	private double getFalseDirection(int num) {
+		return (num%fineLevel) * Math.PI + Math.PI;
 	}
 
 	public SinusFilter() {
@@ -172,21 +177,6 @@ public class SinusFilter implements ICanFilter {
 			setFilterMatrix(xSize, ySize);
 		}
 		return filter(imageToTransform);
-	}
-	
-	private double countSth(AIImage to, int i2, int j2, int fmx, int fmy, int t){
-		double sum = 0;
-		for (int i=i2, cc=0; i<i2+fmx; i++, cc++) {
-			for (int j=j2, dd=0; j<j2+fmy; j++, dd++) {
-				/*double f  = filterMatrix[t][cc][dd];
-				double col = (new Color(to.getRGB(i, j)).getRed()/255d)-0.5;
-				int d = (f > 0 && col > 0)? 1 : ((f < 0 && col < 0)? 1 : 0) ;
-				sum += d; */
-				double d = filterMatrix[t][cc][dd] - new Color(to.getRGB(i, j)).getRed()/(double)255;
-				sum = sum + ((d>0)? d : -d);
-			}
-		}
-		return sum;
 	}
 	
 	private void paintT(AIImage out, int i2, int j2, int fmx, int fmy, int tbest, double borderWidth) {
@@ -315,6 +305,69 @@ public class SinusFilter implements ICanFilter {
 		}		
 		return out;
 		///TODO
+	}
+	
+	private double countSth(AIImage to, int i2, int j2, int fmx, int fmy, int t){
+		double sum = 0;
+		for (int i=i2, cc=0; i<i2+fmx; i++, cc++) {
+			for (int j=j2, dd=0; j<j2+fmy; j++, dd++) {
+				/*double f  = filterMatrix[t][cc][dd];
+				double col = (new Color(to.getRGB(i, j)).getRed()/255d)-0.5;
+				int d = (f > 0 && col > 0)? 1 : ((f < 0 && col < 0)? 1 : 0) ;
+				sum += d; */
+				double d = filterMatrix[t][cc][dd] - new Color(to.getRGB(i, j)).getRed()/(double)255;
+				sum = sum + ((d>0)? d : -d);
+			}
+		}
+		return sum;
+	}
+	
+	@Override
+	public ContourNeurone[][] extractNetwork (AIImage imageToTransform) {
+		int iWidth = imageToTransform.getWidth();
+		int iHeight = imageToTransform.getHeight();
+		AIImage out = new AIImage(iWidth, iHeight, BufferedImage.TYPE_INT_ARGB);
+		int beX;// \ that are those values that represent the x and y of the image marking the point (0, 0), because not every image will have sizes matching int*filtermatrix[0].length etc.
+		int beY;// /
+		int fmx = filterMatrix[0].length;
+		int fmy = filterMatrix[0][0].length;
+		beX = (iWidth % fmx) / 2; // example (35%20=15)/2=7;
+		beY = (iHeight % fmy) / 2; // example (35%20=15)/2=7;
+		int xTimes = iWidth / fmx;
+		int yTimes = iHeight / fmy;
+		ContourNeurone[][] neuroneNet = new ContourNeurone[xTimes][yTimes];
+		for (int i=0; i<xTimes; i++) {
+			for (int j=0; j<yTimes; j++) {
+				
+				int tbest = -1;
+				double dev = stddev(imageToTransform, i * fmx + beX, j * fmy
+						+ beY, fmx, fmy);
+				if (dev > border) {
+					double tvalmin = Double.MAX_VALUE;
+					double[] vals = new double[filterMatrix.length];
+					for (int t = 0; t < vals.length; t++) {
+						double d = countSth(imageToTransform, i * fmx + beX, j
+								* fmy + beY, fmx, fmy, t);
+						vals[t] = d;
+						if (d < tvalmin) {
+							tbest = t;
+							tvalmin = d;
+						}
+					}
+					if (tbest>fineLevel){ 
+						//sinus i theta fails
+						neuroneNet[i][j] = new ContourNeurone(getFalseDirection(tbest) ,getDirection(tbest), true, true, i, j);
+					}
+					else {
+						//cosinus
+						neuroneNet[i][j] = new ContourNeurone(getDirection(tbest),getDirection(tbest), false, true , i, j);
+					}
+				} else {
+					neuroneNet[i][j] = new ContourNeurone(0,0, false, false, i, j );
+				}
+			}
+		}		
+		return neuroneNet;
 	}
 
 	@Override

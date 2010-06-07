@@ -12,6 +12,7 @@
     <property name="IODBWorker" ref="com.googlepages.switch486.MAS.IODB.IIODB"/>
     <property name="gf" ref="GaborFilter"/>
     <property name="sf" ref="SinusFilter"/>
+    <property name="ci" ref="ContourIntegrator"/>
   </bean>
   <bean id="com.googlepages.switch486.MAS.IODB.IIODB"
         class="com.googlepages.switch486.MAS.IODB.IODBWorker">
@@ -21,5 +22,8 @@
   </bean>
   <bean id="SinusFilter"
         class="com.googlepages.switch486.MAS.Engine.Image.Filter.SinusFilter.SinusFilter">
+  </bean>
+    <bean id="ContourIntegrator"
+        class="com.googlepages.switch486.MAS.Engine.Image.Contour.ContourIntegrator">
   </bean>
 </beans>

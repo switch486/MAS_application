@@ -7,6 +7,8 @@ import com.googlepages.switch486.MAS.Bean.Actions;
 import com.googlepages.switch486.MAS.Bean.DoubleParam;
 import com.googlepages.switch486.MAS.Bean.Params;
 import com.googlepages.switch486.MAS.Engine.Image.AIImage;
+import com.googlepages.switch486.MAS.Engine.Image.Contour.ContourIntegrator;
+import com.googlepages.switch486.MAS.Engine.Image.Contour.ContourNeurone;
 import com.googlepages.switch486.MAS.Engine.Image.Filter.Gabor.GaborFilter;
 import com.googlepages.switch486.MAS.Engine.Image.Filter.SinusFilter.SinusFilter;
 import com.googlepages.switch486.MAS.IODB.IIODB;
@@ -23,6 +25,11 @@ public class EngineFacade implements IEngine {
 	
 	private GaborFilter gf;
 	private SinusFilter sf;
+	private ContourIntegrator ci;
+	
+	public void setCi(ContourIntegrator ci){
+		this.ci = ci;
+	}
 	
 	public void setGf(GaborFilter gf) {
 		this.gf = gf;
@@ -44,6 +51,7 @@ public class EngineFacade implements IEngine {
 				.getStringParam(Actions.G_FILEPATH_FOR_OUTPUT_FILES);
 		gf.setGfParams(p);
 		sf.setSfParams(p);
+		ci.setCiParams(p);
 		if (p.contains(Actions.F_GABOR_FILTER_EXPORT)) {
 			f_gabor_filter_export();
 		}
@@ -65,8 +73,37 @@ public class EngineFacade implements IEngine {
 		if (p.contains(Actions.F_SINUS_FILTER_FILTER_IMAGE)) {
 			f_sinus_filter_filter_image(p);
 		}
+		if (p.contains(Actions.F_CONTOUR_MODEL_FILTER)){
+			f_contour_model_filter(p);
+		}
 		logger.info("Work done!");
 		//logger.fine(p.toString());
+	}
+	
+	private void f_contour_model_filter(Params p) {
+		logger.info("<> Filter Image with the predefined Gabor Filter, join results, filter it with the sinus filter and integrate contours");
+		if (p.contains(Actions.G_SOURCE_IMAGE)) {
+			ArrayList<String> list = new ArrayList<String>();
+			AIImage filterImage =  iODBWorker.getImage(p.getStringParam(Actions.G_SOURCE_IMAGE));
+			int outWidth = filterImage.getWidth();
+			int outHeight = filterImage.getHeight();
+			logger.info("(1/3) Image created, joining and removing temp images...");
+			for (double w0 = 0; w0<1; w0+=0.1d){
+				gf.setGfParams(p, new DoubleParam(Actions.D_gabor_sin_direction, w0));
+				list.add(iODBWorker.writeImage(gf.filter(filterImage), 
+					p.getStringParam(Actions.G_FILEPATH_FOR_OUTPUT_FILES)));
+			}
+			String result = iODBWorker.runShellCommandForResultsMerge(list);
+			p.resetParameterForAction(Actions.G_SOURCE_IMAGE, result);
+			logger.info("(2/3 Filtering with Sinus...");
+			ContourNeurone[][] i = sf.extractNetwork(iODBWorker.getImage(p.getStringParam(Actions.G_SOURCE_IMAGE)));
+			logger.info("(3/3 Integrating Contours...");
+			ci.calculate(i);
+			ci.printModelOutput(outWidth, outHeight);
+			
+		} else {
+			logger.warning("There was no SOURCE image to start the filterings with");
+		}
 	}
 
 	private void f_sinus_filter_filter_image(Params p) {

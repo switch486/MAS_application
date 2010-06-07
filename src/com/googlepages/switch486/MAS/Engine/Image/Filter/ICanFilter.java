@@ -27,4 +27,5 @@ public interface ICanFilter {
 	 * Uses the specified in the gabor Class FilterMatrix.
 	 */
 	public AIImage filter (AIImage imageToTransform);
+	
 }

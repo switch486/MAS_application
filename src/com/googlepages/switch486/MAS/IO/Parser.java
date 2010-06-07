@@ -230,6 +230,12 @@ public class Parser extends CmdLineParser {
 				"Sinus: Set the border of the complex sinus function - how manny creapy thics You want to avoid :P.",
 		"./CandA --sinus_border");
 		
+		CmdLineParser.Option CounturIntegrator = parser.addHelp(parser
+				.addStringOption('C', "CONTOUR"),
+				"Contour: Perform calculations using the contour integration model:",
+				"FILTER :\tExport the contour integration module results for the (SOURCE) image into an image\n" +
+				"\t\t./CandA -C FILTER");
+		
 		
 		CmdLineParser.Option verbose = parser.addHelp(parser.addBooleanOption(
 				'v', "verbose"), "Show some more info when @ work (all log levels!)",
@@ -396,6 +402,15 @@ public class Parser extends CmdLineParser {
 			sinusBorderValue = Double.parseDouble(parser.properties
 					.getProperty("sinus.border_value"));
 		p.add(new DoubleParam(Actions.D_sinus_border, sinusBorderValue));
+		
+		String CONTOUR = (String) parser.getOptionValue(CounturIntegrator);
+		if (CONTOUR != null) {
+			if (CONTOUR.equals("FILTER")) {
+				p.add(new StringParam(Actions.F_CONTOUR_MODEL_FILTER, CONTOUR));
+			} else {
+				logger.info("Unexpected parameter found: " + CONTOUR	+ "; skipping");
+			}
+		}
 
 		Boolean canHasVerbose = (Boolean) parser.getOptionValue(verbose);
 		if (canHasVerbose != null && canHasVerbose.booleanValue() == true){			

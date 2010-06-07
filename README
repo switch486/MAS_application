@@ -35,6 +35,7 @@ Other TODOS:
 * DONE Ant
 * DONE GNUPlot and imagemagick
 * DONE BatchTests
+* DONE Parser
 X TODO JavaDoc
 X TODO Help pdf
 X TODO Database
@@ -43,7 +44,11 @@ X TODO GUI
 X TODO CHECKStyle
 X TODO Tweet / BUZZ
 X TODO Memory/System/Procesor Status
+X TODO Licences - using software pieces...
 
+v0.1.5
+08.06.2010
+* Should work as a simple Contour Integration Unit.... somehow...
 
 v0.1.4
 27.05.2010
