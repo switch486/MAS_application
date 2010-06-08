@@ -22,11 +22,12 @@ public class ContourNeurone {
 		this.x = x;
 		this.y = y;
 		this.isactive = isActive;
-		this.power = (Math.random()/4)-0.125;
+		//this.power = (Math.random()/4)-0.125;
+		this.power = (Math.random()/2);
 	}
 	
 	public boolean isInBounds (ContourNeurone[][] net, int xx, int yy) {
-		if (xx<0 || yy<0 || xx>net.length || yy>net[0].length){
+		if (xx<0 || yy<0 || xx>=net.length || yy>=net[0].length){
 			return false;
 		}
 		return true;
@@ -34,6 +35,11 @@ public class ContourNeurone {
 	
 	public void actualize() {
 		power += DIFFERENCE;
+		if (power<0){
+			power=0d;
+		}else if (power>1d){
+			power=1d;
+		}
 	}
 	
 	/**
@@ -81,7 +87,7 @@ public class ContourNeurone {
 		if (angleBorder>angle) {
 			return angle/Math.PI;
 		}
-		return -angle/Math.PI;
+		return angle/(100*Math.PI);
 		//<-1, 1>
 	}
 	

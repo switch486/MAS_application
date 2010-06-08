@@ -43,14 +43,18 @@ public class ContourIntegrator {
 		int beY;// /
 		int fmx = sX;
 		int fmy = sY;
-		beX = (iWidth % fmx) / 2; // example (35%20=15)/2=7;
-		beY = (iHeight % fmy) / 2; // example (35%20=15)/2=7;
-		int xTimes = iWidth / fmx;
-		int yTimes = iHeight / fmy;
+		beX = 0; 
+		beY = 0; 
+		int xTimes = network.length;
+		int yTimes = network[0].length;
 		
 		for (int i=0; i<xTimes; i++) {
 			for (int j=0; j<yTimes; j++) {
-				printOneContourWithPower(out, i * fmx + beX, j * fmy + beY, fmx, fmy, i, j);
+				if (inBounds(out, i * fmx + beX + fmx , j * fmy + beY + fmy)){
+					printOneContourWithPower(out, i * fmx + beX, j * fmy + beY, fmx, fmy, i, j);
+				}else {
+					toString();
+				}
 			}
 		}
 		return out;
@@ -62,21 +66,34 @@ public class ContourIntegrator {
 				out.setRGB(i, j, Color.white.getRGB());			//ff, ff, ff
 			}
 		}
-		///////if (network[jj][jj].isSinus){//omg
-			
-		///////}else {//less complicated!
-			//network[ii][jj].theta;
-			double x = Math.sin(network[ii][jj].theta);
+		if (network[ii][jj].isactive) {
+			// /////if (network[ii][jj].isSinus){//omg
+
+			// /////}else {//less complicated!
+			// network[ii][jj].theta;
+			double x = -Math.sin(network[ii][jj].theta);
 			double y = Math.cos(network[ii][jj].theta);
-			for (int i=-10; i<10; i++){
-				if (inBounds(i2, j2, i2+fmx, j2+fmy,(int)(i*x) ,(int)(i*y) )){
-					float d = (float)(network[ii][jj].power+1)/2;
-					out.setRGB((int)(i*x), (int)(i*y), new Color(d, 0f, 0f).getRGB());
+			for (int i = -10; i < 10; i++) {
+				if (inBounds(i2, j2, i2 + fmx, j2 + fmy,
+						(int) ((i2 + (fmx / 2)) + i * x),
+						(int) ((j2 + (fmy / 2)) + i * y))) {
+					float d = (float) (network[ii][jj].power);
+					out.setRGB((int) ((i2 + (fmx / 2)) + i * x),
+							(int) ((j2 + (fmy / 2)) + i * y), new Color(d, 0f,
+									0f).getRGB());
 				}
 			}
-		///////}
-		//network[ii][jj].power;
-		//PRINT CONTOUR WITH POWER!!!!
+			// /////}
+			// network[ii][jj].power;
+			// PRINT CONTOUR WITH POWER!!!!
+		}
+	}
+	
+	private boolean inBounds (AIImage out, int x, int y){
+		if (x<0 || y<0 || x>=out.getWidth() || y>=out.getHeight()) {
+			return false;
+		}
+		return true;
 	}
 	
 	private boolean inBounds (int x, int y, int xx, int yy, int a, int b){

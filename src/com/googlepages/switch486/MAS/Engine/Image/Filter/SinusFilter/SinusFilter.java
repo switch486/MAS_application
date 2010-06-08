@@ -354,14 +354,14 @@ public class SinusFilter implements ICanFilter, ICanCreateNetwork {
 							tvalmin = d;
 						}
 					}
-					if (tbest>fineLevel){ 
+					/*if (tbest>fineLevel){ 
 						//sinus i theta fails
 						neuroneNet[i][j] = new ContourNeurone(getFalseDirection(tbest) ,getDirection(tbest), true, true, i, j);
 					}
-					else {
+					else {*/
 						//cosinus
 						neuroneNet[i][j] = new ContourNeurone(getDirection(tbest),getDirection(tbest), false, true , i, j);
-					}
+					//}
 				} else {
 					neuroneNet[i][j] = new ContourNeurone(0,0, false, false, i, j );
 				}
