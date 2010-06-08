@@ -79,8 +79,7 @@ public class ContourIntegrator {
 						(int) ((j2 + (fmy / 2)) + i * y))) {
 					float d = (float) (network[ii][jj].power);
 					out.setRGB((int) ((i2 + (fmx / 2)) + i * x),
-							(int) ((j2 + (fmy / 2)) + i * y), new Color(d, 0f,
-									0f).getRGB());
+							(int) ((j2 + (fmy / 2)) + i * y), new Color(d, 0f, 0f).getRGB());
 				}
 			}
 			// /////}
@@ -110,12 +109,11 @@ public class ContourIntegrator {
 		boolean koniec = false;
 		int ct = 0;
 		
-		while(ct<10) {
+		while(ct<100) {
 		
 			LinkedList<Double> lld = new LinkedList<Double>();
 			for (int i=0; i<x; i++) {
 				for (int j=0; j<y; j++) {
-					
 					
 					lld.add(network[i][j].countPower(network));
 				}
@@ -127,7 +125,7 @@ public class ContourIntegrator {
 			}
 			
 			double avg = average(lld);
-			if (avg<0.1){
+			if (avg<0.0001){
 				koniec=true;
 			}
 			ct++;

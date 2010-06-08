@@ -95,11 +95,11 @@ public class EngineFacade implements IEngine {
 			}
 			String result = iODBWorker.runShellCommandForResultsMerge(list);
 			p.resetParameterForAction(Actions.G_SOURCE_IMAGE, result);
-			logger.info("(2/3 Filtering with Sinus...");
+			logger.info("(2/3) Filtering with Sinus...");
 			AIImage u = sf.filter(iODBWorker.getImage(p.getStringParam(Actions.G_SOURCE_IMAGE)));
 			iODBWorker.writeImage(u, p.getStringParam(Actions.G_FILEPATH_FOR_OUTPUT_FILES));
 			ContourNeurone[][] i = sf.extractNetwork(iODBWorker.getImage(p.getStringParam(Actions.G_SOURCE_IMAGE)));
-			logger.info("(3/3 Integrating Contours...");
+			logger.info("(3/3) Integrating Contours...");
 			ci.calculate(i);
 			AIImage out = ci.printModelOutput(outWidth, outHeight);
 			iODBWorker.writeImage(out, p.getStringParam(Actions.G_FILEPATH_FOR_OUTPUT_FILES));

@@ -4,7 +4,7 @@ public class ContourNeurone {
 	
 	public static double boost = 0.9;
 	public static int radiusRestriction = 4;
-	public static double angleBorder = 1.3d;
+	public static double angleBorder = 1.1d;
 	
 	private double DIFFERENCE;
 	
@@ -23,7 +23,7 @@ public class ContourNeurone {
 		this.y = y;
 		this.isactive = isActive;
 		//this.power = (Math.random()/4)-0.125;
-		this.power = (Math.random()/2);
+		this.power = 0.0001;
 	}
 	
 	public boolean isInBounds (ContourNeurone[][] net, int xx, int yy) {
@@ -56,7 +56,8 @@ public class ContourNeurone {
 						if (i == x && j == y) {
 							// NOP
 						} else {
-							addd +=net[i][j].power * getRadiusRestriction(i, j) * getAngleProperty(net, i, j); 
+							//addd +=net[i][j].power * getRadiusRestriction(i, j) * getAngleProperty(net, i, j); 
+							addd +=(net[i][j].power * getRadiusRestriction(i, j) * getAngleProperty(net, i, j))>0.00011? 1: 0; 
 							ct++;
 						}
 					}
@@ -85,9 +86,9 @@ public class ContourNeurone {
 	private double getAngleProperty(ContourNeurone[][] net, int xx, int yy){
 		double angle = getAngleDifference(net, xx, yy);
 		if (angleBorder>angle) {
-			return angle/Math.PI;
+			return angleBorder-angle;
 		}
-		return angle/(100*Math.PI);
+		return -angle/(Math.PI);
 		//<-1, 1>
 	}
 	
