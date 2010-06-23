@@ -1,0 +1,57 @@
+\section{Teoria}
+\label{aGabor_teoria}
+Filtr w grafice komputerowej jest tak zwaną konwolucją dyskretną \cite{Tadeusiewicz} obrazu. Dla przypadku 2 wymiarów będzie ona przedstawiona poniżej.
+$$
+	L'(m, n) = (w \times L)(m, n) = \sum_{i, j \in K}L(m-i, n-j)w(i, j)	
+$$
+Należy wyjaśnić, że w powyższym przykładzie $L$ jest obrazem początkowym, gdzie $L(x, y)$ jest punktem w tym obrazie określonym współrzędnymi $x$ i $y$. Natomiast $w(x, y)$ jest filtrem, którego składowe $x$ i $y$ są tak samo interpretowane. Wynikiem przedstawionej w ten sposób filtracji obrazu jest $L'$.\\
+Można powiedzieć, że przy filtrowaniu posiadamy 3 macierze/tablice(2D) różnych rozmiarów. Z czego przyjmuje się, że macierze $L$ i $L'$ są tych samych rozmiarów, a macierz $w$ jest innych rozmiarów (najlepiej aby jej rozmiary przedstawiane były za pomocą 2 liczb nieparzystych) i jest dużo mniejsza od $L$. Macierz $w$ jest 'oknem filtru'.\\
+
+Filtrowanie jest procesem w którym dla każdego piksela z obrazu wejściowego -- nawiązując do oznaczeń zaproponowanych powyżej -- $L$ kolor odpowiadającego mu piksla w obrazie wyjściowym ($L'$) jest zależny od ważonej sumy wartości koloru piksli go otaczających. Wagi dla tego przekształcenia są określone przez okno filtru i przyjmuje się, że środkowemu punktowi okna filtru odpowiada wybrany wcześniej piksel w obrazie $L$. Dodatkowo wymaga się, aby zostały określone warunki na podstawie których będzie można to przekształcenie stosować na krawędziach obrazu, dochodzi tam bowiem do sytuacji, w których okno filtru wykracza poza obraz. Przyjmuje się, że w takich wypadkach nieistniejące piksle nie biorą udziału w wyliczeniach wartości koloru dla danego piksla leżącego przy krawędzi. Należy jednak dodatkowo zwrócić uwagę na fakt, że obraz jest dwuwymiarową tablicą kolorów, z których każdy jest w określonych granicach. Wymagane jest więc, aby po przekształceniu obrazu danym filtrem doprowadzić jego wartości kolorów w taki sposób, aby mógł on odzwierciedlać obraz.\\
+
+Przykładowo obraz może być dwuwymiarową tablicą piksli, z których każdy jest określonego koloru, a kolor ten jest przedstawiony np. jako wartość jasności (dla obrazów czarno-białych) i mieści się w zakresie $(0, 255)$. Po przekształceniu filtrem o oknie wielkości $3\times3$, w którym wartości są z zakresu $(-1, 1)$ należałoby wartości w obrazie wynikowym tak przemnożyć, aby również przedstawiały określony wcześniej zakres. 
+
+\subsection{Funkcja Gabora}
+\label{aGabor_funkcja}
+
+Funkcja Gabora \cite{Movellan}, która jest głównym składnikiem filtru Gabora jest bardzo prostym złożeniem dwóch, tak naprawdę elementarnych funkcji. Jako złożenie funkcji autor ma na myśli prosty iloczyn -- jak to jest przedstawione we wzorze \ref{eqn:aGabor_wzor1}.
+\begin{align}\label{eqn:aGabor_wzor1}
+g(x, y) = s(x, y) w_r (x, y)
+\end{align}
+W przedstawionym powyżej wzorze należy wyszczególnić dwa elementy: 
+\begin{description}
+\item [$s(x, y)$] -- jest zespoloną sinusoidą, nazywaną nośnikiem\footnote{Z języka angielskiego carrier.}
+\item [$w_r (x, y)$] -- jest dwuwymiarową funkcją o kształcie funkcji Gaussa, nazywaną powłoką\footnote{Z języka angielskiego envelope.}
+\end{description}
+
+\subsubsection{Nośnik}
+\label{aGabor_carrier}
+
+Zespolona sinusoida jest odwzorowaniem funkcji \ref{eqn:aGabor_c_sinus} na płaszczyźnie.
+\begin{align}\label{eqn:aGabor_c_sinus}
+s(x, y) = exp(j(2\pi(u_0x + v_0y)+P))
+\end{align}
+W podanym wyżej wzorze można wydzielić parametry:
+\begin{description}
+\item [$P$] -- faza sinusoidy
+\item [$(u_0, v_0)$] -- wektor, który opisuje częstotliwość sinusoidy
+\end{description}
+
+\subsubsection{Powłoka}
+\label{aGabor_envelope}
+
+\subsection{Filtr Gabora}
+\label{aGabor_filtr}
+
+%TODO - screeny i uszczegółowienie
+
+\subsection{Przykład filtrowania}
+\label{aGabor_przyklad}
+
+%TODO no jak sama nazwa wskazuje - przykłady
+
+\section{Dyskusja i wnioski}
+\label{aGabor_dyskusja}
+
+%TODO - trochę o tym, że to dobre!
+

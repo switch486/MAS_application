@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: DOC.aux
+The style file: iisthesis.bst
+Database file #1: MAS.bib
+Warning--entry type for "brodmannn" isn't style-file defined
+--line 1018 of file MAS.bib
+Warning--empty journal in hubelnobel
+Warning--empty journal in kahana2010
+Warning--empty journal in wieselnobel
+You've used 24 entries,
+            2118 wiz_defined-function locations,
+            658 strings with 7176 characters,
+and the built_in function-call counts, 7383 in all, are:
+= -- 756
+> -- 271
+< -- 6
++ -- 108
+- -- 84
+* -- 489
+:= -- 1223
+add.period$ -- 71
+call.type$ -- 24
+change.case$ -- 112
+chr.to.int$ -- 0
+cite$ -- 27
+duplicate$ -- 292
+empty$ -- 606
+format.name$ -- 84
+if$ -- 1540
+int.to.chr$ -- 0
+int.to.str$ -- 24
+missing$ -- 23
+newline$ -- 122
+num.names$ -- 49
+pop$ -- 106
+preamble$ -- 1
+purify$ -- 90
+quote$ -- 0
+skip$ -- 218
+stack$ -- 0
+substring$ -- 532
+swap$ -- 57
+text.length$ -- 6
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 92
+warning$ -- 3
+while$ -- 84
+width$ -- 26
+write$ -- 257
+(There were 4 warnings)

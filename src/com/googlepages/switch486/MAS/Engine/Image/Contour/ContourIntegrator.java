@@ -3,6 +3,7 @@ package com.googlepages.switch486.MAS.Engine.Image.Contour;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.util.LinkedList;
+import java.util.logging.Logger;
 
 import com.googlepages.switch486.MAS.Bean.Actions;
 import com.googlepages.switch486.MAS.Bean.Param;
@@ -10,6 +11,8 @@ import com.googlepages.switch486.MAS.Bean.Params;
 import com.googlepages.switch486.MAS.Engine.Image.AIImage;
 
 public class ContourIntegrator {
+	
+	private static final Logger logger = Logger.getLogger(ContourIntegrator.class.getName());
 	
 	private ContourNeurone[][] network;
 	private int sX;
@@ -38,6 +41,7 @@ public class ContourIntegrator {
 	}
 	
 	public AIImage printModelOutput(int iWidth, int iHeight){
+		logger.info("Extracting image from model.");
 		AIImage out = new AIImage(iWidth, iHeight, BufferedImage.TYPE_INT_ARGB);
 		int beX;// \ that are those values that represent the x and y of the image marking the point (0, 0), because not every image will have sizes matching int*filtermatrix[0].length etc.
 		int beY;// /
@@ -79,7 +83,7 @@ public class ContourIntegrator {
 						(int) ((j2 + (fmy / 2)) + i * y))) {
 					float d = (float) (network[ii][jj].power);
 					out.setRGB((int) ((i2 + (fmx / 2)) + i * x),
-							(int) ((j2 + (fmy / 2)) + i * y), new Color(d, 0f, 0f).getRGB());
+							(int) ((j2 + (fmy / 2)) + i * y), new Color(1-d, 1-d, 1-d).getRGB());
 				}
 			}
 			// /////}
@@ -103,13 +107,15 @@ public class ContourIntegrator {
 	}
 
 	public void calculate(ContourNeurone[][] netWork) {
+		logger.info("Calculating the neurone net Model.");
 		this.network = netWork;
 		int x = network.length;
 		int y = network[0].length;
 		boolean koniec = false;
 		int ct = 0;
 		
-		while(ct<100) {
+		//while(ct<20) {
+		while(!koniec) {
 		
 			LinkedList<Double> lld = new LinkedList<Double>();
 			for (int i=0; i<x; i++) {
@@ -125,7 +131,7 @@ public class ContourIntegrator {
 			}
 			
 			double avg = average(lld);
-			if (avg<0.0001){
+			if (avg<0.01){
 				koniec=true;
 			}
 			ct++;

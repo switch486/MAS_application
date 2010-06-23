@@ -2,9 +2,11 @@ package com.googlepages.switch486.MAS.Engine.Image.Contour;
 
 public class ContourNeurone {
 	
-	public static double boost = 0.9;
+	public static double boost = 0.85;
 	public static int radiusRestriction = 4;
-	public static double angleBorder = 1.1d;
+	//public static double angleBorder = Math.PI/2;
+	public static double angleBorder = 1.4d;
+	public static double membranePotential = 0;
 	
 	private double DIFFERENCE;
 	
@@ -22,8 +24,8 @@ public class ContourNeurone {
 		this.x = x;
 		this.y = y;
 		this.isactive = isActive;
-		//this.power = (Math.random()/4)-0.125;
-		this.power = 0.0001;
+		this.power = (Math.random()/8);
+		//this.power = 0.2001;
 	}
 	
 	public boolean isInBounds (ContourNeurone[][] net, int xx, int yy) {
@@ -53,17 +55,24 @@ public class ContourNeurone {
 			for (int i = x - radiusRestriction; i <= x + radiusRestriction; i++) {
 				for (int j = y - radiusRestriction; j <= y + radiusRestriction; j++) {
 					if (isInBounds(net, i, j)) {
-						if (i == x && j == y) {
-							// NOP
-						} else {
-							//addd +=net[i][j].power * getRadiusRestriction(i, j) * getAngleProperty(net, i, j); 
-							addd +=(net[i][j].power * getRadiusRestriction(i, j) * getAngleProperty(net, i, j))>0.00011? 1: 0; 
-							ct++;
+						if (net[i][j].isactive) {
+							/*if (i == x && j == y) {
+								// NOP
+							} else {*/
+								// addd +=net[i][j].power *
+								// getRadiusRestriction(i, j) *
+								// getAngleProperty(net, i, j);
+								addd += (net[i][j].power
+										* getRadiusRestriction(i, j) * getAngleProperty(
+										net, i, j)) > 0 ? 1 : -1;
+								ct++;
+							//}
 						}
 					}
 				}
 			}
 			DIFFERENCE = addd/ct;
+			//if (DIFFERENCE < membranePotential) return 0;
 			/*power+=avg;*/
 			return DIFFERENCE;
 		}
@@ -85,10 +94,12 @@ public class ContourNeurone {
 	
 	private double getAngleProperty(ContourNeurone[][] net, int xx, int yy){
 		double angle = getAngleDifference(net, xx, yy);
-		if (angleBorder>angle) {
-			return angleBorder-angle;
-		}
-		return -angle/(Math.PI);
+		//if (angleBorder>angle) {
+			//return angleBorder-angle;
+			return Math.cos((angle/angleBorder)*(Math.PI/2));
+		//}
+		//return -angle/(Math.PI);
+		//return angleBorder-angle;
 		//<-1, 1>
 	}
 	
@@ -98,7 +109,7 @@ public class ContourNeurone {
 	 */
 	private double getAngleDifference (ContourNeurone[][] net, int xx, int yy) {
 		// 0-PHI
-		return Math.abs(theta-net[xx][yy].theta)*getNearAngleBoost(xx, yy);
+		return Math.abs(theta-net[xx][yy].theta)/getNearAngleBoost(xx, yy);
 	}
 	
 	private double getNearAngleBoost(int xx, int yy) {

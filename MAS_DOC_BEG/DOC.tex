@@ -1,0 +1,90 @@
+%\documentclass[twoside]{pwrthesis}
+\documentclass[twoside]{iisthesis}
+% ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+% Dodane przeze mnie d
+\usepackage{fancyvrb} % dla srodowiska Verbatim
+\usepackage{color}
+\usepackage{lscape}
+
+
+% definicje kolorow
+\definecolor{ciemnoSzary}{rgb}{0.15,0.15,0.15}
+\definecolor{szary}{rgb}{0.5,0.5,0.5}
+\definecolor{jasnoSzary}{rgb}{0.2,0.2,0.2}
+
+% Konfiguracja verbatima
+\fvset{
+	frame=single,
+	numbers=left,
+	fontsize=\footnotesize,
+	numbersep=12pt,
+%	framerule=.5mm,
+	rulecolor=\color{ciemnoSzary},
+%	fillcolor=\color{jasnoSzary},
+	framesep=4pt,
+	stepnumber=1,
+	numberblanklines=false,
+	tabsize=2,
+%	formatcom=\color{szary}
+}
+
+\begin{document}
+
+\title{Rozpoznawanie obrazów podobnych przy użyciu podejścia wzorowanego na korze wzrokowej.}
+\author{Adam Puchalski}
+\advisor{dr hab. inż. Urszula Markowska-Kaczmar}
+\instituteLogo{logos/pwr}
+\slowaKluczowe{kora wzrokowa\\rozpoznawanie obrazów\\sztuczna inteligencja}
+
+\date{\number\the\year}
+
+% Wstawienie abstractu pracy
+	%\input {abstract}
+	
+\abstractSH{
+Praca obejmuje opis kilku podejść -- w tym jedno autora -- w rozpoznawaniu obrazów, które bazują na korze wzrokowej ssaków. }
+
+\abstractPL{
+%TODO
+	Abstrakt
+}
+\abstractEN{
+%TODO
+	Abstract
+}
+
+\maketitle
+\textpages
+
+
+\chapter*{Wprowadzenie}
+\input{startup}
+
+
+\chapter{Biologiczne podstawy pracy}
+%TODO S pending!
+\input{chap1}
+
+
+\appendix
+
+\chapter{Filtr Gabora}
+\label{aGabor}
+%TODO S pending!
+\input{aGabor}
+
+\pagestyle{plain}
+ 
+\listoffigures
+\listoftables
+
+\bibliographystyle{iisthesis}
+\bibliography{MAS}
+\end{document}
+

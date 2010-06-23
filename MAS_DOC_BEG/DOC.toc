@@ -1,0 +1,35 @@
+\select@language {polish}
+\select@language {english}
+\select@language {polish}
+\select@language {english}
+\select@language {polish}
+\contentsline {chapter}{Wprowadzenie}{1}{section*.3}
+\contentsline {chapter}{Rozdzia\l \ 1\relax .\kern .5em Biologiczne podstawy pracy}{3}{section*.4}
+\contentsline {section}{\numberline {1.1\relax .\kern .5em }M\IeC {\'o}zg cz\IeC {\l }owieka}{3}{section.1.1}
+\contentsline {section}{\numberline {1.2\relax .\kern .5em }Wydzielone obszary w m\IeC {\'o}zgu}{3}{section.1.2}
+\contentsline {section}{\numberline {1.3\relax .\kern .5em }Kora wzrokowa}{4}{section.1.3}
+\contentsline {section}{\numberline {1.4\relax .\kern .5em }O wzroku s\IeC {\l }\IeC {\'o}w kilka}{5}{section.1.4}
+\contentsline {section}{\numberline {1.5\relax .\kern .5em }Struktura kory wzrokowej}{5}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1\relax .\kern .5em }Pierwszorz\IeC {\k e}dowa kora wzrokowa -- V1}{5}{subsection.1.5.1}
+\contentsline {subsection}{\numberline {1.5.2\relax .\kern .5em }Pozosta\IeC {\l }e warstwy kory wzrokowej}{7}{subsection.1.5.2}
+\contentsline {chapter}{Rozdzia\l \ 2\relax .\kern .5em Modele kory wzrokowej z zastosowaniem praktycznym}{9}{section*.5}
+\contentsline {section}{\numberline {2.1\relax .\kern .5em }Ekstrakcja i integracja kontur\IeC {\'o}w}{9}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1\relax .\kern .5em }Ekstrakcja kontur\IeC {\'o}w z obrazu}{9}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2\relax .\kern .5em }Tablica cech wizualnych -- VFA}{12}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3\relax .\kern .5em }Hiperkolumna}{14}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4\relax .\kern .5em }Integracja kontur\IeC {\'o}w w pierwszorz\IeC {\k e}dowej korze wzrokowej}{16}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.5\relax .\kern .5em }Integracja kontur\IeC {\'o}w modelem integrate-and-fire}{19}{subsection.2.1.5}
+\contentsline {subsection}{\numberline {2.1.6\relax .\kern .5em }@@@@integracja GPC}{22}{subsection.2.1.6}
+\contentsline {subsection}{\numberline {2.1.7\relax .\kern .5em }@@@@integracja RV1}{22}{subsection.2.1.7}
+\contentsline {subsection}{\numberline {2.1.8\relax .\kern .5em }@@@@integracja CDCI}{22}{subsection.2.1.8}
+\contentsline {subsection}{\numberline {2.1.9\relax .\kern .5em }@@@@integracja AC}{22}{subsection.2.1.9}
+\contentsline {subsection}{\numberline {2.1.10\relax .\kern .5em }@@@@integracja POGGIO}{22}{subsection.2.1.10}
+\contentsline {chapter}{Dodatek\ A\relax .\kern .5em Filtr Gabora}{23}{section*.11}
+\contentsline {section}{\numberline {A.1\relax .\kern .5em }Teoria}{23}{section.A.1}
+\contentsline {subsection}{\numberline {A.1.1\relax .\kern .5em }Funkcja Gabora}{24}{subsection.A.1.1}
+\contentsline {subsection}{\numberline {A.1.2\relax .\kern .5em }Filtr Gabora}{24}{subsection.A.1.2}
+\contentsline {subsection}{\numberline {A.1.3\relax .\kern .5em }Przyk\IeC {\l }ad filtrowania}{24}{subsection.A.1.3}
+\contentsline {section}{\numberline {A.2\relax .\kern .5em }Dyskusja i wnioski}{24}{section.A.2}
+\contentsline {chapter}{Spis rysunk\'ow}{25}{section*.15}
+\contentsline {chapter}{Spis tablic}{27}{section*.17}
+\contentsline {chapter}{Bibliografia}{29}{section*.19}

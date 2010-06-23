@@ -1,0 +1,111 @@
+% *----------------------------------------------------------------------
+% *
+% * iisthesis.cls - PWr/IZ/IIS thesis LaTeX template
+% * Copyright (C) 2006  Michal Stanek
+% * 
+% * The template was adapted to be compliance with the newest editorial 
+% * requirements introduced on the IIS/PWr department in the May 2006. 
+% * 
+% * modified skz_thesis.sty created by Michal Stochmialek
+% * modified from University of Tulsa MS Thesis class
+% * modified from the University of Washington thesis class
+% *
+% *----------------------------------------------------------------------
+% *	LICENCE
+% *
+% * This library is free software; you can redistribute it and/or
+% * modify it under the terms of the GNU Lesser General Public
+% * License as published by the Free Software Foundation; either
+% * version 2.1 of the License, or (at your option) any later version.
+% *
+% * This library is distributed in the hope that it will be useful,
+% * but WITHOUT ANY WARRANTY; without even the implied warranty of
+% * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+% * Lesser General Public License for more details.
+% *
+% * You should have received a copy of the GNU Lesser General Public
+% * License along with this library; if not, write to the Free Software
+% * Foundation, Inc., 59 Temple Place, Suite 330, Boston, 
+% * MA  02111-1307  USA
+% *----------------------------------------------------------------------
+% *
+
+\ProvidesClass{iisthesis}[2006/05/21]
+\NeedsTeXFormat{LaTeX2e}
+
+ 
+%
+% ----  Thesis is a modified 12-pt mwbk style  ----------------------------
+%
+
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{mwbk}}
+\newif\if@color
+\DeclareOption{color}{\@colortrue}
+\PassOptionsToClass{12pt}{mwbk}
+\PassOptionsToClass{a4paper}{mwbk}
+\PassOptionsToClass{openright}{mwbk}
+\ProcessOptions
+\LoadClass{mwbk}
+
+%% miejsce na szycie
+\if@twoside
+	\usepackage[a4paper, left=2.5cm, right=2.5cm, top=3.5cm, bottom=2.5cm, headsep=0.6cm, bindingoffset=0.5cm]{geometry}
+%	\usepackage[a4paper, left=3cm, right=3cm, top=3cm, bottom=3cm, headsep=0.6cm, bindingoffset=0.5cm]{geometry}
+\else
+	\usepackage[a4paper, left=3.0cm, right=2.5cm, top=3.5cm, bottom=2.5cm, headsep=0.6cm, ]{geometry}
+\fi
+
+
+% komenda ifpdf
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+        \pdffalse
+\else
+        \pdfoutput=1
+        \pdftrue
+\fi
+
+%\usepackage[ polish]{babel}
+\usepackage[polish, english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{theorem}
+
+%\usepackage[small,normal,bf,up]{caption}
+
+%\usepackage[Lenny]{sty/fncychap}
+
+% obrazki
+\ifpdf
+  \usepackage[pdftex]{graphicx}
+  \DeclareGraphicsExtensions{.pdf,.png}
+\else
+  \usepackage[dvips]{graphicx}
+  \DeclareGraphicsExtensions{.eps,.ps, .png}
+\fi
+
+%\linespread{1.5} 
+
+% Rysunek 1: => Rys. 1.
+\addto\captionspolish{
+   \def\figurename{Rys.}%
+   \def\algorithmname{Algorytm}%
+   \def\tablename{\textbf{Tabela}}%
+}
+\def\captionlabel#1{\textbf{#1.} }
+\renewcommand \thefigure {\thechapter.\@arabic\c@figure}
+
+%
+% Bardziej wyraziste wypunktowania 
+%
+%\renewcommand{\labelitemi}{$\bullet$}
+%\renewcommand{\labelitemii}{$\circ$}
+
+%
+% Delikatniejsze wypunktowania
+%
+\renewcommand{\labelitemi}{$\circ$}
+\renewcommand{\labelitemii}{$\cdot$}
+
+% Odst

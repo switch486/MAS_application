@@ -1,0 +1,133 @@
+\begin{thebibliography}{10}
+
+\bibitem{Lapicque}
+Abbott L.~F.
+\newblock {Lapicque's introduction of the integrate--and--fire model neuron}.
+\newblock {\em Brain Research Bulletin}, 50:303--304, 1999.
+
+\bibitem{Csapo2006}
+Csapo A., Roka A., Baranyi P.
+\newblock {Visual Cortex Inspired Vertex and Corner Detection}.
+\newblock {\em 2006 IEEE International Conference on Mechatronics}, pages
+  551--556, 2006.
+
+\bibitem{Curulku}
+Curulku B., Lansner A.
+\newblock {An Abstract Model Of A Cortical Hypercolumn}.
+\newblock In {\em Proceedings of the 9th International Conference on Neural
+  Information Processing (ICONIP'OP)}, volume~1, pages 80--85, 2002.
+
+\bibitem{Downing2001}
+Downing P.~E., Jiang Y., Shuman M., Kanwisher N.
+\newblock {A cortical area selective for visual processing of the human body.}
+\newblock {\em Science (New York, N.Y.)}, 293(5539):2470--3, 2001.
+
+\bibitem{brodmannn}
+Garey L.
+\newblock {Article reproduced by permission of the International Brain Research
+  Organization}.
+\newblock http://www.korbinian-brodmann.de/english-article-mainmenu-12, 1994.
+
+\bibitem{Gauthier1999}
+Gauthier I., Behrmann M., Tarr M.~J.
+\newblock {Can face recognition really be dissociated from object recognition?}
+\newblock {\em Journal of cognitive neuroscience}, 11(4):349--70, July 1999.
+
+\bibitem{Girkin2001}
+Girkin C.~A., Miller N.~R.
+\newblock {MAJOR REVIEW Central Disorders of Vision in Humans}.
+\newblock {\em Survey of Ophthalmology}, 45(5), 2001.
+
+\bibitem{Grill-Spector2003}
+Grill-Spector K.
+\newblock {The neural basis of object perception}.
+\newblock {\em Current Opinion in Neurobiology}, 13(2):159--166, 2003.
+
+\bibitem{Grill-Spector2005}
+Grill-Spector K., Kanwisher N.
+\newblock {Visual Recognition, As soon as You know it is there, You know what
+  it is}.
+\newblock {\em American Psychological Society}, 16(2):152--160, 2005.
+
+\bibitem{Hubel1978}
+Hubel D.~H.
+\newblock {Vision and the Brain At the January Stated Meeting David H .}
+\newblock {\em Bulletin of the American Academy of Arts and Sciences},
+  31(7):17--28, 4 1978.
+
+\bibitem{hubelnobel}
+Hubel D.~H.
+\newblock {Evolution of ideas on the Primary Visual Cortex, 1955-1978:A biased
+  Historical Account}.
+\newblock 12 1981.
+
+\bibitem{Jones1987}
+Jones J.~P., Palmer L.~A.
+\newblock {An evaluation of the two-dimensional Gabor filter model of simple
+  receptive fields in cat striate cortex}.
+\newblock {\em Journal of Neurophysiology}, 58:1233--1258, 1987.
+
+\bibitem{Kaas1995}
+Kaas J.~H.
+\newblock {Progress and puzzles}.
+\newblock {\em Current Biology}, 5(10):10--12, 1995.
+
+\bibitem{kahana2010}
+Kahana M.
+\newblock Virtual driving leads penn psychologists to the cells that sense
+  direction in the brain: Path cells.
+\newblock 2010.
+
+\bibitem{Li1998}
+Li Z.
+\newblock {A neural model of contour integration in the primary visual cortex.}
+\newblock {\em Neural computation}, 10(4):903--40, May 1998.
+
+\bibitem{Movellan}
+Movellan J.~R.
+\newblock {\em {Tutorial on Gabor Filters}}, 2008.
+
+\bibitem{encyclopedia}
+Ramachandran V., editor.
+\newblock {\em {Encyclopedia Of The Human Brain}}, volume~1.
+\newblock Elsevier Science, 2002.
+
+\bibitem{Resko}
+Resko B., Baranyi P.
+\newblock {Lateral Operations in the VFA model}.
+\newblock {\em IEEE}, pages 141--145, 2008.
+
+\bibitem{Resko2005}
+Resko B., Roka A., Baranyi P.
+\newblock {Visual Cortex Inspired Intelligent Contouring}.
+\newblock {\em IEEE}, pages 47--51, 2005.
+
+\bibitem{Schlei2009}
+Schlei B.~R.
+\newblock {A new computational framework for 2D shape-enclosing contours}.
+\newblock {\em Image and Vision Computing}, 27(6):637--647, 2009.
+
+\bibitem{Tadeusiewicz}
+Tadeusiewicz R., Korohoda P.
+\newblock {\em {Komputerowa analiza i przetwarzanie obrazów}}.
+\newblock Wydawnictwo Fundacji Postępu Telekmunikacji, Kraków, 1 edition,
+  1997.
+
+\bibitem{Ungerleider}
+Ungerleider L.~G., Haxby J.~V.
+\newblock {’What’ and ’where’ in the human brain}.
+\newblock {\em Current Opinion in Neurobiology}, 4:157--165, 1994.
+
+\bibitem{Vanrullen2001}
+Vanrullen R., Delorme A., Thorpe S.~J.
+\newblock {Feed-forward contour integration in primary visual cortex based on
+  asynchronous spike propagation}.
+\newblock {\em Neurocomputing}, 38:--401003--1009, 2001.
+
+\bibitem{wieselnobel}
+Wiesel T.~N.
+\newblock {The Postnatal development of the Visual Cortex and the influende of
+  environment}.
+\newblock 12 1981.
+
+\end{thebibliography}

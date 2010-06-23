@@ -1,0 +1,37 @@
+%\documentclass[twoside]{pwrthesis}
+\documentclass[twoside]{iisthesis}
+% ---
+\usepackage[MeX]{polski}
+\usepackage[cp1250]{inputenc}
+\usepackage{graphicx}
+
+% Dodane przeze mnie d
+\usepackage{fancyvrb} % dla srodowiska Verbatim
+\usepackage{color}
+\usepackage{lscape}
+
+
+% definicje kolorow
+\definecolor{ciemnoSzary}{rgb}{0.15,0.15,0.15}
+\definecolor{szary}{rgb}{0.5,0.5,0.5}
+\definecolor{jasnoSzary}{rgb}{0.2,0.2,0.2}
+
+% Konfiguracja verbatima
+\fvset{
+	frame=single,
+	numbers=left,
+	fontsize=\footnotesize,
+	numbersep=12pt,
+%	framerule=.5mm,
+	rulecolor=\color{ciemnoSzary},
+%	fillcolor=\color{jasnoSzary},
+	framesep=4pt,
+	stepnumber=1,
+	numberblanklines=false,
+	tabsize=2,
+%	formatcom=\color{szary}
+}
+
+\begin{document}
+
+\title{Rozpoznawanie obrazów podobnych przy u
