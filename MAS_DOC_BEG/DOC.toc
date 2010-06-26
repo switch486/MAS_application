@@ -12,7 +12,7 @@
 \contentsline {section}{\numberline {1.5\relax .\kern .5em }Struktura kory wzrokowej}{5}{section.1.5}
 \contentsline {subsection}{\numberline {1.5.1\relax .\kern .5em }Pierwszorz\IeC {\k e}dowa kora wzrokowa -- V1}{5}{subsection.1.5.1}
 \contentsline {subsection}{\numberline {1.5.2\relax .\kern .5em }Pozosta\IeC {\l }e warstwy kory wzrokowej}{7}{subsection.1.5.2}
-\contentsline {chapter}{Rozdzia\l \ 2\relax .\kern .5em Modele kory wzrokowej z zastosowaniem praktycznym}{9}{section*.5}
+\contentsline {chapter}{Rozdzia\l \ 2\relax .\kern .5em Modele kory wzrokowej z zastosowaniem praktycznym}{9}{section*.6}
 \contentsline {section}{\numberline {2.1\relax .\kern .5em }Ekstrakcja i integracja kontur\IeC {\'o}w}{9}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1\relax .\kern .5em }Ekstrakcja kontur\IeC {\'o}w z obrazu}{9}{subsection.2.1.1}
 \contentsline {subsection}{\numberline {2.1.2\relax .\kern .5em }Tablica cech wizualnych -- VFA}{12}{subsection.2.1.2}
@@ -24,12 +24,13 @@
 \contentsline {subsection}{\numberline {2.1.8\relax .\kern .5em }@@@@integracja CDCI}{22}{subsection.2.1.8}
 \contentsline {subsection}{\numberline {2.1.9\relax .\kern .5em }@@@@integracja AC}{22}{subsection.2.1.9}
 \contentsline {subsection}{\numberline {2.1.10\relax .\kern .5em }@@@@integracja POGGIO}{22}{subsection.2.1.10}
-\contentsline {chapter}{Dodatek\ A\relax .\kern .5em Filtr Gabora}{23}{section*.11}
+\contentsline {chapter}{Dodatek\ A\relax .\kern .5em Filtr Gabora}{23}{section*.24}
 \contentsline {section}{\numberline {A.1\relax .\kern .5em }Teoria}{23}{section.A.1}
 \contentsline {subsection}{\numberline {A.1.1\relax .\kern .5em }Funkcja Gabora}{24}{subsection.A.1.1}
-\contentsline {subsection}{\numberline {A.1.2\relax .\kern .5em }Filtr Gabora}{24}{subsection.A.1.2}
-\contentsline {subsection}{\numberline {A.1.3\relax .\kern .5em }Przyk\IeC {\l }ad filtrowania}{24}{subsection.A.1.3}
-\contentsline {section}{\numberline {A.2\relax .\kern .5em }Dyskusja i wnioski}{24}{section.A.2}
-\contentsline {chapter}{Spis rysunk\'ow}{25}{section*.15}
-\contentsline {chapter}{Spis tablic}{27}{section*.17}
-\contentsline {chapter}{Bibliografia}{29}{section*.19}
+\contentsline {subsection}{\numberline {A.1.2\relax .\kern .5em }Filtr Gabora}{26}{subsection.A.1.2}
+\contentsline {subsection}{\numberline {A.1.3\relax .\kern .5em }Przyk\IeC {\l }ad filtrowania}{28}{subsection.A.1.3}
+\contentsline {section}{\numberline {A.2\relax .\kern .5em }Dyskusja i wnioski}{29}{section.A.2}
+\contentsline {chapter}{Spis rysunk\'ow}{33}{section*.35}
+\contentsline {chapter}{Spis tablic}{35}{section*.37}
+\contentsline {chapter}{Spis Algorytm\IeC {\'o}w}{37}{section*.39}
+\contentsline {chapter}{Bibliografia}{39}{section*.41}

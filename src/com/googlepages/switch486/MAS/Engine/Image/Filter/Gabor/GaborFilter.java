@@ -311,6 +311,10 @@ public class GaborFilter implements ICanFilter, IsToImageable {
 	public AIImage filter(AIImage imageToTransform) {
 		return filter(imageToTransform, this.filterMatrix);
 	}
+	
+	public AIImage filterExample(AIImage imageToTransform) {
+		return filterExample(imageToTransform, this.filterMatrix);
+	}
 
 	@Override
 	public AIImage filter(AIImage imageToTransform,
@@ -364,7 +368,68 @@ public class GaborFilter implements ICanFilter, IsToImageable {
 		 
 		for (int x=0; x<iWidth; x++) {						// foreach pixel in the width
 			for (int y=0; y<iHeight; y++){					// foreach pixel in the height
-				int val = (int)(255*((temporaryImageValues[x][y]-0)/delta));
+				int val = (int)(255*((temporaryImageValues[x][y])/delta));
+				out.setRGB(x, y, new Color(val, val, val).getRGB());
+			}
+		}
+		return out;
+	}
+	
+	public AIImage filterExample(AIImage imageToTransform,
+			double[][] filterMatrixInput) {
+		//double[][] filterMatrixNormalizedInput = normalize(filterMatrixInput);
+		double[][] filterMatrixNormalizedInput = (filterMatrixInput);
+		int iWidth = imageToTransform.getWidth();
+		int iHeight = imageToTransform.getHeight();
+		double [][] temporaryImageValues = new double [iWidth][iHeight];
+		AIImage out = new AIImage(iWidth, iHeight, BufferedImage.TYPE_INT_ARGB);
+		int fXSize = filterMatrixNormalizedInput.length;
+		int fYSize = filterMatrixNormalizedInput[0].length;
+		int xMid = fXSize/2;
+		int yMid = fYSize/2;
+		double max=0d;
+		double min=0d;
+		for (int x=0; x<iWidth; x++) {						// foreach pixel in the width
+			for (int y=0; y<iHeight; y++){					// foreach pixel in the height
+				//double ValuesInsideTheImageBounds = 0d;			// for the better counting... 
+				double summedValue = 0d;
+				for (int i=0; i<fXSize; i++){				// for every point in the filterMatrix - x
+					for (int j=0; j<fYSize; j++){			// for every point in the filterMatrix - x
+						if (x - xMid + i < 0 || x - xMid + i >= iWidth) {
+							//NOP
+						} else if (y - yMid + j < 0 || y - yMid + j >= iHeight) {
+							//NOP
+						} else {
+
+							int rgb = imageToTransform.getRGB(x - xMid + i, y
+									- yMid + j);
+							summedValue += filterMatrixNormalizedInput[i][j]*new Color(rgb).getRed(); // because
+																	// all other
+																	// values
+																	// are the
+																	// same!
+							//ValuesInsideTheImageBounds+=filterMatrixNormalizedInput[i][j];
+						}
+
+					}
+				}
+				/*if (summedValue<0){
+					summedValue = -summedValue;
+				}*/
+				if (summedValue>max) {
+					max = summedValue;
+				}
+				if (summedValue<min) {
+					min = summedValue;
+				}
+				temporaryImageValues[x][y] = summedValue;
+			}
+		}
+		double delta = max-min;
+		 
+		for (int x=0; x<iWidth; x++) {						// foreach pixel in the width
+			for (int y=0; y<iHeight; y++){					// foreach pixel in the height
+				int val = (int)(255*((temporaryImageValues[x][y]-min)/delta));
 				out.setRGB(x, y, new Color(val, val, val).getRGB());
 			}
 		}

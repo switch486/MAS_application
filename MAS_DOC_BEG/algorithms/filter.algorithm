@@ -1,0 +1,21 @@
+\begin{algorithmic}[1]
+\STATE $picture \leftarrow obraz \ wejsciowy$
+\STATE $output \leftarrow obraz \ wyjsciowy$
+\STATE $filterMatrix \leftarrow filtr$
+\STATE $a \leftarrow filterMatrix.width/2$
+\STATE $b \leftarrow filterMatrix.height/2$
+
+\FOR{$x = 1 \to picture.width$} 
+\FOR{$y = 1 \to picture.height$} 
+\STATE $value \leftarrow 0$
+\FOR{$i = 1 \to filterMatrix.width$}
+\FOR{$j = 1 \to filterMatrix.height$}
+\STATE $value \leftarrow value + picture[x-a+i][y-b+j] \cdot filterMatrix[i][j]$
+\ENDFOR
+\ENDFOR
+\STATE $output[x][y] \leftarrow value$
+\ENDFOR
+\ENDFOR
+\end{algorithmic}
+
+

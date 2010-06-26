@@ -5,20 +5,40 @@
 \select@language {polish}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Punkty A i B przedstawiaj\IeC {\k a} pola wzbudze\IeC {\'n}, neuron\IeC {\'o}w z cia\IeC {\l }a kolankowatego bocznego, co r\IeC {\'o}wnie\IeC {\.z} odpowiada kom\IeC {\'o}rkom siatk\IeC {\'o}wki oka. Punkty C-G przedstawiaj\IeC {\k a} pola wzbudze\IeC {\'n} neuron\IeC {\'o}w pierwotnej kory wzrokowej, kt\IeC {\'o}re s\IeC {\k a} wra\IeC {\.z}liwe na istniej\IeC {\k a}ce w obrazie kreski, b\IeC {\k a}d\IeC {\'z} kraw\IeC {\k e}dzie pod okre\IeC {\'s}lonym k\IeC {\k a}tem, lecz r\IeC {\'o}\IeC {\.z}nych rozmiar\IeC {\'o}w. Mo\IeC {\.z}na sobie wyobrazi\IeC {\'c}, \IeC {\.z}e w korze wzrokowej dla bardzo wielu nachyle\IeC {\'n} k\IeC {\k a}ta s\IeC {\k a} podobne grupy neuron\IeC {\'o}w \cite {hubelnobel}.}}{6}{figure.1.1}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Punkty A i B przedstawiaj\IeC {\k a} pola wzbudze\IeC {\'n}, neuron\IeC {\'o}w z cia\IeC {\l }a kolankowatego bocznego, co r\IeC {\'o}wnie\IeC {\.z} odpowiada kom\IeC {\'o}rkom siatk\IeC {\'o}wki oka. Punkty C-G przedstawiaj\IeC {\k a} pola wzbudze\IeC {\'n} neuron\IeC {\'o}w pierwotnej kory wzrokowej, kt\IeC {\'o}re s\IeC {\k a} wra\IeC {\.z}liwe na istniej\IeC {\k a}ce w obrazie kreski, b\IeC {\k a}d\IeC {\'z} kraw\IeC {\k e}dzie pod okre\IeC {\'s}lonym k\IeC {\k a}tem, lecz r\IeC {\'o}\IeC {\.z}nych rozmiar\IeC {\'o}w. Mo\IeC {\.z}na sobie wyobrazi\IeC {\'c}, \IeC {\.z}e w korze wzrokowej dla bardzo wielu nachyle\IeC {\'n} k\IeC {\k a}ta s\IeC {\k a} podobne grupy neuron\IeC {\'o}w \cite {hubelnobel}.\relax }}{6}{figure.caption.5}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Przyk\IeC {\l }ad dzia\IeC {\l }ania algorytmu DICONEX na obrazie w skali szaro\IeC {\'s}ci, o rozmiarach $6 \times 6$ \cite {Schlei2009}.}}{11}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Wynik (b) dzia\IeC {\l }ania algorytmu DICONEX na obrazie niewielkiej rozdzielczo\IeC {\'s}ci (a) \cite {Schlei2009}.}}{12}{figure.2.2}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Model tablicy cech wizualnych, prostok\IeC {\k a}ty symbolizuj\IeC {\k a} struktury danych, elipsy natomiast transformacje \cite {Resko}.}}{13}{figure.2.3}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Kraw\IeC {\k e}dzie z modelu tablicy cech wizualnych, maj\IeC {\k a}ce reprezentowa\IeC {\'c} kraw\IeC {\k e}dzie wyodr\IeC {\k e}bnione w obrazie \cite {Resko2005}.}}{14}{figure.2.4}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Rezultaty pracy modelu z obrazem: a) obraz wej\IeC {\'s}ciowy, b) wyj\IeC {\'s}cie z modelu \cite {Resko2005}.}}{14}{figure.2.5}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Model hiperkolumny, zaproponowany przez autor\IeC {\'o}w pracy \cite {Curulku}, powsta\IeC {\l }y na podstawie bada\IeC {\'n} kory wzrokowej kota.}}{15}{figure.2.6}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Przestrze\IeC {\'n} hiperkolumn w modelu integracji kontur\IeC {\'o}w \cite {Li1998}.}}{16}{figure.2.7}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Architektura cz\IeC {\k e}\IeC {\'s}ciowa sieci prezentuj\IeC {\k a}cej podstawowe elementy sk\IeC {\l }adowe modelu z pracy \cite {Li1998}.}}{17}{figure.2.8}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Pole maj\IeC {\k a}ce wp\IeC {\l }yw na konkretny jeden segment, w zale\IeC {\.z}no\IeC {\'s}ci od funkcji odleg\IeC {\l }o\IeC {\'s}ci $J_{i\theta , j\theta '}$ oraz $W_{i\theta , j\theta '}$ \cite {Li1998}.}}{18}{figure.2.9}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Wyniki dzia\IeC {\l }ania opisanego wcze\IeC {\'s}niej algorytmu. Praca przedstawia zdj\IeC {\k e}cie najcz\IeC {\k e}\IeC {\'s}ciej poddawane obr\IeC {\'o}bce cyfrowej -- Len\IeC {\k e}. Wyra\IeC {\'z}nie wida\IeC {\'c}, \IeC {\.z}e kraw\IeC {\k e}dzie zosta\IeC {\l }y odzyskane w praktycznie doskona\IeC {\l }y spos\IeC {\'o}b \cite {Li1998}.}}{19}{figure.2.10}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Przedstawienie por\IeC {\'o}wna\IeC {\'n} modeli integracji kontur\IeC {\'o}w w pierwszorz\IeC {\k e}dowej korze wzrokowej \cite {Vanrullen2001}.}}{20}{figure.2.11}
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Por\IeC {\'o}wnanie wynik\IeC {\'o}w otrzymywanych z modelu ,,integrate-and-fire'' ze sprz\IeC {\k e}\IeC {\.z}eniem i bez \cite {Vanrullen2001}.}}{21}{figure.2.12}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Przyk\IeC {\l }ad dzia\IeC {\l }ania algorytmu DICONEX na obrazie w skali szaro\IeC {\'s}ci, o rozmiarach $6 \times 6$ \cite {Schlei2009}.\relax }}{11}{figure.caption.8}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Wynik (b) dzia\IeC {\l }ania algorytmu DICONEX na obrazie niewielkiej rozdzielczo\IeC {\'s}ci (a) \cite {Schlei2009}.\relax }}{12}{figure.caption.9}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Model tablicy cech wizualnych, prostok\IeC {\k a}ty symbolizuj\IeC {\k a} struktury danych, elipsy natomiast transformacje \cite {Resko}.\relax }}{13}{figure.caption.11}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Kraw\IeC {\k e}dzie z modelu tablicy cech wizualnych, maj\IeC {\k a}ce reprezentowa\IeC {\'c} kraw\IeC {\k e}dzie wyodr\IeC {\k e}bnione w obrazie \cite {Resko2005}.\relax }}{14}{figure.caption.15}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Rezultaty pracy modelu z obrazem: a) obraz wej\IeC {\'s}ciowy, b) wyj\IeC {\'s}cie z modelu \cite {Resko2005}.\relax }}{14}{figure.caption.16}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Model hiperkolumny, zaproponowany przez autor\IeC {\'o}w pracy \cite {Curulku}, powsta\IeC {\l }y na podstawie bada\IeC {\'n} kory wzrokowej kota.\relax }}{15}{figure.caption.17}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Przestrze\IeC {\'n} hiperkolumn w modelu integracji kontur\IeC {\'o}w \cite {Li1998}.\relax }}{16}{figure.caption.18}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Architektura cz\IeC {\k e}\IeC {\'s}ciowa sieci prezentuj\IeC {\k a}cej podstawowe elementy sk\IeC {\l }adowe modelu z pracy \cite {Li1998}.\relax }}{17}{figure.caption.19}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Pole maj\IeC {\k a}ce wp\IeC {\l }yw na konkretny jeden segment, w zale\IeC {\.z}no\IeC {\'s}ci od funkcji odleg\IeC {\l }o\IeC {\'s}ci $J_{i\theta , j\theta '}$ oraz $W_{i\theta , j\theta '}$ \cite {Li1998}.\relax }}{18}{figure.caption.20}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Wyniki dzia\IeC {\l }ania opisanego wcze\IeC {\'s}niej algorytmu. Praca przedstawia zdj\IeC {\k e}cie najcz\IeC {\k e}\IeC {\'s}ciej poddawane obr\IeC {\'o}bce cyfrowej -- Len\IeC {\k e}. Wyra\IeC {\'z}nie wida\IeC {\'c}, \IeC {\.z}e kraw\IeC {\k e}dzie zosta\IeC {\l }y odzyskane w praktycznie doskona\IeC {\l }y spos\IeC {\'o}b \cite {Li1998}.\relax }}{19}{figure.caption.21}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Przedstawienie por\IeC {\'o}wna\IeC {\'n} modeli integracji kontur\IeC {\'o}w w pierwszorz\IeC {\k e}dowej korze wzrokowej \cite {Vanrullen2001}.\relax }}{20}{figure.caption.22}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Por\IeC {\'o}wnanie wynik\IeC {\'o}w otrzymywanych z modelu ,,integrate-and-fire'' ze sprz\IeC {\k e}\IeC {\.z}eniem i bez \cite {Vanrullen2001}.\relax }}{21}{figure.caption.23}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {A.1}{\ignorespaces No\IeC {\'s}nik, element funkcji Gabora, przedstawiony w przestrzeni i jako mapa.\relax }}{25}{figure.caption.26}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Pow\IeC {\l }oka, element funkcji Gabora, przedstawiony w przestrzeni i jako mapa.\relax }}{26}{figure.caption.28}
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Funkcja Gabora przedstawiona w przestrzeni i jako mapa.\relax }}{27}{figure.caption.30}
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Wynik filtrowania obrazu \ref {fig:GF_output_input} pierwotn\IeC {\k a} wersj\IeC {\k a} filtru Gabora.\relax }}{27}{figure.caption.31}
+\contentsline {figure}{\numberline {A.5}{\ignorespaces Wyniki filtrowania obrazu \ref {fig:GF_output_input} filtrami Gabora w kt\IeC {\'o}rych $\omega _0$ jest w przedziale $(0, 1>$.\relax }}{30}{figure.caption.32}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Obraz wej\IeC {\'s}ciowy}}}{30}{subfigure.5.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\omega _0 = 0$}}}{30}{subfigure.5.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$\omega _0 = 0.1$}}}{30}{subfigure.5.3}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$\omega _0 = 0.2$}}}{30}{subfigure.5.4}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {$\omega _0 = 0.3$}}}{30}{subfigure.5.5}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {$\omega _0 = 0.4$}}}{30}{subfigure.5.6}
+\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {$\omega _0 = 0.5$}}}{30}{subfigure.5.7}
+\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {$\omega _0 = 0.6$}}}{30}{subfigure.5.8}
+\contentsline {subfigure}{\numberline {(i)}{\ignorespaces {$\omega _0 = 0.7$}}}{30}{subfigure.5.9}
+\contentsline {subfigure}{\numberline {(j)}{\ignorespaces {$\omega _0 = 0.8$}}}{30}{subfigure.5.10}
+\contentsline {subfigure}{\numberline {(k)}{\ignorespaces {$\omega _0 = 0.9$}}}{30}{subfigure.5.11}
+\contentsline {figure}{\numberline {A.6}{\ignorespaces Wyniki filtrowania obrazu \ref {fig:GF_output_input2} filtrami Gabora oraz operacji po\IeC {\l }\IeC {\k a}czenia otrzymywanych rezultat\IeC {\'o}w w jeden obraz.\relax }}{31}{figure.caption.33}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Obraz wej\IeC {\'s}ciowy}}}{31}{subfigure.6.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Otrzymany wynik}}}{31}{subfigure.6.2}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

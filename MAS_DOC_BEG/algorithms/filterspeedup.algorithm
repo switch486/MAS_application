@@ -1,0 +1,9 @@
+\begin{algorithmic}[1]
+\IF {$value < 0$} 
+\STATE $output[x][y] \leftarrow -value$
+\ELSE
+\STATE $output[x][y] \leftarrow value$
+\ENDIF 
+\end{algorithmic}
+
+
