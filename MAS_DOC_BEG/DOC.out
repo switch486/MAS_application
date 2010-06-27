@@ -14,18 +14,17 @@
 \BOOKMARK [2][-]{subsection.2.1.3}{2.1.3. \040Hiperkolumna}{section.2.1}
 \BOOKMARK [2][-]{subsection.2.1.4}{2.1.4. \040Integracja kontur\363w w pierwszorzedowej korze wzrokowej}{section.2.1}
 \BOOKMARK [2][-]{subsection.2.1.5}{2.1.5. \040Integracja kontur\363w modelem integrate-and-fire}{section.2.1}
-\BOOKMARK [2][-]{subsection.2.1.6}{2.1.6. \040@@@@integracja GPC}{section.2.1}
-\BOOKMARK [2][-]{subsection.2.1.7}{2.1.7. \040@@@@integracja RV1}{section.2.1}
-\BOOKMARK [2][-]{subsection.2.1.8}{2.1.8. \040@@@@integracja CDCI}{section.2.1}
-\BOOKMARK [2][-]{subsection.2.1.9}{2.1.9. \040@@@@integracja AC}{section.2.1}
-\BOOKMARK [2][-]{subsection.2.1.10}{2.1.10. \040@@@@integracja POGGIO}{section.2.1}
-\BOOKMARK [0][-]{section*.24}{Dodatek A. Filtr Gabora}{}
-\BOOKMARK [1][-]{section.A.1}{A.1. \040Teoria}{section*.24}
+\BOOKMARK [2][-]{subsection.2.1.6}{2.1.6. \040Odzyskiwanie globalnych kontur\363w z lokalnych cech}{section.2.1}
+\BOOKMARK [1][-]{section.2.2}{2.2. \040Pe\233ny model obliczeniowy kory wzrokowej cz\233owieka}{section*.6}
+\BOOKMARK [2][-]{subsection.2.2.1}{2.2.1. \040Rozpoznawanie obiekt\363w wywodzace sie z podzia\233u na komponenty}{section.2.2}
+\BOOKMARK [1][-]{section.2.3}{2.3. \040Podsumowanie}{section*.6}
+\BOOKMARK [0][-]{section*.34}{Dodatek A. Filtr Gabora}{}
+\BOOKMARK [1][-]{section.A.1}{A.1. \040Teoria}{section*.34}
 \BOOKMARK [2][-]{subsection.A.1.1}{A.1.1. \040Funkcja Gabora}{section.A.1}
 \BOOKMARK [2][-]{subsection.A.1.2}{A.1.2. \040Filtr Gabora}{section.A.1}
 \BOOKMARK [2][-]{subsection.A.1.3}{A.1.3. \040Przyk\233ad filtrowania}{section.A.1}
-\BOOKMARK [1][-]{section.A.2}{A.2. \040Dyskusja i wnioski}{section*.24}
-\BOOKMARK [0][-]{section*.35}{Spis rysunk\363w}{}
-\BOOKMARK [0][-]{section*.37}{Spis tablic}{}
-\BOOKMARK [0][-]{section*.39}{Spis Algorytm\363w}{}
-\BOOKMARK [0][-]{section*.41}{Bibliografia}{}
+\BOOKMARK [1][-]{section.A.2}{A.2. \040Dyskusja i wnioski}{section*.34}
+\BOOKMARK [0][-]{section*.46}{Spis rysunk\363w}{}
+\BOOKMARK [0][-]{section*.48}{Spis tablic}{}
+\BOOKMARK [0][-]{section*.50}{Spis algorytm\363w}{}
+\BOOKMARK [0][-]{section*.52}{Bibliografia}{}

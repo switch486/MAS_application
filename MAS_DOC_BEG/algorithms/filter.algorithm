@@ -2,8 +2,8 @@
 \STATE $picture \leftarrow obraz \ wejsciowy$
 \STATE $output \leftarrow obraz \ wyjsciowy$
 \STATE $filterMatrix \leftarrow filtr$
-\STATE $a \leftarrow filterMatrix.width/2$
-\STATE $b \leftarrow filterMatrix.height/2$
+\STATE $a \leftarrow \lceil filterMatrix.width/2 \rceil$
+\STATE $b \leftarrow \lceil filterMatrix.height/2 \rceil$
 
 \FOR{$x = 1 \to picture.width$} 
 \FOR{$y = 1 \to picture.height$} 

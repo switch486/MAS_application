@@ -49,6 +49,11 @@ Grill-Spector K., Kanwisher N.
   it is}.
 \newblock {\em American Psychological Society}, 16(2):152--160, 2005.
 
+\bibitem{Guy1993}
+Guy G., Medioni G.
+\newblock {Inferring Global Perceptual Contours from Local Features}.
+\newblock {\em Contract}, (c):6--7, 1993.
+
 \bibitem{Hubel1978}
 Hubel D.~H.
 \newblock {Vision and the Brain At the January Stated Meeting David H .}
@@ -83,6 +88,11 @@ Li Z.
 \newblock {A neural model of contour integration in the primary visual cortex.}
 \newblock {\em Neural computation}, 10(4):903--40, May 1998.
 
+\bibitem{Lopez2008}
+Lopez P.~M.
+\newblock {Object component models using Gabor filters for visual recognition},
+  September 2008.
+
 \bibitem{Movellan}
 Movellan J.~R.
 \newblock {\em {Tutorial on Gabor Filters}}, 2008.
@@ -102,10 +112,35 @@ Resko B., Roka A., Baranyi P.
 \newblock {Visual Cortex Inspired Intelligent Contouring}.
 \newblock {\em IEEE}, pages 47--51, 2005.
 
+\bibitem{PHDRiesenhuber2000}
+Riesenhuber M.
+\newblock {\em {How a Part of the Brain Might or Might Not Work : A New
+  Hierarchical Model of Object Recognition}}.
+\newblock PhD thesis, Massachusetts Institute of Technology, May 2000.
+
 \bibitem{Schlei2009}
 Schlei B.~R.
 \newblock {A new computational framework for 2D shape-enclosing contours}.
 \newblock {\em Image and Vision Computing}, 27(6):637--647, 2009.
+
+\bibitem{Serre2005}
+Serre T., Kouh M., Cadieu C., Knoblich U., Kreiman G., Poggio T.
+\newblock {\em {A Theory of Object Recognition: Computations and Circuits in
+  the Feedforward Path of the Ventral Stream in Primate Visual Cortex}}.
+\newblock 2005.
+
+\bibitem{USPatent}
+Serre T., Poggio T., Riesenhuber M., Wolf L., Bileschi S.~M.
+\newblock {High-Performance Vision System Exploiting Key Features Of Visual
+  Cortex}.
+\newblock United states patent application publication, Massachusetts Institute
+  of Technology, September 2006.
+
+\bibitem{Serre2007}
+Serre T., Wolf L., Bileschi S., Riesenhuber M., Poggio T.
+\newblock {Robust object recognition with cortex-like mechanisms.}
+\newblock {\em IEEE transactions on pattern analysis and machine intelligence},
+  29(3):411--26, March 2007.
 
 \bibitem{Tadeusiewicz}
 Tadeusiewicz R., Korohoda P.

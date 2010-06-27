@@ -19,26 +19,44 @@
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Wyniki dzia\IeC {\l }ania opisanego wcze\IeC {\'s}niej algorytmu. Praca przedstawia zdj\IeC {\k e}cie najcz\IeC {\k e}\IeC {\'s}ciej poddawane obr\IeC {\'o}bce cyfrowej -- Len\IeC {\k e}. Wyra\IeC {\'z}nie wida\IeC {\'c}, \IeC {\.z}e kraw\IeC {\k e}dzie zosta\IeC {\l }y odzyskane w praktycznie doskona\IeC {\l }y spos\IeC {\'o}b \cite {Li1998}.\relax }}{19}{figure.caption.21}
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Przedstawienie por\IeC {\'o}wna\IeC {\'n} modeli integracji kontur\IeC {\'o}w w pierwszorz\IeC {\k e}dowej korze wzrokowej \cite {Vanrullen2001}.\relax }}{20}{figure.caption.22}
 \contentsline {figure}{\numberline {2.12}{\ignorespaces Por\IeC {\'o}wnanie wynik\IeC {\'o}w otrzymywanych z modelu ,,integrate-and-fire'' ze sprz\IeC {\k e}\IeC {\.z}eniem i bez \cite {Vanrullen2001}.\relax }}{21}{figure.caption.23}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Pole rozszerzenia opisuj\IeC {\k a}ce wp\IeC {\l }yw s\IeC {\k a}siednich segment\IeC {\'o}w na jeden konkretny ze wzgl\IeC {\k e}du na (a) k\IeC {\k a}t oraz (b) si\IeC {\l }\IeC {\k e} \cite {Guy1993}.\relax }}{22}{figure.caption.25}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Wzajemny wp\IeC {\l }yw dw\IeC {\'o}ch p\IeC {\'o}l rozszerzenia na siebie i krzywa kt\IeC {\'o}ra jest na tej podstawie wydobywana \cite {Guy1993}.\relax }}{23}{figure.caption.26}
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Obrazy wej\IeC {\'s}ciowe dla modelu \cite {Guy1993}.\relax }}{23}{figure.caption.27}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Otrzymywane wyniki przedstawione jako mapa istotno\IeC {\'s}ci \cite {Guy1993}.\relax }}{24}{figure.caption.28}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Wynik pracy modelu \ref {fig:gpc_outt} z obrazem \ref {fig:gpc_inn} przedstawiony w formie kraw\IeC {\k e}dzi. \cite {Guy1993}.\relax }}{24}{figure.caption.29}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Obraz wej\IeC {\'s}ciowy}}}{24}{subfigure.17.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Otrzymany wynik}}}{24}{subfigure.17.2}
+\contentsline {figure}{\numberline {2.18}{\ignorespaces Model przedstawiaj\IeC {\k a}cy po\IeC {\l }\IeC {\k a}czenia mi\IeC {\k e}dzy elementami kory wzrokowej cz\IeC {\l }owieka oraz jego podzia\IeC {\l } na dwa szlaki: brzuszny i grzbietowy, kt\IeC {\'o}re \IeC {\'s}ci\IeC {\'s}le ze sob\IeC {\k a} s\IeC {\k a} powi\IeC {\k a}zane \cite {USPatent}.\relax }}{27}{figure.caption.30}
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Struktura odzwierciedlaj\IeC {\k a}ca hierarchi\IeC {\k e} po\IeC {\l }\IeC {\k a}cze\IeC {\'n} w modelu rozpoznawania obraz\IeC {\'o}w \cite {Serre2005}.\relax }}{28}{figure.caption.31}
+\contentsline {figure}{\numberline {2.20}{\ignorespaces Odzwierciedlenie zakresu szczeg\IeC {\'o}\IeC {\l }owo\IeC {\'s}ci na kolejnych poziomach modelu przedstawionego na rysunku \ref {fig:Poggio_BookModel} \cite {USPatent}.\relax }}{29}{figure.caption.32}
+\contentsline {figure}{\numberline {2.21}{\ignorespaces Przedstawienie szczeg\IeC {\'o}\IeC {\l }\IeC {\'o}w dotycz\IeC {\k a}cych podstawowych blok\IeC {\'o}w, z kt\IeC {\'o}rych jest z\IeC {\l }o\IeC {\.z}ony model z rysunku \ref {fig:Poggio_BookModel} \cite {Serre2007}.\relax }}{30}{figure.caption.33}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces No\IeC {\'s}nik, element funkcji Gabora, przedstawiony w przestrzeni i jako mapa.\relax }}{25}{figure.caption.26}
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Pow\IeC {\l }oka, element funkcji Gabora, przedstawiony w przestrzeni i jako mapa.\relax }}{26}{figure.caption.28}
-\contentsline {figure}{\numberline {A.3}{\ignorespaces Funkcja Gabora przedstawiona w przestrzeni i jako mapa.\relax }}{27}{figure.caption.30}
-\contentsline {figure}{\numberline {A.4}{\ignorespaces Wynik filtrowania obrazu \ref {fig:GF_output_input} pierwotn\IeC {\k a} wersj\IeC {\k a} filtru Gabora.\relax }}{27}{figure.caption.31}
-\contentsline {figure}{\numberline {A.5}{\ignorespaces Wyniki filtrowania obrazu \ref {fig:GF_output_input} filtrami Gabora w kt\IeC {\'o}rych $\omega _0$ jest w przedziale $(0, 1>$.\relax }}{30}{figure.caption.32}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Obraz wej\IeC {\'s}ciowy}}}{30}{subfigure.5.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\omega _0 = 0$}}}{30}{subfigure.5.2}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$\omega _0 = 0.1$}}}{30}{subfigure.5.3}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$\omega _0 = 0.2$}}}{30}{subfigure.5.4}
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {$\omega _0 = 0.3$}}}{30}{subfigure.5.5}
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {$\omega _0 = 0.4$}}}{30}{subfigure.5.6}
-\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {$\omega _0 = 0.5$}}}{30}{subfigure.5.7}
-\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {$\omega _0 = 0.6$}}}{30}{subfigure.5.8}
-\contentsline {subfigure}{\numberline {(i)}{\ignorespaces {$\omega _0 = 0.7$}}}{30}{subfigure.5.9}
-\contentsline {subfigure}{\numberline {(j)}{\ignorespaces {$\omega _0 = 0.8$}}}{30}{subfigure.5.10}
-\contentsline {subfigure}{\numberline {(k)}{\ignorespaces {$\omega _0 = 0.9$}}}{30}{subfigure.5.11}
-\contentsline {figure}{\numberline {A.6}{\ignorespaces Wyniki filtrowania obrazu \ref {fig:GF_output_input2} filtrami Gabora oraz operacji po\IeC {\l }\IeC {\k a}czenia otrzymywanych rezultat\IeC {\'o}w w jeden obraz.\relax }}{31}{figure.caption.33}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Obraz wej\IeC {\'s}ciowy}}}{31}{subfigure.6.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Otrzymany wynik}}}{31}{subfigure.6.2}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces No\IeC {\'s}nik, element funkcji Gabora, przedstawiony w przestrzeni i jako mapa.\relax }}{33}{figure.caption.36}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Pow\IeC {\l }oka, element funkcji Gabora, przedstawiony w przestrzeni i jako mapa.\relax }}{34}{figure.caption.38}
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Funkcja Gabora przedstawiona w przestrzeni i jako mapa.\relax }}{35}{figure.caption.40}
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Wynik filtrowania obrazu \ref {fig:GF_output_input} pierwotn\IeC {\k a} wersj\IeC {\k a} filtru Gabora.\relax }}{35}{figure.caption.41}
+\contentsline {figure}{\numberline {A.5}{\ignorespaces Wyniki filtrowania obrazu \ref {fig:GF_output_input} filtrami Gabora w kt\IeC {\'o}rych $\omega _0$ jest w przedziale $(0, 1>$.\relax }}{38}{figure.caption.42}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Obraz wej\IeC {\'s}ciowy}}}{38}{subfigure.5.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\omega _0 = 0$}}}{38}{subfigure.5.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$\omega _0 = 0.1$}}}{38}{subfigure.5.3}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$\omega _0 = 0.2$}}}{38}{subfigure.5.4}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {$\omega _0 = 0.3$}}}{38}{subfigure.5.5}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {$\omega _0 = 0.4$}}}{38}{subfigure.5.6}
+\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {$\omega _0 = 0.5$}}}{38}{subfigure.5.7}
+\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {$\omega _0 = 0.6$}}}{38}{subfigure.5.8}
+\contentsline {subfigure}{\numberline {(i)}{\ignorespaces {$\omega _0 = 0.7$}}}{38}{subfigure.5.9}
+\contentsline {subfigure}{\numberline {(j)}{\ignorespaces {$\omega _0 = 0.8$}}}{38}{subfigure.5.10}
+\contentsline {subfigure}{\numberline {(k)}{\ignorespaces {$\omega _0 = 0.9$}}}{38}{subfigure.5.11}
+\contentsline {figure}{\numberline {A.6}{\ignorespaces Wyniki filtrowania obrazu \ref {fig:GF_output_input2} filtrami Gabora oraz operacji po\IeC {\l }\IeC {\k a}czenia otrzymywanych rezultat\IeC {\'o}w w jeden obraz.\relax }}{39}{figure.caption.43}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Obraz wej\IeC {\'s}ciowy}}}{39}{subfigure.6.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Otrzymany wynik}}}{39}{subfigure.6.2}
+\contentsline {figure}{\numberline {A.7}{\ignorespaces Wyniki filtrowania obraz\IeC {\'o}w \ref {fig:GF_compare_in_1} i \ref {fig:GF_compare_in_2} filtrami Gabora w kt\IeC {\'o}rych r\IeC {\'o}\IeC {\.z}na by\IeC {\l }a wielko\IeC {\'s}\IeC {\'c} okna filtru.\relax }}{39}{figure.caption.44}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Obraz wej\IeC {\'s}ciowy}}}{39}{subfigure.7.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Filtracja oknem $3\times 3$}}}{39}{subfigure.7.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Filtracja oknem $9\times 9$}}}{39}{subfigure.7.3}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Obraz wej\IeC {\'s}ciowy wst\IeC {\k e}pnie przetworzony}}}{39}{subfigure.7.4}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Filtracja oknem $3\times 3$}}}{39}{subfigure.7.5}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {Filtracja oknem $9\times 9$}}}{39}{subfigure.7.6}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
