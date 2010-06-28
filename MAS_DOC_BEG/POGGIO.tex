@@ -55,4 +55,14 @@ Mimo, że przedstawiona -- jedna z wielu istniejących -- implementacja kończy 
  
 Co jest podkreślane bardzo często w świecie publikacji, przedstawiony model jest ciężki obliczeniowo i istnieje bardzo wiele jego modyfikacji, które nastawione są bardzo często na zwiększenie jego wydajności. Podobnie planował to zrobić autor wymienianej na początku tej części pracy magisterskiej \cite{Lopez2008}.\\
 
+Kluczem do zyskania na wydajności -- zdaniem niektórych naukowców -- jest rozpoznawanie obrazów ze względu na wydzielone w nich komponenty. W ten sposób nie będzie trzeba za każdym razem wielokrotnie przetwarzać całego obrazu, lecz -- w zależności od implementacji -- jego elementy, przez co duża część obliczeń może zostać zredukowana. Rzecz jasna nie ma nic za darmo i zysk z realizacji części obliczeń jest równoważny utracie ogólności w rozpoznawaniu obiektów na obrazie. Ponieważ po ekstrakcji komponentów z obrazu, może i stworzenia sieci komponentów połączonych pewnymi relacjami między sobą będzie można przeprowadzić jedynie operację sprawdzenia, czy w zadanym obrazie można rozpoznać cechy, jakie przez model zostały wyszczególnione. Bardzo dobrze to ograniczenie, jak i sam proces tworzenia modelu obrazuje rysunek \ref{fig:component_based_mona_lisa}.\\
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{images/CB_mona_lisa.png}
+	\caption{Kolejne kroki tworzenia modelu komponentów \cite{Lopez2008}.}
+	\label{fig:component_based_mona_lisa}
+\end{figure}
+
+Wyraźnie widać, że na początku należy wyszukać w obrazie punktów szczególnych -- co niestety jest trudne do zdefiniowania. Drugim etapem jest wyznaczenie pewnego otoczenia tych punktów szczególnych oraz połączenia tych otoczeń relacjami na przykład odległości.
 

@@ -23,13 +23,13 @@
 \contentsline {section}{\numberline {2.2\relax .\kern .5em }Pe\IeC {\l }ny model obliczeniowy kory wzrokowej cz\IeC {\l }owieka}{24}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1\relax .\kern .5em }Rozpoznawanie obiekt\IeC {\'o}w wywodz\IeC {\k a}ce si\IeC {\k e} z podzia\IeC {\l }u na komponenty}{26}{subsection.2.2.1}
 \contentsline {section}{\numberline {2.3\relax .\kern .5em }Podsumowanie}{26}{section.2.3}
-\contentsline {chapter}{Dodatek\ A\relax .\kern .5em Filtr Gabora}{31}{section*.34}
-\contentsline {section}{\numberline {A.1\relax .\kern .5em }Teoria}{31}{section.A.1}
-\contentsline {subsection}{\numberline {A.1.1\relax .\kern .5em }Funkcja Gabora}{32}{subsection.A.1.1}
-\contentsline {subsection}{\numberline {A.1.2\relax .\kern .5em }Filtr Gabora}{34}{subsection.A.1.2}
-\contentsline {subsection}{\numberline {A.1.3\relax .\kern .5em }Przyk\IeC {\l }ad filtrowania}{36}{subsection.A.1.3}
-\contentsline {section}{\numberline {A.2\relax .\kern .5em }Dyskusja i wnioski}{37}{section.A.2}
-\contentsline {chapter}{Spis rysunk\'ow}{41}{section*.46}
-\contentsline {chapter}{Spis tablic}{43}{section*.48}
-\contentsline {chapter}{Spis algorytm\IeC {\'o}w}{45}{section*.50}
-\contentsline {chapter}{Bibliografia}{47}{section*.52}
+\contentsline {chapter}{Dodatek\ A\relax .\kern .5em Filtr Gabora}{33}{section*.35}
+\contentsline {section}{\numberline {A.1\relax .\kern .5em }Teoria}{33}{section.A.1}
+\contentsline {subsection}{\numberline {A.1.1\relax .\kern .5em }Funkcja Gabora}{34}{subsection.A.1.1}
+\contentsline {subsection}{\numberline {A.1.2\relax .\kern .5em }Filtr Gabora}{36}{subsection.A.1.2}
+\contentsline {subsection}{\numberline {A.1.3\relax .\kern .5em }Przyk\IeC {\l }ad filtrowania}{38}{subsection.A.1.3}
+\contentsline {section}{\numberline {A.2\relax .\kern .5em }Dyskusja i wnioski}{39}{section.A.2}
+\contentsline {chapter}{Spis rysunk\'ow}{43}{section*.47}
+\contentsline {chapter}{Spis tablic}{45}{section*.49}
+\contentsline {chapter}{Spis algorytm\IeC {\'o}w}{47}{section*.51}
+\contentsline {chapter}{Bibliografia}{49}{section*.53}

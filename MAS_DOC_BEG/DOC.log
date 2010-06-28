@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.5.7)  28 JUN 2010 01:20
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.5.7)  28 JUN 2010 03:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -663,23 +663,76 @@ Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix
 ) (/usr/share/texmf-texlive/tex/latex/graphics/lscape.sty
 Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
-(/home/switch486/studia/8sem/MAS_DOC_BEG/DOC.aux)
+(/usr/share/texmf-texlive/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+)
+(/usr/share/texmf-texlive/tex/latex/rotating/rotating.sty
+Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
+\c@r@tfl@t=\count138
+\rotFPtop=\skip68
+\rotFPbot=\skip69
+\rot@float@box=\box33
+\rot@mess@toks=\toks32
+)
+(/usr/share/texmf-texlive/tex/latex/fmtcount/fmtcount.sty
+Package: fmtcount 2009/10/02 v1.31
+\c@padzeroesN=\count139
+
+(/usr/share/texmf-texlive/tex/latex/fmtcount/fc-english.def
+File: fc-english 2007/05/26
+)
+(/usr/share/texmf-texlive/tex/latex/fmtcount/fc-UKenglish.def
+File: fc-UKenglish 2007/06/14
+)
+(/usr/share/texmf-texlive/tex/latex/fmtcount/fc-british.def
+File: fc-british 2007/06/14
+)
+(/usr/share/texmf-texlive/tex/latex/fmtcount/fc-USenglish.def
+File: fc-USenglish 2007/06/14
+)
+(/usr/share/texmf-texlive/tex/latex/fmtcount/fc-spanish.def
+File: fc-spanish.def 2007/05/26
+)
+(/usr/share/texmf-texlive/tex/latex/fmtcount/fc-portuges.def
+File: fc-portuges.def 2007/05/26
+)
+(/usr/share/texmf-texlive/tex/latex/fmtcount/fc-french.def
+File: fc-french.def 2007/05/26
+)
+(/usr/share/texmf-texlive/tex/latex/fmtcount/fc-german.def
+File: fc-german.def 2007/06/14
+)
+(/usr/share/texmf-texlive/tex/latex/fmtcount/fc-italian.def
+File: fc-italian.def 2009/10/02 Italian support for fmtcount (Edoardo Pasca)
+)
+No configuration file fmtcount.cfg found.
+\@DT@modctr=\count140
+\@ordinalctr=\count141
+\@orgargctr=\count142
+\@strctr=\count143
+\@tmpstrctr=\count144
+\@DT@loopN=\count145
+\@DT@X=\count146
+) (/home/switch486/studia/8sem/MAS_DOC_BEG/DOC.aux)
 \openout1 = `DOC.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
 
 *geometry auto-detecting driver*
 *geometry detected driver: pdftex*
@@ -724,55 +777,61 @@ driver: pdftex
 -----------------------
 (/usr/share/texmf/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count138
+\scratchcounter=\count147
 \scratchdimen=\dimen141
-\scratchbox=\box33
-\nofMPsegments=\count139
-\nofMParguments=\count140
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count141
+\scratchbox=\box34
+\nofMPsegments=\count148
+\nofMParguments=\count149
+\everyMPshowfont=\toks33
+\MPscratchCnt=\count150
 \MPscratchDim=\dimen142
-\MPnumerator=\count142
-\everyMPtoPDFconversion=\toks33
+\MPnumerator=\count151
+\everyMPtoPDFconversion=\toks34
 )
-Package hyperref Info: Link coloring OFF on input line 42.
+Package hyperref Info: Link coloring OFF on input line 46.
  (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
 (/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
 Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
-\c@section@level=\count143
+\c@section@level=\count152
 )
-LaTeX Info: Redefining \ref on input line 42.
-LaTeX Info: Redefining \pageref on input line 42.
+LaTeX Info: Redefining \ref on input line 46.
+LaTeX Info: Redefining \pageref on input line 46.
 
 (/home/switch486/studia/8sem/MAS_DOC_BEG/DOC.out)
 (/home/switch486/studia/8sem/MAS_DOC_BEG/DOC.out)
 \@outlinefile=\write4
 \openout4 = `DOC.out'.
 
-\AtBeginShipoutBox=\box34
-\c@lstlisting=\count144
+\AtBeginShipoutBox=\box35
+\c@lstlisting=\count153
 Package caption Info: Begin \AtBeginDocument code.
 Package caption3 Info: subfig package 1.2 or 1.3 is loaded.
-LaTeX Info: Redefining \subref on input line 42.
+LaTeX Info: Redefining \subref on input line 46.
+Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 <logos/pwr.png, id=123, 543.02875pt x 115.43124pt>
 File: logos/pwr.png Graphic file (type png)
  <use logos/pwr.png>
-LaTeX Font Info:    Try loading font information for U+msa on input line 67.
+LaTeX Font Info:    Try loading font information for U+msa on input line 71.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 67.
+LaTeX Font Info:    Try loading font information for U+msb on input line 71.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-Overfull \hbox (11.931pt too wide) in alignment at lines 67--67
+LaTeX Font Info:    Try loading font information for U+lasy on input line 71.
+
+(/usr/share/texmf-texlive/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+Overfull \hbox (11.931pt too wide) in alignment at lines 71--71
 [][][] 
  []
 
@@ -780,7 +839,7 @@ Overfull \hbox (11.931pt too wide) in alignment at lines 67--67
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} </home/switch486/studia/8se
 m/MAS_DOC_BEG/logos/pwr.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 67--67
+Underfull \hbox (badness 10000) in paragraph at lines 71--71
 
  []
 
@@ -825,51 +884,62 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--31
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 48--49
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--50
 
  []
 
 <images/HandW.png, id=234, 604.50844pt x 457.71pt>
 File: images/HandW.png Graphic file (type png)
  <use images/HandW.png>
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
 
  []
 
-[5] [6 </home/switch486/studia/8sem/MAS_DOC_BEG/images/HandW.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 59--60
+[5]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 61--62
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
+ [6 </home/switch486/studia/8sem/MAS_DOC_BEG/images/HandW.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 69--70
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--78
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
 
  []
 
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 79--80
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--71
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
+
+ []
+
+
+Underfull \vbox (badness 2205) has occurred while \output is active []
+
+ [7]
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
 
  []
 
 [8]
 Rozdzia\l  2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--90
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
 
  []
 
@@ -1015,22 +1085,22 @@ File: images/spike_model.png Graphic file (type png)
 File: images/spike_model_results.png Graphic file (type png)
 
 <use images/spike_model_results.png>
-Underfull \hbox (badness 10000) in paragraph at lines 34--35
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
 
  []
 
 [19 </home/switch486/studia/8sem/MAS_DOC_BEG/images/li_out.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
+Underfull \hbox (badness 10000) in paragraph at lines 35--36
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--39
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--41
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
 
  []
 
@@ -1155,11 +1225,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 56--57
 
  []
 
-)) [26] [27 </home/switch486/studia/8sem/MAS_DOC_BEG/images/patent_model.png (P
-NG copy)>] [28 </home/switch486/studia/8sem/MAS_DOC_BEG/images/Poggio_book_stru
-ct.png (PNG copy)>] [29 </home/switch486/studia/8sem/MAS_DOC_BEG/images/patent_
-model_scale.png (PNG copy)>] [30 </home/switch486/studia/8sem/MAS_DOC_BEG/image
-s/Poggio_model_implementation.png (PNG copy)>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
+
+ []
+
+<images/CB_mona_lisa.png, id=553, 704.6325pt x 210.03468pt>
+File: images/CB_mona_lisa.png Graphic file (type png)
+
+<use images/CB_mona_lisa.png>)
+\c@Lcount=\count154
+ [26]
+Overfull \hbox (3.02586pt too wide) in paragraph at lines 160--162
+[]\T1/cmr/bx/n/12 Klasyfikacja wy-dzie-lo-nych obiek-tów \T1/cmr/m/n/12 -- przy
+-pi-sa-nie od-na-le-zio-nemu obiek-
+ []
+
+) [27] [28 </home/switch486/studia/8sem/MAS_DOC_BEG/images/patent_model.png (PN
+G copy)>] [29 </home/switch486/studia/8sem/MAS_DOC_BEG/images/Poggio_book_struc
+t.png (PNG copy)>] [30 </home/switch486/studia/8sem/MAS_DOC_BEG/images/patent_m
+odel_scale.png (PNG copy)>] [31 </home/switch486/studia/8sem/MAS_DOC_BEG/images
+/Poggio_model_implementation.png (PNG copy)>] [32 </home/switch486/studia/8sem/
+MAS_DOC_BEG/images/CB_mona_lisa.png (PNG copy)>]
 Dodatek A.
 (/home/switch486/studia/8sem/MAS_DOC_BEG/aGabor.tex
 Underfull \hbox (badness 10000) in paragraph at lines 6--9
@@ -1171,17 +1258,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
 
-[31
+[33
 
-] [32] <images/carrier.png, id=609, 1606.0pt x 803.0pt>
+] [34] <images/carrier.png, id=634, 1606.0pt x 803.0pt>
 File: images/carrier.png Graphic file (type png)
 
-<use images/carrier.png> [33 </home/switch486/studia/8sem/MAS_DOC_BEG/images/ca
-rrier.png (PNG copy)>] <images/envelope.png, id=626, 1606.0pt x 803.0pt>
+<use images/carrier.png> [35 </home/switch486/studia/8sem/MAS_DOC_BEG/images/ca
+rrier.png (PNG copy)>] <images/envelope.png, id=650, 1606.0pt x 803.0pt>
 File: images/envelope.png Graphic file (type png)
 
 <use images/envelope.png>
-<images/gaborFunction.png, id=627, 1606.0pt x 803.0pt>
+<images/gaborFunction.png, id=651, 1606.0pt x 803.0pt>
 File: images/gaborFunction.png Graphic file (type png)
 
 <use images/gaborFunction.png>
@@ -1196,55 +1283,55 @@ Underfull \hbox (badness 10000) in paragraph at lines 141--142
 
  []
 
-[34 </home/switch486/studia/8sem/MAS_DOC_BEG/images/envelope.png (PNG copy)>]
-<images/filtering_example/simple.png, id=644, 401.5pt x 401.5pt>
+[36 </home/switch486/studia/8sem/MAS_DOC_BEG/images/envelope.png (PNG copy)>]
+<images/filtering_example/simple.png, id=668, 401.5pt x 401.5pt>
 File: images/filtering_example/simple.png Graphic file (type png)
 
-<use images/filtering_example/simple.png> [35 </home/switch486/studia/8sem/MAS_
+<use images/filtering_example/simple.png> [37 </home/switch486/studia/8sem/MAS_
 DOC_BEG/images/gaborFunction.png> </home/switch486/studia/8sem/MAS_DOC_BEG/imag
 es/filtering_example/simple.png>]
 (/home/switch486/studia/8sem/MAS_DOC_BEG/algorithms/filterspeedup.algorithm)
-<images/filtering_example/one.png, id=666, 401.5pt x 401.5pt>
+<images/filtering_example/one.png, id=690, 401.5pt x 401.5pt>
 File: images/filtering_example/one.png Graphic file (type png)
 
 <use images/filtering_example/one.png>
-<images/filtering_example/000.png, id=667, 401.5pt x 401.5pt>
+<images/filtering_example/000.png, id=691, 401.5pt x 401.5pt>
 File: images/filtering_example/000.png Graphic file (type png)
 
 <use images/filtering_example/000.png>
-<images/filtering_example/001.png, id=668, 401.5pt x 401.5pt>
+<images/filtering_example/001.png, id=692, 401.5pt x 401.5pt>
 File: images/filtering_example/001.png Graphic file (type png)
 
 <use images/filtering_example/001.png>
-<images/filtering_example/002.png, id=669, 401.5pt x 401.5pt>
+<images/filtering_example/002.png, id=693, 401.5pt x 401.5pt>
 File: images/filtering_example/002.png Graphic file (type png)
 
 <use images/filtering_example/002.png>
-<images/filtering_example/003.png, id=670, 401.5pt x 401.5pt>
+<images/filtering_example/003.png, id=694, 401.5pt x 401.5pt>
 File: images/filtering_example/003.png Graphic file (type png)
 
 <use images/filtering_example/003.png>
-<images/filtering_example/004.png, id=671, 401.5pt x 401.5pt>
+<images/filtering_example/004.png, id=695, 401.5pt x 401.5pt>
 File: images/filtering_example/004.png Graphic file (type png)
 
 <use images/filtering_example/004.png>
-<images/filtering_example/005.png, id=672, 401.5pt x 401.5pt>
+<images/filtering_example/005.png, id=696, 401.5pt x 401.5pt>
 File: images/filtering_example/005.png Graphic file (type png)
 
 <use images/filtering_example/005.png>
-<images/filtering_example/006.png, id=673, 401.5pt x 401.5pt>
+<images/filtering_example/006.png, id=697, 401.5pt x 401.5pt>
 File: images/filtering_example/006.png Graphic file (type png)
 
 <use images/filtering_example/006.png>
-<images/filtering_example/007.png, id=674, 401.5pt x 401.5pt>
+<images/filtering_example/007.png, id=698, 401.5pt x 401.5pt>
 File: images/filtering_example/007.png Graphic file (type png)
 
 <use images/filtering_example/007.png>
-<images/filtering_example/008.png, id=675, 401.5pt x 401.5pt>
+<images/filtering_example/008.png, id=699, 401.5pt x 401.5pt>
 File: images/filtering_example/008.png Graphic file (type png)
 
 <use images/filtering_example/008.png>
-<images/filtering_example/009.png, id=676, 401.5pt x 401.5pt>
+<images/filtering_example/009.png, id=700, 401.5pt x 401.5pt>
 File: images/filtering_example/009.png Graphic file (type png)
 
 <use images/filtering_example/009.png>
@@ -1256,37 +1343,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 181--182
 
  []
 
-[36]
+[38]
 File: images/filtering_example/one.png Graphic file (type png)
  <use images/filtering_example/one.png>
-<images/filtering_example/join.png, id=707, 401.5pt x 401.5pt>
+<images/filtering_example/join.png, id=731, 401.5pt x 401.5pt>
 File: images/filtering_example/join.png Graphic file (type png)
 
 <use images/filtering_example/join.png>
-<images/filtering_example/asdf.JPG, id=713, 443.6575pt x 481.8pt>
+<images/filtering_example/asdf.JPG, id=737, 443.6575pt x 481.8pt>
 File: images/filtering_example/asdf.JPG Graphic file (type jpg)
 
 <use images/filtering_example/asdf.JPG>
-<images/filtering_example/100.png, id=714, 443.6575pt x 481.8pt>
+<images/filtering_example/100.png, id=738, 443.6575pt x 481.8pt>
 File: images/filtering_example/100.png Graphic file (type png)
 
 <use images/filtering_example/100.png>
-<images/filtering_example/102.png, id=715, 443.6575pt x 481.8pt>
+<images/filtering_example/102.png, id=739, 443.6575pt x 481.8pt>
 File: images/filtering_example/102.png Graphic file (type png)
 
 <use images/filtering_example/102.png>
-<images/filtering_example/myself2.JPG, id=716, 443.6575pt x 481.8pt>
+<images/filtering_example/myself2.JPG, id=740, 443.6575pt x 481.8pt>
 File: images/filtering_example/myself2.JPG Graphic file (type jpg)
 
 <use images/filtering_example/myself2.JPG>
-<images/filtering_example/101.png, id=717, 443.6575pt x 481.8pt>
+<images/filtering_example/101.png, id=741, 443.6575pt x 481.8pt>
 File: images/filtering_example/101.png Graphic file (type png)
 
 <use images/filtering_example/101.png>
-<images/filtering_example/103.png, id=718, 443.6575pt x 481.8pt>
+<images/filtering_example/103.png, id=742, 443.6575pt x 481.8pt>
 File: images/filtering_example/103.png Graphic file (type png)
 
-<use images/filtering_example/103.png>) [37] [38 </home/switch486/studia/8sem/M
+<use images/filtering_example/103.png>) [39] [40 </home/switch486/studia/8sem/M
 AS_DOC_BEG/images/filtering_example/one.png (PNG copy)> </home/switch486/studia
 /8sem/MAS_DOC_BEG/images/filtering_example/000.png> </home/switch486/studia/8se
 m/MAS_DOC_BEG/images/filtering_example/001.png> </home/switch486/studia/8sem/MA
@@ -1297,27 +1384,27 @@ ages/filtering_example/005.png> </home/switch486/studia/8sem/MAS_DOC_BEG/images
 /filtering_example/006.png> </home/switch486/studia/8sem/MAS_DOC_BEG/images/fil
 tering_example/007.png> </home/switch486/studia/8sem/MAS_DOC_BEG/images/filteri
 ng_example/008.png> </home/switch486/studia/8sem/MAS_DOC_BEG/images/filtering_e
-xample/009.png>] [39 </home/switch486/studia/8sem/MAS_DOC_BEG/images/filtering_
+xample/009.png>] [41 </home/switch486/studia/8sem/MAS_DOC_BEG/images/filtering_
 example/join.png> </home/switch486/studia/8sem/MAS_DOC_BEG/images/filtering_exa
 mple/asdf.JPG> </home/switch486/studia/8sem/MAS_DOC_BEG/images/filtering_exampl
 e/100.png> </home/switch486/studia/8sem/MAS_DOC_BEG/images/filtering_example/10
 2.png> </home/switch486/studia/8sem/MAS_DOC_BEG/images/filtering_example/myself
 2.JPG> </home/switch486/studia/8sem/MAS_DOC_BEG/images/filtering_example/101.pn
 g> </home/switch486/studia/8sem/MAS_DOC_BEG/images/filtering_example/103.png>]
-[40
+[42
 
-] (/home/switch486/studia/8sem/MAS_DOC_BEG/DOC.lof [41])
+] (/home/switch486/studia/8sem/MAS_DOC_BEG/DOC.lof [43])
 \tf@lof=\write6
 \openout6 = `DOC.lof'.
 
- [42]
+ [44]
 (/home/switch486/studia/8sem/MAS_DOC_BEG/DOC.lot)
 \tf@lot=\write7
 \openout7 = `DOC.lot'.
 
- [43
+ [45
 
-] [44
+] [46
 
 ]
 (/home/switch486/studia/8sem/MAS_DOC_BEG/DOC.loa)
@@ -1325,19 +1412,19 @@ g> </home/switch486/studia/8sem/MAS_DOC_BEG/images/filtering_example/103.png>]
 \openout8 = `DOC.loa'.
 
 
-(/home/switch486/studia/8sem/MAS_DOC_BEG/DOC.bbl [45] [46
+(/home/switch486/studia/8sem/MAS_DOC_BEG/DOC.bbl [47] [48
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [47])
-[48] (/home/switch486/studia/8sem/MAS_DOC_BEG/DOC.aux) ) 
+ [49])
+[50] (/home/switch486/studia/8sem/MAS_DOC_BEG/DOC.aux) ) 
 Here is how much of TeX's memory you used:
- 10382 strings out of 493848
- 151508 string characters out of 1152824
- 246266 words of memory out of 3000000
- 13120 multiletter control sequences out of 15000+50000
- 23734 words of font info for 63 fonts, out of 3000000 for 9000
+ 11057 strings out of 493848
+ 164740 string characters out of 1152824
+ 283627 words of memory out of 3000000
+ 13739 multiletter control sequences out of 15000+50000
+ 24476 words of font info for 70 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  46i,19n,45p,2758b,841s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): 
@@ -1370,9 +1457,9 @@ ic/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728
 mf/fonts/type1/public/cm-super/sfti1095.pfb></usr/share/texmf/fonts/type1/publi
 c/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.
 pfb>
-Output written on DOC.pdf (52 pages, 4044180 bytes).
+Output written on DOC.pdf (54 pages, 4244553 bytes).
 PDF statistics:
- 1043 PDF objects out of 1200 (max. 8388607)
- 235 named destinations out of 1000 (max. 500000)
- 471 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1070 PDF objects out of 1200 (max. 8388607)
+ 244 named destinations out of 1000 (max. 500000)
+ 476 words of extra memory for PDF output out of 10000 (max. 10000000)
 

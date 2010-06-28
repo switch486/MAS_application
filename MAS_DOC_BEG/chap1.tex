@@ -34,6 +34,7 @@ W ramach ciekawostki można też wspomnieć o obszarach w mózgu, które są wra
 \section{O wzroku słów kilka}
 \label{oWzrokuSlowKilka}
 Nie sposób opisać biologicznych podstaw rozpoznawania obrazów u człowieka nie zaczynając od oka, a przecież ono jest najbardziej namacalnym i pierwszym za razem elementem toru, którym informacja wizualna jest przekazywana do mózgu.\\
+
 Oko wprawdzie nie spełnia specjalnie skomplikowanego zadania. Twierdzi się nawet, że oko jest elementem czysto mechanicznym, który odpowiednio przygotowuje wiązkę światła do momentu, w którym pada ono na siatkówkę. Na niej wyświetlany jest obraz widziany przez oko, jest on znacznie pomniejszony i obrócony. Siatkówka jest pewnego rodzaju błoną, wyposażoną w fotoreceptory. W nich następuje zmiana sygnału wizualnego na sygnał chemiczny. Informacja wizualna w postaci chemicznej jest przekazywana nerwem wzrokowym do ciała kolankowatego bocznego, a stamtąd przenoszona do pierwotnej kory wzrokowej.
 
 \section{Struktura kory wzrokowej}
@@ -79,8 +80,6 @@ Mimo, że w związanych z dziedziną artykułach nie jest to powiedziane w prost
 Opis pozostałych -- wszystkich z wyłączeniem pierwotnej -- warstw kory wzrokowej można właściwie w tym momencie przerwać. Co było bowiem sygnalizowane wcześniej, naukowcy mają problem z określeniem struktury, pełnionych funkcji, umiejscowienia jak i połączeń ze sobą kolejnych -- wyższych warstw kory wzrokowej.\\
 
 Przedstawione poniżej architektury czerpią w mniejszym, bądź większym stopniu z przedstawianych w literaturze modeli funkcjonowania mózgu. Wspólną ich cechą jest jednak bezsprzecznie pierwotna kora wzrokowa. 
-
-%TODO - invariant!!!!1 - 21
 
 
 \chapter{Modele kory wzrokowej z zastosowaniem praktycznym}
@@ -134,13 +133,35 @@ Wprawdzie ,,kompletne'' modele wykorzystujące elementy kory wzrokowej w rozpozn
 %TO DO @UP modif - 41
 \input{POGGIO}
 
-%TODO - posprawdzać ToDosy, 
-%TODO - opisać przyszłość, 
+%TO DO - posprawdzać ToDosy, 
+%TO DO - opisać przyszłość, 
 %TODO - trudności (invariant), 
-%TODO - może ontologia?
+%TO DO - może ontologia?
 
 \section{Podsumowanie}
 \label{Chapter1_sumUp}
+
+W dalszej części tej pracy przedstawiony będzie szczegółowy opis proponowanego przez autora podejścia, które w dużej mierze czerpać będzie z przedstawionych w literaturze modeli mory wzrokowej człowieka. Wstępnie można by nakreślić kroki, jakimi warto by było zrealizować cel postawiony w temacie tej pracy. 
+
+\newcounter{Lcount}
+\begin{list}{\textbf{\Roman{Lcount}}}
+    {\usecounter{Lcount}
+    \setlength{\rightmargin}{\leftmargin}}\label{proponowane_etapy_realizacji_pracy}
+\item \textbf{Odzyskiwanie krawędzi z obrazów} -- czyli zastosowanie filtrów Gabora do wyszczególnienia krawędzi w zadanych obrazach. \\
+Zawartość załącznika \ref{aGabor} świadczy o realizacji tego etapu.
+\item \textbf{Ekstrakcja krawędzi z przefiltrowanych obrazów} -- wydobycie krawędzi czyli pewnych kresek -- mających reprezentować krawędzie obiektów występujących w niewielkich fragmentach obrazu. \\
+Nawiązując do wcześniejszych części tej pracy -- jest to etap trudny i przy realizacji pod uwagę będzie branych wiele różnych algorytmów, wstępnie jednak nieokreślonych.
+\item \textbf{Integracja konturów} -- pozostawienie w obrazie przedstawionym za pomocą krawędzi jedynie tych, które są istotne ze względu na to, że są częścią złożonej krawędzi, a nie zakłóceniem.\\
+Wstępnie można by założyć wykorzystanie jednego z opisanych wcześniej podejść \ref{integracjaLi}, \ref{integracjaSPIKE} lub \ref{integracjaGPC}, ale autor wstępnie nie chce się przywiązywać specjalnie do konkretnego rozwiązania.
+\item \textbf{Budowanie cech złożonych} -- składanie krawędzi z poprzedniego etapu w większe struktury.\\
+Podobnie jak to jest zaproponowane w części \ref{integracjaPOGGIO}, liczba -- wprawdzie nie cytowanych, ale istniejących -- prac wskazuje na to, że hierarchiczne podejście jest dobrym rozwiązaniem.
+\item \textbf{Podział na obiekty występujące w obrazie} -- podział stworzonych w poprzednim etapie szkieletów -- reprezentujących odnalezione w obrazie krawędzie -- na obiekty ze względu na różnicę w kolorach.\\
+Coś, co wydaje się być oczywiste. Przegląd literatury jednak nie wskazuje, żeby było to popularne rozwiązanie.
+\item \textbf{Klasyfikacja wydzielonych obiektów} -- przypisanie odnalezionemu obiektowi jego klasy -- nazwanie obiektu z obrazu.\\
+W niektórych pracach jest ten etap rozwiązywany jako sieć neuronowa -- która z definicji jest klasyfikatorem. Autor rozważa zastosowanie w tym etapie sieci neuronowej, natomiast planuje również zbudowanie ontologii z klas, do których będą należeć obrazy dla stworzonego modelu. Konieczne jest również zebranie odpowiedniej liczby samych obrazów, na których model będzie pracował, ucząc się i szukając podobnych -- czyli -- realizując temat. Konieczna jest dodatkowo różnorodność obrazów, aby ontologia mogła prezentować pewną hierarchię.
+\end{list}
+
+Autor planuje realizację tych etapów we właśnie takiej kolejności jak na liście powyżej, z zastrzeżeniem jednak, że zbieranie obrazów oraz budowanie ontologii z ostatniego etapu, ponieważ nie zależy od żadnego z nich, może być przeprowadzone równolegle z dowolnym.
 
 
 %%
